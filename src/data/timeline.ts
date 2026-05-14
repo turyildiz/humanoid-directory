@@ -192,6 +192,25 @@ export const timelineEvents: TimelineEvent[] = [
   },
 
   {
+    id: 'fourier-gr1-rolled-out',
+    date: '2023',
+    title: 'Fourier rolls out GR-1 in the GRx humanoid line',
+    summary: 'Fourier Lab materials say GR-1 was officially rolled out in 2023 and describe it as the first mass-produced humanoid robot; the directory treats that production-scale claim as company-reported.',
+    robotSlugs: ['gr-1'],
+    companySlugs: ['fourier-intelligence'],
+    sourceIds: ['fourier-lab', 'fourier-gr1'],
+  },
+  {
+    id: 'fourier-grx-series-expands',
+    date: '2024',
+    title: 'Fourier expands GRx beyond GR-1',
+    summary: 'Fourier’s public GRx pages now present GR-1 alongside later GR-2 and GR-3 platforms, making GR-1 the first-generation baseline for the company’s humanoid series.',
+    robotSlugs: ['gr-1'],
+    companySlugs: ['fourier-intelligence'],
+    sourceIds: ['fourier-grx', 'fourier-gr1'],
+  },
+
+  {
     id: 'agility-digit-solutions-positioning',
     date: '2026',
     title: 'Agility positions Digit as a humanoid automation platform',

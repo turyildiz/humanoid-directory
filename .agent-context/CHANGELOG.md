@@ -1,5 +1,14 @@
 # Changelog — Humanoid Directory
 
+## 2026-05-14 — Fourier GR-1 and Fourier Intelligence profiles enriched
+
+- Enriched the Fourier GR-1 robot profile with official Fourier source evidence, GRx product-series context, 2023 rollout language, public 165 cm / 55 kg / 44 joints / 5 km/h specs, Fourier Smart Actuator and sensor details, SEO metadata, cautious commercial/platform-listed wording, and verification notes.
+- Added primary Fourier source records for the homepage, GRx series page, GR-1 product page, Fourier Lab, About Fourier, and resources/documentation page.
+- Expanded Fourier Intelligence company profile with Shanghai/founding context, rehabilitation robotics roots, GRx series positioning, company-reported institution/country footprint, and cautious treatment of mass-production claims.
+- Added Fourier/GR-1 timeline milestones and refreshed methodology/status/market-map article references.
+- Updated tests to verify Fourier GR-1 and Fourier Intelligence enrichment appears in typed data and static export.
+- Verified `npm run build && npm test` and local routes for `/robots/gr-1/` and `/companies/fourier-intelligence/`.
+
 ## 2026-05-14 — Boston Dynamics Electric Atlas and Boston Dynamics profiles enriched
 
 - Enriched the Electric Atlas robot profile with official Boston Dynamics source evidence, all-electric Atlas launch context, hydraulic Atlas retirement, Hyundai field-testing language, autonomous part-sequencing demo evidence, 2026 product-version claims, public 56 DOF / 50 kg lift / 2.3 m reach details, SEO metadata, cautious pilot/productization wording, and verification notes.

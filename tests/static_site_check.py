@@ -24,6 +24,7 @@ EXPECTED_PAGES = {
     "robots/neo/index.html": "1X NEO humanoid robot profile — Humanoid Directory",
     "robots/phoenix/index.html": "Sanctuary AI Phoenix humanoid robot profile — Humanoid Directory",
     "robots/electric-atlas/index.html": "Boston Dynamics Electric Atlas humanoid robot profile — Humanoid Directory",
+    "robots/gr-1/index.html": "Fourier GR-1 humanoid robot profile — Humanoid Directory",
     "companies/tesla/index.html": "Tesla humanoid robotics profile — Humanoid Directory",
     "companies/unitree-robotics/index.html": "Unitree Robotics humanoid company profile — Humanoid Directory",
     "companies/agility-robotics/index.html": "Agility Robotics humanoid company profile — Humanoid Directory",
@@ -31,6 +32,7 @@ EXPECTED_PAGES = {
     "companies/1x-technologies/index.html": "1X Technologies humanoid robotics company profile — Humanoid Directory",
     "companies/sanctuary-ai/index.html": "Sanctuary AI humanoid robotics company profile — Humanoid Directory",
     "companies/boston-dynamics/index.html": "Boston Dynamics humanoid robotics company profile — Humanoid Directory",
+    "companies/fourier-intelligence/index.html": "Fourier Intelligence humanoid robotics company profile — Humanoid Directory",
 }
 LEGACY_FILENAMES = [
     "Humanoid Directory - Homepage.html",
@@ -147,6 +149,16 @@ def main() -> None:
             fail("Boston Dynamics company profile missing stage enrichment")
         if rel == "companies/boston-dynamics/index.html" and "Orbit" not in text:
             fail("Boston Dynamics company profile missing Orbit/productization context")
+        if rel == "robots/gr-1/index.html" and "165 cm" not in text:
+            fail("Fourier GR-1 profile missing official height spec")
+        if rel == "robots/gr-1/index.html" and "first mass-produced humanoid robot" not in text:
+            fail("Fourier GR-1 profile missing cautious company-reported rollout claim")
+        if rel == "robots/gr-1/index.html" and "44" not in text:
+            fail("Fourier GR-1 profile missing public joint/spec evidence")
+        if rel == "companies/fourier-intelligence/index.html" and "Commercial/platform-listed humanoid robotics company" not in text:
+            fail("Fourier company profile missing stage enrichment")
+        if rel == "companies/fourier-intelligence/index.html" and "more than 2,000 institutions across 40 countries" not in text:
+            fail("Fourier company profile missing company footprint context")
     for rel in REQUIRED_ASSETS:
         if not (OUT / rel).exists():
             fail(f"missing exported asset out/{rel}")

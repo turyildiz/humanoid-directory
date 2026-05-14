@@ -81,6 +81,8 @@ def main() -> None:
         fail("Phoenix profile must include Sanctuary Gen 8 and dexterous-hand evidence")
     if "boston-atlas-product-version" not in robots_data or "Hyundai" not in robots_data or "degreesOfFreedom: 56" not in robots_data:
         fail("Electric Atlas profile must include Boston Dynamics product-version, Hyundai pilot, and public spec evidence")
+    if "fourier-lab" not in robots_data or "heightCm: 165" not in robots_data or "degreesOfFreedom: 44" not in robots_data:
+        fail("Fourier GR-1 profile must include Fourier official rollout/source evidence and public specs")
     if re.search(r"Not publicly disclosed|Unknown|null", robots_data) is None:
         fail("robots data should preserve unknown values instead of inventing facts")
     articles_data = (ROOT / "src/data/articles.ts").read_text()

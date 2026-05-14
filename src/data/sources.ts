@@ -49,7 +49,12 @@ export const sources: Source[] = [
   { id: 'boston-atlas-product-version', title: 'Boston Dynamics unveils new Atlas robot to revolutionize industry', url: 'https://bostondynamics.com/blog/boston-dynamics-unveils-new-atlas-robot-to-revolutionize-industry/', publisher: 'Boston Dynamics', sourceType: 'press', publishedAt: '2026-01-05', accessedAt: '2026-05-14', reliability: 'primary' },
   { id: 'boston-atlas-evolution', title: 'Atlas’ evolution from research robot to industrial humanoid', url: 'https://bostondynamics.com/blog/atlas-evolution-from-research-robot-to-industrial-humanoid/', publisher: 'Boston Dynamics', sourceType: 'company', accessedAt: '2026-05-14', reliability: 'primary' },
   { id: 'boston-atlas-webinar', title: 'Form & Function of Enterprise Humanoid Design', url: 'https://bostondynamics.com/webinars/form-function-enterprise-humanoid-design/', publisher: 'Boston Dynamics', sourceType: 'company', publishedAt: '2026-02-09', accessedAt: '2026-05-14', reliability: 'primary' },
-  { id: 'fourier-gr1', title: 'GR-1 humanoid robot', url: 'https://www.fftai.com/products-gr1', publisher: 'Fourier Intelligence', sourceType: 'company' },
+  { id: 'fourier-home', title: 'Fourier Robotics homepage', url: 'https://www.fftai.com/', publisher: 'Fourier Intelligence', sourceType: 'company', accessedAt: '2026-05-14', reliability: 'primary' },
+  { id: 'fourier-grx', title: 'GRx Humanoid Robot Series', url: 'https://www.fftai.com/grx', publisher: 'Fourier Intelligence', sourceType: 'company', accessedAt: '2026-05-14', reliability: 'primary' },
+  { id: 'fourier-gr1', title: 'GR-1 humanoid robot', url: 'https://www.fftai.com/products-gr1', publisher: 'Fourier Intelligence', sourceType: 'company', accessedAt: '2026-05-14', reliability: 'primary' },
+  { id: 'fourier-lab', title: 'Fourier Lab', url: 'https://www.fftai.com/about-fourierlab', publisher: 'Fourier Intelligence', sourceType: 'company', accessedAt: '2026-05-14', reliability: 'primary' },
+  { id: 'fourier-about', title: 'About Fourier', url: 'https://www.fftai.com/about-us', publisher: 'Fourier Intelligence', sourceType: 'company', accessedAt: '2026-05-14', reliability: 'primary' },
+  { id: 'fourier-resources', title: 'Fourier Resources and documents', url: 'https://www.fftai.com/resources', publisher: 'Fourier Intelligence', sourceType: 'company', accessedAt: '2026-05-14', reliability: 'primary' },
   { id: 'ubtech-walker', title: 'Walker S humanoid robot', url: 'https://www.ubtrobot.com/', publisher: 'UBTECH Robotics', sourceType: 'company' },
   { id: 'engineai-pm01', title: 'EngineAI humanoid robots', url: 'https://www.engineai.com.cn/', publisher: 'EngineAI', sourceType: 'company' },
 ];
