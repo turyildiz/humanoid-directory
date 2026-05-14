@@ -1,5 +1,32 @@
 # Decisions — Humanoid Directory
 
+## 2026-05-14 — Cloudflare-first architecture
+
+Decision: Build Humanoid Directory as a Cloudflare-first project.
+
+Chosen stack:
+- Next.js App Router
+- TypeScript
+- Tailwind CSS
+- Static export for the first MVP
+- Local typed TS data first
+- Cloudflare Pages for deployment
+
+Rationale:
+- Cloudflare has a strong free plan and excellent global performance.
+- The PRD needs indexable, SEO-friendly pages; static Next.js output fits this well.
+- The MVP is primarily public directory/content pages, so backend complexity should wait.
+- Local typed data keeps source-backed facts reviewable in Git.
+- Cloudflare has a natural upgrade path: Pages → Functions/Workers → D1/R2/Turnstile.
+
+Implementation implication:
+- Convert the imported HTML design into a real Next.js App Router app.
+- Deploy the public MVP on Cloudflare Pages with output directory `out`.
+- Add Cloudflare D1/R2/Workers later only when submissions/admin/media workflows require it.
+- Keep Supabase/Postgres as a fallback only if Cloudflare D1/admin ergonomics become limiting.
+
+See: `docs-cloudflare-first-architecture.md`.
+
 ## 2026-05-12 — Website first
 
 Decision: Build the Humanoid Directory website before expanding social account operations.

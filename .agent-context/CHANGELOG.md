@@ -1,5 +1,12 @@
 # Changelog — Humanoid Directory
 
+## 2026-05-14 — Cloudflare-first stack decision recorded
+
+- Decided Humanoid Directory should be a Cloudflare-first project.
+- Recorded the chosen production direction: Next.js App Router + TypeScript + Tailwind + static export + Cloudflare Pages.
+- Added `docs-cloudflare-first-architecture.md` with deployment and Cloudflare roadmap.
+- Updated `.agent-context/DECISIONS.md` with the architecture decision.
+
 ## 2026-05-14 — Static frontend implemented with production routes
 
 - Converted imported static HTML files into clean production routes:
