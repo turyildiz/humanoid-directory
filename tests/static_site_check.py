@@ -19,6 +19,7 @@ EXPECTED_PAGES = {
     "articles/current-status-of-figure-02/index.html": "The current status of Figure 02 — Humanoid Directory",
     "robots/optimus/index.html": "Tesla Optimus humanoid robot profile — Humanoid Directory",
     "robots/unitree-g1/index.html": "Unitree G1 humanoid robot profile — Humanoid Directory",
+    "robots/unitree-h1/index.html": "Unitree H1 humanoid robot profile — Humanoid Directory",
     "robots/digit/index.html": "Agility Robotics Digit humanoid robot profile — Humanoid Directory",
     "robots/apollo/index.html": "Apptronik Apollo humanoid robot profile — Humanoid Directory",
     "robots/neo/index.html": "1X NEO humanoid robot profile — Humanoid Directory",
@@ -115,8 +116,18 @@ def main() -> None:
             fail("Tesla company profile missing program-stage enrichment")
         if rel == "robots/unitree-g1/index.html" and "Price from $13.5K" not in text:
             fail("Unitree G1 profile missing official commercial-listing evidence")
+        if rel == "robots/unitree-h1/index.html" and "180 cm" not in text:
+            fail("Unitree H1 profile missing official height spec")
+        if rel == "robots/unitree-h1/index.html" and "3.3 m/s" not in text:
+            fail("Unitree H1 profile missing official mobility spec")
+        if rel == "robots/unitree-h1/index.html" and "864 Wh" not in text:
+            fail("Unitree H1 profile missing official battery/perception evidence")
+        if rel == "robots/unitree-h1/index.html" and "Contact us for the real price" not in text:
+            fail("Unitree H1 profile missing cautious shop-listing evidence")
         if rel == "companies/unitree-robotics/index.html" and "Commercially listed humanoid platforms" not in text:
             fail("Unitree company profile missing stage enrichment")
+        if rel == "companies/unitree-robotics/index.html" and "H1/H1-2" not in text:
+            fail("Unitree company profile missing H1/H1-2 enrichment")
         if rel == "robots/digit/index.html" and "Arc workflow software" not in text:
             fail("Digit profile missing logistics/workflow enrichment")
         if rel == "companies/agility-robotics/index.html" and "RoboFab" not in text:

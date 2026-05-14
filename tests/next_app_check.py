@@ -69,6 +69,8 @@ def main() -> None:
         fail("Tesla Optimus profile must include primary-source enrichment and cautious availability wording")
     if "unitree-g1-shop" not in robots_data or "Price from $13.5K" not in robots_data:
         fail("Unitree G1 profile must include official commercial-listing and shop evidence")
+    if "unitree-h1-shop" not in robots_data or "heightCm: 180" not in robots_data or "3.3 m/s moving speed" not in robots_data:
+        fail("Unitree H1 profile must include official H1/H1-2 product specs and shop visibility evidence")
     if "agility-solutions" not in robots_data or "Arc workflow software" not in robots_data:
         fail("Digit profile must include Agility solutions/workflow evidence")
     if "apptronik-mercedes" not in robots_data or "55 Lbs payload" not in robots_data:

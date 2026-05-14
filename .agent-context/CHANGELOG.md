@@ -1,5 +1,15 @@
 # Changelog — Humanoid Directory
 
+## 2026-05-14 — Unitree H1 and Unitree Robotics profiles deepened
+
+- Deepened the Unitree H1 robot profile with official Unitree H1/H1-2 product-page evidence, shop-listing evidence, public H1 specs, H1-2 variant context, SEO metadata, and verification notes.
+- Added H1 public details including about 180 cm height, about 47 kg weight, 3.3 m/s moving speed, potential mobility above 5 m/s, 864 Wh quick-replace battery, 360 N·m maximum joint torque, 3D LiDAR + depth-camera perception, Intel i5/i7 and optional NVIDIA Jetson Orin NX compute context, and H1-2 optional dexterous-hand context.
+- Added primary Unitree source records for the H1 shop listing and Unitree News Center, and updated the H1 product source title to H1/H1-2.
+- Expanded the Unitree Robotics company profile with H1/H1-2, H2/R1 product-family context, full-size bipedal-mobility focus, and cautious treatment of exact purchase terms, delivered configurations, customer usage, and deployment-scale unknowns.
+- Added Unitree H1/H1-2 timeline milestones and refreshed methodology/status/market-map article references.
+- Updated tests to verify H1 enrichment appears in typed data and static export.
+- Verified `npm run build && npm test` and local routes for `/robots/unitree-h1/` and `/companies/unitree-robotics/`.
+
 ## 2026-05-14 — EngineAI PM01 and EngineAI profiles enriched
 
 - Enriched the EngineAI PM01 robot profile with official EngineAI source evidence, public ¥188,000 purchase-page pricing, product-page specs, 140 cm / 43 kg / 24 DOF / >2 m/s / ~2 hour battery details, NVIDIA Jetson Orin NX education-edition compute context, openness/secondary-development positioning, SEO metadata, and verification notes.

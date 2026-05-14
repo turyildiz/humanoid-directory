@@ -43,8 +43,8 @@ Stack:
 ## Immediate priorities
 
 1. Verify and enrich Tier 1 profile content.
-   - Tesla Optimus / Tesla, Figure 02 / Figure AI, Unitree G1 / Unitree Robotics, Digit / Agility Robotics, Apollo / Apptronik, 1X NEO / 1X Technologies, Sanctuary AI Phoenix / Sanctuary AI, Boston Dynamics Electric Atlas / Boston Dynamics, Fourier GR-1 / Fourier Intelligence, UBTECH Walker S / UBTECH Robotics, and EngineAI PM01 / EngineAI have received enriched passes.
-   - Next best target: deepen Unitree H1 / Unitree Robotics or add the next seed profile from the backlog.
+   - Tesla Optimus / Tesla, Figure 02 / Figure AI, Unitree G1 / Unitree Robotics, Unitree H1 / Unitree Robotics, Digit / Agility Robotics, Apollo / Apptronik, 1X NEO / 1X Technologies, Sanctuary AI Phoenix / Sanctuary AI, Boston Dynamics Electric Atlas / Boston Dynamics, Fourier GR-1 / Fourier Intelligence, UBTECH Walker S / UBTECH Robotics, and EngineAI PM01 / EngineAI have received enriched passes.
+   - Next best target: add the next seed/backlog profile such as Figure 01 / Figure AI, EVE / 1X Technologies, or TALOS / PAL Robotics.
    - Keep unknown values unknown; do not invent specs.
 
 2. Improve article/content experience.
