@@ -1,5 +1,14 @@
 # Changelog — Humanoid Directory
 
+## 2026-05-14 — Apptronik Apollo and Apptronik profiles enriched
+
+- Enriched the Apollo robot profile with official Apptronik source evidence, public specs, industrial/logistics use-case positioning, partner pilot/commercialization wording, cautious pilot-stage notes, SEO metadata, and related robots.
+- Added primary Apptronik source records for the homepage, Apollo product page, Apollo unveiling release, Mercedes-Benz commercial agreement, GXO proof-of-concept, Jabil production collaboration, and Series A financing release.
+- Expanded Apptronik company profile with Austin/UT Austin origin context, NASA Valkyrie-related background, Apollo production scaling focus, commercialization-stage label, and funding/program notes.
+- Added Apollo/Apptronik timeline milestones and updated methodology/status/market-map article source references.
+- Updated tests to verify Apollo and Apptronik enrichment appears in static export.
+- Verified `npm run build && npm test` and local staging routes for `/robots/apollo/` and `/companies/apptronik/`.
+
 ## 2026-05-14 — Agility Digit and Agility Robotics profiles enriched
 
 - Enriched the Digit robot profile with official Agility source evidence, logistics/manufacturing positioning, Arc workflow software context, customer-activity wording, cautious pilot-stage notes, SEO metadata, and related robots.

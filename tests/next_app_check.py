@@ -71,6 +71,8 @@ def main() -> None:
         fail("Unitree G1 profile must include official commercial-listing and shop evidence")
     if "agility-solutions" not in robots_data or "Arc workflow software" not in robots_data:
         fail("Digit profile must include Agility solutions/workflow evidence")
+    if "apptronik-mercedes" not in robots_data or "55 Lbs payload" not in robots_data:
+        fail("Apollo profile must include Apptronik partner evidence and official public specs")
     if re.search(r"Not publicly disclosed|Unknown|null", robots_data) is None:
         fail("robots data should preserve unknown values instead of inventing facts")
     articles_data = (ROOT / "src/data/articles.ts").read_text()
