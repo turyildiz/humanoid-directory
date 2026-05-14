@@ -211,6 +211,25 @@ export const timelineEvents: TimelineEvent[] = [
   },
 
   {
+    id: 'ubtech-walker-s-hkex',
+    date: '2023-12',
+    title: 'Walker S appears in UBTECH HKEX listing ceremony context',
+    summary: 'UBTECH published a listing update titled around Walker S striking the gong as the company became the first humanoid robot company listed on the HKEX main board.',
+    robotSlugs: ['walker-s'],
+    companySlugs: ['ubtech-robotics'],
+    sourceIds: ['ubtech-hkex-walker-s', 'ubtech-company-profile'],
+  },
+  {
+    id: 'ubtech-walker-s-industrial-cases',
+    date: '2025',
+    title: 'UBTECH presents Walker S series industrial application cases',
+    summary: 'UBTECH’s industrial solution page describes Walker S series scenarios including parcel handling, SPS sorting, quality inspection, screw-bolt tightening, part assembly, and factory cases involving automakers and industrial partners.',
+    robotSlugs: ['walker-s'],
+    companySlugs: ['ubtech-robotics'],
+    sourceIds: ['ubtech-humanoid-solutions', 'ubtech-walker-s1', 'ubtech-walker-s2'],
+  },
+
+  {
     id: 'agility-digit-solutions-positioning',
     date: '2026',
     title: 'Agility positions Digit as a humanoid automation platform',

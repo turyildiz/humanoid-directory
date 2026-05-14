@@ -25,6 +25,7 @@ EXPECTED_PAGES = {
     "robots/phoenix/index.html": "Sanctuary AI Phoenix humanoid robot profile — Humanoid Directory",
     "robots/electric-atlas/index.html": "Boston Dynamics Electric Atlas humanoid robot profile — Humanoid Directory",
     "robots/gr-1/index.html": "Fourier GR-1 humanoid robot profile — Humanoid Directory",
+    "robots/walker-s/index.html": "UBTECH Walker S humanoid robot profile — Humanoid Directory",
     "companies/tesla/index.html": "Tesla humanoid robotics profile — Humanoid Directory",
     "companies/unitree-robotics/index.html": "Unitree Robotics humanoid company profile — Humanoid Directory",
     "companies/agility-robotics/index.html": "Agility Robotics humanoid company profile — Humanoid Directory",
@@ -33,6 +34,7 @@ EXPECTED_PAGES = {
     "companies/sanctuary-ai/index.html": "Sanctuary AI humanoid robotics company profile — Humanoid Directory",
     "companies/boston-dynamics/index.html": "Boston Dynamics humanoid robotics company profile — Humanoid Directory",
     "companies/fourier-intelligence/index.html": "Fourier Intelligence humanoid robotics company profile — Humanoid Directory",
+    "companies/ubtech-robotics/index.html": "UBTECH Robotics humanoid robotics company profile — Humanoid Directory",
 }
 LEGACY_FILENAMES = [
     "Humanoid Directory - Homepage.html",
@@ -159,6 +161,16 @@ def main() -> None:
             fail("Fourier company profile missing stage enrichment")
         if rel == "companies/fourier-intelligence/index.html" and "more than 2,000 institutions across 40 countries" not in text:
             fail("Fourier company profile missing company footprint context")
+        if rel == "robots/walker-s/index.html" and "170 cm" not in text:
+            fail("Walker S profile missing official height spec")
+        if rel == "robots/walker-s/index.html" and "41" not in text:
+            fail("Walker S profile missing servo-joint evidence")
+        if rel == "robots/walker-s/index.html" and "SANY RE, BYD, NIO" not in text:
+            fail("Walker S profile missing industrial/factory case evidence")
+        if rel == "companies/ubtech-robotics/index.html" and "Industrial pilot/deployment-stage Walker humanoid program" not in text:
+            fail("UBTECH company profile missing stage enrichment")
+        if rel == "companies/ubtech-robotics/index.html" and "Hong Kong Stock Exchange" not in text:
+            fail("UBTECH company profile missing HKEX/company context")
     for rel in REQUIRED_ASSETS:
         if not (OUT / rel).exists():
             fail(f"missing exported asset out/{rel}")

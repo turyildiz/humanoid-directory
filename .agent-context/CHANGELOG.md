@@ -1,5 +1,14 @@
 # Changelog — Humanoid Directory
 
+## 2026-05-14 — UBTECH Walker S and UBTECH Robotics profiles enriched
+
+- Enriched the UBTECH Walker S robot profile with official UBTECH source evidence, Walker S/S1/S2 product-line context, industrial-solution cases, public 170 cm / 41 servo-joint details, ROSA 2.0 and perception/navigation capabilities, SEO metadata, cautious pilot/deployment-stage wording, and verification notes.
+- Added primary UBTECH source records for the homepage, Walker S, Walker S1, Walker S2, humanoid industrial solutions, company profile, and HKEX listing/news context.
+- Expanded UBTECH Robotics company profile with Shenzhen/founding context, HKEX listing context, Walker-series industrial positioning, robotics/software capability notes, and cautious treatment of customer/fleet-scale unknowns.
+- Added UBTECH/Walker S timeline milestones and refreshed methodology/status/market-map article references.
+- Updated tests to verify Walker S and UBTECH Robotics enrichment appears in typed data and static export.
+- Verified `npm run build && npm test` and local routes for `/robots/walker-s/` and `/companies/ubtech-robotics/`.
+
 ## 2026-05-14 — Fourier GR-1 and Fourier Intelligence profiles enriched
 
 - Enriched the Fourier GR-1 robot profile with official Fourier source evidence, GRx product-series context, 2023 rollout language, public 165 cm / 55 kg / 44 joints / 5 km/h specs, Fourier Smart Actuator and sensor details, SEO metadata, cautious commercial/platform-listed wording, and verification notes.

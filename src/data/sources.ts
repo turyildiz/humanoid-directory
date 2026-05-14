@@ -55,7 +55,13 @@ export const sources: Source[] = [
   { id: 'fourier-lab', title: 'Fourier Lab', url: 'https://www.fftai.com/about-fourierlab', publisher: 'Fourier Intelligence', sourceType: 'company', accessedAt: '2026-05-14', reliability: 'primary' },
   { id: 'fourier-about', title: 'About Fourier', url: 'https://www.fftai.com/about-us', publisher: 'Fourier Intelligence', sourceType: 'company', accessedAt: '2026-05-14', reliability: 'primary' },
   { id: 'fourier-resources', title: 'Fourier Resources and documents', url: 'https://www.fftai.com/resources', publisher: 'Fourier Intelligence', sourceType: 'company', accessedAt: '2026-05-14', reliability: 'primary' },
-  { id: 'ubtech-walker', title: 'Walker S humanoid robot', url: 'https://www.ubtrobot.com/', publisher: 'UBTECH Robotics', sourceType: 'company' },
+  { id: 'ubtech-home', title: 'UBTECH Robotics homepage', url: 'https://www.ubtrobot.com/en/', publisher: 'UBTECH Robotics', sourceType: 'company', accessedAt: '2026-05-14', reliability: 'primary' },
+  { id: 'ubtech-walker-s', title: 'Walker S industrial humanoid robot', url: 'https://www.ubtrobot.com/en/humanoid/products/walker-s', publisher: 'UBTECH Robotics', sourceType: 'company', accessedAt: '2026-05-14', reliability: 'primary' },
+  { id: 'ubtech-walker-s1', title: 'Walker S1 humanoid robot', url: 'https://www.ubtrobot.com/en/humanoid/products/walker-s1', publisher: 'UBTECH Robotics', sourceType: 'company', accessedAt: '2026-05-14', reliability: 'primary' },
+  { id: 'ubtech-walker-s2', title: 'Walker S2 humanoid robot', url: 'https://www.ubtrobot.com/en/humanoid/products/walker-s2', publisher: 'UBTECH Robotics', sourceType: 'company', accessedAt: '2026-05-14', reliability: 'primary' },
+  { id: 'ubtech-humanoid-solutions', title: 'UBTECH humanoid robot industrial application solution', url: 'https://www.ubtrobot.com/en/humanoid/solutions', publisher: 'UBTECH Robotics', sourceType: 'company', accessedAt: '2026-05-14', reliability: 'primary' },
+  { id: 'ubtech-company-profile', title: 'About UBTECH', url: 'https://www.ubtrobot.com/en/about/company-profile', publisher: 'UBTECH Robotics', sourceType: 'company', accessedAt: '2026-05-14', reliability: 'primary' },
+  { id: 'ubtech-hkex-walker-s', title: 'As Walker S Strikes the Gong, UBTECH Robotics becomes the first humanoid robot company listed on the main board of the HKEX', url: 'https://www.ubtrobot.com/en/about/news/498762019606597', publisher: 'UBTECH Robotics', sourceType: 'press', publishedAt: '2023-12-30', accessedAt: '2026-05-14', reliability: 'primary' },
   { id: 'engineai-pm01', title: 'EngineAI humanoid robots', url: 'https://www.engineai.com.cn/', publisher: 'EngineAI', sourceType: 'company' },
 ];
 
