@@ -3,10 +3,18 @@ import type { Robot } from '@/lib/types';
 export const robots: Robot[] = [
   {
     slug: 'optimus', name: 'Tesla Optimus', companySlug: 'tesla', generation: 'Gen 2', status: 'prototype', country: 'United States', announcedYear: 2021,
-    availability: 'Prototype / company demonstrations', summary: 'Tesla Optimus is a general-purpose humanoid robot program connected to Tesla AI, autonomy, and manufacturing work.',
-    useCases: ['manufacturing', 'general purpose', 'logistics'], capabilities: ['bipedal locomotion', 'object handling', 'AI-driven autonomy'],
-    specs: { heightCm: null, weightKg: null, payloadKg: null, batteryLifeHours: null, maxSpeedMps: null, degreesOfFreedom: null, locomotion: 'Bipedal', hands: 'Dexterous hands shown in demos' },
-    sources: ['tesla-optimus'], lastVerifiedAt: '2026-05-14', featured: true,
+    availability: 'Prototype / company demonstrations; no public commercial availability confirmed by Tesla',
+    summary: 'Tesla Optimus is Tesla’s in-house general-purpose humanoid robot program, tied to the company’s AI, controls, actuation, and manufacturing ambitions.',
+    overview: 'Optimus is Tesla’s humanoid robot program for general-purpose work in human environments. Public evidence currently consists of Tesla’s AI/robotics page and official demonstration videos, including AI Day 2022, Tesla Bot updates, and the Optimus Gen 2 video. Tesla has shown bipedal walking, balance, object handling, and dexterous hand demonstrations, but has not published a complete public spec sheet or confirmed commercial availability.',
+    useCases: ['manufacturing assistance', 'general-purpose labor', 'logistics and material movement', 'robotics autonomy research'],
+    capabilities: ['bipedal locomotion', 'object handling', 'dexterous hand demonstrations', 'vision and autonomy stack connected to Tesla AI work'],
+    specs: { heightCm: null, weightKg: null, payloadKg: null, batteryLifeHours: null, maxSpeedMps: null, degreesOfFreedom: null, locomotion: 'Bipedal', hands: 'Dexterous hands shown in official Tesla demos' },
+    sources: ['tesla-optimus', 'tesla-ai-day-2022', 'tesla-bot-update-2023', 'tesla-optimus-gen-2', 'tesla-bot-sort-stretch'], lastVerifiedAt: '2026-05-14', featured: true,
+    seoTitle: 'Tesla Optimus humanoid robot profile',
+    seoDescription: 'Source-backed profile of Tesla Optimus: status, public demos, known unknowns, timeline, and sources.',
+    statusConfidence: 'official',
+    verificationNotes: 'Tesla has officially shown Optimus through its AI/robotics page and demonstration videos. The profile treats the robot as a prototype because Tesla has not published a complete public spec sheet or confirmed general commercial availability.',
+    similarRobots: ['figure-02', 'apollo', 'digit'],
   },
   {
     slug: 'figure-02', name: 'Figure 02', companySlug: 'figure-ai', generation: '02', status: 'pilot', country: 'United States', announcedYear: 2024,

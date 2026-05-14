@@ -65,6 +65,8 @@ def main() -> None:
         fail(f"expected at least 12 seed robots, found {robot_count}")
     if "sources:" not in robots_data:
         fail("robots data must include sources references")
+    if "tesla-optimus-gen-2" not in robots_data or "no public commercial availability confirmed by Tesla" not in robots_data:
+        fail("Tesla Optimus profile must include primary-source enrichment and cautious availability wording")
     if re.search(r"Not publicly disclosed|Unknown|null", robots_data) is None:
         fail("robots data should preserve unknown values instead of inventing facts")
     articles_data = (ROOT / "src/data/articles.ts").read_text()

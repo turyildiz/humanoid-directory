@@ -17,8 +17,8 @@ EXPECTED_PAGES = {
     "articles/index.html": "Articles — Humanoid Directory",
     "articles/what-counts-as-a-humanoid-robot/index.html": "What counts as a humanoid robot? — Humanoid Directory",
     "articles/current-status-of-figure-02/index.html": "The current status of Figure 02 — Humanoid Directory",
-    "robots/optimus/index.html": "Tesla Optimus — Humanoid Robot Profile — Humanoid Directory",
-    "companies/tesla/index.html": "Tesla — Humanoid Robotics Company — Humanoid Directory",
+    "robots/optimus/index.html": "Tesla Optimus humanoid robot profile — Humanoid Directory",
+    "companies/tesla/index.html": "Tesla humanoid robotics profile — Humanoid Directory",
 }
 LEGACY_FILENAMES = [
     "Humanoid Directory - Homepage.html",
@@ -87,6 +87,10 @@ def main() -> None:
             fail("out/articles/index.html missing article detail links")
         if rel == "articles/what-counts-as-a-humanoid-robot/index.html" and "/robots/figure-02/" not in parser.hrefs:
             fail("article page missing related robot links")
+        if rel == "robots/optimus/index.html" and "no public commercial availability confirmed by Tesla" not in text:
+            fail("Optimus profile missing cautious availability wording")
+        if rel == "companies/tesla/index.html" and "Prototype program" not in text:
+            fail("Tesla company profile missing program-stage enrichment")
     for rel in REQUIRED_ASSETS:
         if not (OUT / rel).exists():
             fail(f"missing exported asset out/{rel}")

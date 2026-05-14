@@ -150,6 +150,12 @@ export function CompanyProfile({ company }: { company: Company }) {
             <p>{company.overview ?? company.summary}</p>
             <h2>Focus areas</h2>
             <div className="chips">{company.focus.map((item) => <span key={item}>{item}</span>)}</div>
+            {company.fundingSummary ? (
+              <>
+                <h2>Funding / program note</h2>
+                <p>{company.fundingSummary}</p>
+              </>
+            ) : null}
             <h2>Content note</h2>
             <p>Company profiles track humanoid-related activity only. Broader corporate history is included only when it helps explain the humanoid robotics program.</p>
           </article>

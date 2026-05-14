@@ -43,8 +43,9 @@ Stack:
 ## Immediate priorities
 
 1. Verify and enrich Tier 1 profile content.
-   - Add stronger source notes for the 12 seed robot profiles.
-   - Add richer overview/timeline/verification fields for the 11 seed company profiles.
+   - Tesla Optimus / Tesla has received the first enriched pass.
+   - Next best target: Unitree G1 and Unitree Robotics, because G1 is commercially listed and useful as a contrast to prototype/pilot programs.
+   - Then continue with Figure 02/Figure AI visual-detail page content, Agility Digit, Apptronik Apollo, 1X NEO, and the remaining seed profiles.
    - Keep unknown values unknown; do not invent specs.
 
 2. Improve article/content experience.

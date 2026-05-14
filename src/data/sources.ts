@@ -1,7 +1,11 @@
 import type { Source } from '@/lib/types';
 
 export const sources: Source[] = [
-  { id: 'tesla-optimus', title: 'Tesla AI & Robotics', url: 'https://www.tesla.com/AI', publisher: 'Tesla', sourceType: 'company' },
+  { id: 'tesla-optimus', title: 'Tesla AI & Robotics', url: 'https://www.tesla.com/AI', publisher: 'Tesla', sourceType: 'company', accessedAt: '2026-05-14', reliability: 'primary' },
+  { id: 'tesla-ai-day-2022', title: 'Tesla AI Day 2022', url: 'https://www.youtube.com/watch?v=ODSJsviD_SU', publisher: 'Tesla', sourceType: 'video', publishedAt: '2022-09-30', accessedAt: '2026-05-14', reliability: 'primary' },
+  { id: 'tesla-bot-update-2023', title: 'Tesla Bot Update', url: 'https://www.youtube.com/watch?v=XiQkeWOFwmk', publisher: 'Tesla', sourceType: 'video', accessedAt: '2026-05-14', reliability: 'primary' },
+  { id: 'tesla-optimus-gen-2', title: 'Optimus - Gen 2 | Tesla', url: 'https://www.youtube.com/watch?v=cpraXaw7dyc', publisher: 'Tesla', sourceType: 'video', publishedAt: '2023-12-12', accessedAt: '2026-05-14', reliability: 'primary' },
+  { id: 'tesla-bot-sort-stretch', title: 'Tesla Bot Update | Sort & Stretch', url: 'https://www.youtube.com/watch?v=D2vj0WcvH5c', publisher: 'Tesla', sourceType: 'video', accessedAt: '2026-05-14', reliability: 'primary' },
   { id: 'figure-02', title: 'Figure 02 humanoid robot', url: 'https://www.figure.ai/', publisher: 'Figure AI', sourceType: 'company' },
   { id: 'unitree-g1', title: 'Unitree G1 product page', url: 'https://www.unitree.com/g1', publisher: 'Unitree Robotics', sourceType: 'company' },
   { id: 'unitree-h1', title: 'Unitree H1 product page', url: 'https://www.unitree.com/h1', publisher: 'Unitree Robotics', sourceType: 'company' },

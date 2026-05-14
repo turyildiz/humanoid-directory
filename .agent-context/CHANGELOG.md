@@ -1,5 +1,15 @@
 # Changelog — Humanoid Directory
 
+## 2026-05-14 — Tesla Optimus and Tesla profiles enriched
+
+- Enriched the Tesla Optimus robot profile with a fuller source-backed overview, cautious availability wording, verification notes, SEO metadata, and related robots.
+- Added primary Tesla source records for AI Day 2022, Tesla Bot Update, Optimus Gen 2, and Sort & Stretch official videos.
+- Expanded Tesla company profile with program overview, stage, focus areas, and humanoid-specific funding/program note.
+- Added Tesla/Optimus timeline milestones and updated comparison article source references.
+- Updated profile rendering so company program/funding notes are visible on generated company pages.
+- Updated tests to verify the Tesla enrichment appears in static export.
+- Verified `npm run build && npm test` and local staging routes for `/robots/optimus/` and `/companies/tesla/`.
+
 ## 2026-05-14 — Agent workflow updated
 
 - Added an explicit agent workflow to `AGENTS.md` covering context loading, git checks, skill usage, visual parity preservation, source-backed content production, implementation/testing, docs updates, commit/push, and concise handoff expectations.

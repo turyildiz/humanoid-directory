@@ -105,7 +105,7 @@ The first content system is now implemented:
 - Generic data-driven robot/company profile renderers exist for non-imported profiles while Figure 02 and Figure AI remain imported HTML visual gold standards.
 - Imported HTML placeholder links now route Compare to the comparison article and Use cases/Newsletter-style placeholders to `/articles/`.
 
-The seed robot/company data still needs deeper source verification and richer per-entity fields before full launch.
+The seed robot/company data still needs deeper source verification and richer per-entity fields before full launch. Tesla Optimus and the Tesla company profile now have the first enriched Tier 1 pass with primary Tesla sources, timeline entries, cautious availability wording, and visible program notes.
 
 ## Shared knowledge base
 

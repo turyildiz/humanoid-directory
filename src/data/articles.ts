@@ -11,7 +11,7 @@ export const articles: Article[] = [
     readingMinutes: 4,
     relatedRobots: ['figure-02', 'optimus', 'unitree-g1'],
     relatedCompanies: ['figure-ai', 'tesla', 'unitree-robotics'],
-    sourceIds: ['figure-02', 'tesla-optimus', 'unitree-g1'],
+    sourceIds: ['figure-02', 'tesla-optimus', 'tesla-optimus-gen-2', 'unitree-g1'],
     sections: [
       { heading: 'The short definition', body: 'For this directory, a humanoid robot is a physical robot with a broadly human-like body plan: usually a torso, two arms, and two legs or a clearly humanoid mobile form. The robot should be intended to operate in human-designed environments, not only inside a lab fixture or single-purpose machine cell.' },
       { heading: 'What is included', body: 'We include commercial humanoids, pilot-stage systems, prototypes, research platforms, and historically important discontinued systems when public sources support the entry. Robots can be included even when many specs are undisclosed, but those unknowns must remain visible instead of being filled with guesses.' },
@@ -47,10 +47,10 @@ export const articles: Article[] = [
     readingMinutes: 6,
     relatedRobots: ['optimus', 'figure-02'],
     relatedCompanies: ['tesla', 'figure-ai'],
-    sourceIds: ['tesla-optimus', 'figure-02'],
+    sourceIds: ['tesla-optimus', 'tesla-ai-day-2022', 'tesla-optimus-gen-2', 'tesla-bot-sort-stretch', 'figure-02'],
     sections: [
       { heading: 'The useful comparison', body: 'Optimus and Figure 02 are both presented as general-purpose humanoid robots aimed at work in human environments. The most useful comparison is not hype versus hype; it is status, public evidence, use-case focus, and what each company has actually disclosed.' },
-      { heading: 'Tesla Optimus', body: 'Tesla positions Optimus as part of its broader AI, manufacturing, and autonomy effort. Public evidence is centered on company demonstrations and Tesla communication. Humanoid Directory currently treats Optimus as prototype-stage until there is stronger evidence of external customer pilots or broad commercial availability.' },
+      { heading: 'Tesla Optimus', body: 'Tesla positions Optimus as part of its broader AI, manufacturing, and autonomy effort. Public evidence is strongest in Tesla primary material: the AI/robotics page, AI Day 2022, the Optimus Gen 2 video, and later Bot Update demos. Humanoid Directory currently treats Optimus as prototype-stage until Tesla publishes stronger evidence of external customer pilots, routine work deployment, or broad commercial availability.' },
       { heading: 'Figure 02', body: 'Figure AI positions Figure 02 around labor automation and real-world industrial use. Humanoid Directory treats Figure 02 as pilot-stage because the company has presented the robot in a more deployment-oriented context, while still leaving many commercial details undisclosed.' },
       { heading: 'Unknowns matter', body: 'Important comparison fields remain difficult to verify across both programs: production cost, fleet size, autonomy level, battery runtime under real work, reliability, safety certification, and customer rollout timing. The comparison should highlight those gaps instead of hiding them.' },
     ],
@@ -84,7 +84,7 @@ export const articles: Article[] = [
     readingMinutes: 7,
     relatedRobots: ['figure-02', 'optimus', 'digit', 'apollo', 'unitree-g1'],
     relatedCompanies: ['figure-ai', 'tesla', 'unitree-robotics', 'agility-robotics', 'apptronik', '1x-technologies'],
-    sourceIds: ['figure-02', 'tesla-optimus', 'unitree-g1', 'agility-digit', 'apptronik-apollo', '1x-neo'],
+    sourceIds: ['figure-02', 'tesla-optimus', 'tesla-optimus-gen-2', 'unitree-g1', 'agility-digit', 'apptronik-apollo', '1x-neo'],
     sections: [
       { heading: 'How to read the landscape', body: 'The humanoid market includes automotive-scale companies, robotics specialists, research-heavy labs, and newer startups. The right question is not only who has the best demo; it is who has credible hardware, use-case focus, sources, and signs of deployment maturity.' },
       { heading: 'High-attention general-purpose programs', body: 'Figure AI and Tesla are two of the most visible general-purpose humanoid programs. They attract attention because they connect humanoid hardware with broader AI, manufacturing, and labor automation narratives.' },
