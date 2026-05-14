@@ -70,6 +70,10 @@ def main() -> None:
                 continue
             if " " in href:
                 fail(f"out/{rel} has non-production href with spaces: {href!r}")
+        if rel in {"index.html", "robots/index.html", "companies/index.html"}:
+            for required_href in ("/", "/robots/", "/companies/", "/submit/"):
+                if required_href not in parser.hrefs:
+                    fail(f"out/{rel} missing routed navigation link {required_href!r}")
     for rel in REQUIRED_ASSETS:
         if not (OUT / rel).exists():
             fail(f"missing exported asset out/{rel}")

@@ -1,5 +1,11 @@
 # Changelog — Humanoid Directory
 
+## 2026-05-14 — Placeholder nav links routed
+
+- Rewrote key imported `href="#"` placeholders at render time so main navigation and core CTAs route to clean Next pages (`/`, `/robots/`, `/companies/`, `/submit/`, `/about/`, profiles, design-system/component demos).
+- Added static export checks that exported homepage/robots/companies pages include routed navigation links.
+- Verified `npm run build && npm test` passes and confirmed both local port `3040` and `https://humanoid.heyturgay.com/` include routed nav hrefs.
+
 ## 2026-05-14 — Staging visual layer realigned to imported HTML
 
 - Replaced the live Next.js route rendering for `/`, `/robots/`, `/companies/`, `/robots/figure-02/`, `/companies/figure-ai/`, `/design-system/`, and `/components/robot-card/` with wrappers around the imported static HTML files.

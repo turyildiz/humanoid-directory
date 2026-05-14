@@ -22,6 +22,36 @@ function extractTitle(html: string) {
   return html.match(/<title>([\s\S]*?)<\/title>/i)?.[1]?.trim() ?? 'Humanoid Directory';
 }
 
+function textContent(fragment: string) {
+  return fragment
+    .replace(/<[^>]+>/g, ' ')
+    .replace(/\s+/g, ' ')
+    .trim();
+}
+
+function routeForPlaceholderLink(innerHtml: string) {
+  const text = textContent(innerHtml);
+
+  if (text.includes('Humanoid Directory')) return '/';
+  if (/^Robots$/.test(text) || text.startsWith('Browse robots') || text.startsWith('View all robots')) return '/robots/';
+  if (/^Companies$/.test(text) || text.startsWith('Explore companies')) return '/companies/';
+  if (text.startsWith('Submit')) return '/submit/';
+  if (text === 'About') return '/about/';
+  if (text.startsWith('View full company profile')) return '/companies/figure-ai/';
+  if (text.startsWith('View profile')) return '/robots/figure-02/';
+  if (text === 'Design system') return '/design-system/';
+  if (text === 'Components') return '/components/robot-card/';
+
+  return '#';
+}
+
+function rewritePlaceholderLinks(html: string) {
+  return html.replace(/<a([^>]*)href="#"([^>]*)>([\s\S]*?)<\/a>/gi, (match, before, after, innerHtml) => {
+    const route = routeForPlaceholderLink(innerHtml);
+    return route === '#' ? match : `<a${before}href="${route}"${after}>${innerHtml}</a>`;
+  });
+}
+
 function renderDocumentFragment(html: string) {
   const head = extractTag(html, 'head');
   const body = extractTag(html, 'body');
@@ -31,7 +61,7 @@ function renderDocumentFragment(html: string) {
   // Inline scripts inserted through dangerouslySetInnerHTML do not execute in React,
   // so strip them for deterministic static rendering. The imported HTML is currently
   // used as the visual/design source of truth; interactive filters can be rebuilt in React later.
-  const safeBody = body
+  const safeBody = rewritePlaceholderLinks(body)
     .replace(/<script[\s\S]*?<\/script>/gi, '')
     .replaceAll('Humanoid Directory - Homepage.html', '/')
     .replaceAll('Humanoid Directory - Robots.html', '/robots/')
