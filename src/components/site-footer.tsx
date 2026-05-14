@@ -10,6 +10,7 @@ export function SiteFooter() {
       <nav>
         <Link href="/robots/">Robots</Link>
         <Link href="/companies/">Companies</Link>
+        <Link href="/articles/">Articles</Link>
         <Link href="/about/">Methodology</Link>
         <Link href="/submit/">Submit update</Link>
       </nav>

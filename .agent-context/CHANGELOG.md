@@ -1,5 +1,15 @@
 # Changelog — Humanoid Directory
 
+## 2026-05-14 — Articles and data-driven content profiles added
+
+- Added `src/data/articles.ts` with five initial source-backed editorial pieces.
+- Added `src/data/timeline.ts` for source-linked robot/company timeline events.
+- Added `/articles/` and `/articles/[slug]/` static routes.
+- Added generic data-driven robot/company profile renderers for non-imported profile pages.
+- Updated sitemap and tests to cover article routes and generated profiles.
+- Wired imported placeholder links so Compare routes to the Optimus/Figure article and Use cases/Newsletter-style placeholders route to `/articles/`.
+- Verified `npm run build && npm test` and live staging content routes.
+
 ## 2026-05-14 — Content production plan started
 
 - Added `docs-content-production-plan.md` with editorial standards, first sprint priorities, profile/article targets, data model improvements, and launch content quality bar.

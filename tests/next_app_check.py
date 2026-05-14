@@ -16,6 +16,8 @@ REQUIRED_FILES = [
     "src/app/robots/[slug]/page.tsx",
     "src/app/companies/page.tsx",
     "src/app/companies/[slug]/page.tsx",
+    "src/app/articles/page.tsx",
+    "src/app/articles/[slug]/page.tsx",
     "src/app/about/page.tsx",
     "src/app/submit/page.tsx",
     "src/app/sitemap.ts",
@@ -28,6 +30,8 @@ REQUIRED_FILES = [
     "src/data/robots.ts",
     "src/data/companies.ts",
     "src/data/sources.ts",
+    "src/data/articles.ts",
+    "src/data/timeline.ts",
     "src/lib/types.ts",
 ]
 
@@ -63,6 +67,15 @@ def main() -> None:
         fail("robots data must include sources references")
     if re.search(r"Not publicly disclosed|Unknown|null", robots_data) is None:
         fail("robots data should preserve unknown values instead of inventing facts")
+    articles_data = (ROOT / "src/data/articles.ts").read_text()
+    article_count = len(re.findall(r"slug:\s*['\"]", articles_data))
+    if article_count < 5:
+        fail(f"expected at least 5 launch articles, found {article_count}")
+    if "sourceIds:" not in articles_data:
+        fail("articles must include sourceIds references")
+    timeline_data = (ROOT / "src/data/timeline.ts").read_text()
+    if "sourceIds:" not in timeline_data:
+        fail("timeline events must include sourceIds references")
     print("OK: Next.js Cloudflare app checks passed")
 
 

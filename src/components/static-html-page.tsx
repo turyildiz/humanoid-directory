@@ -35,6 +35,9 @@ function routeForPlaceholderLink(innerHtml: string) {
   if (text.includes('Humanoid Directory')) return '/';
   if (/^Robots$/.test(text) || text.startsWith('Browse robots') || text.startsWith('View all robots')) return '/robots/';
   if (/^Companies$/.test(text) || text.startsWith('Explore companies')) return '/companies/';
+  if (text === 'Compare') return '/articles/tesla-optimus-vs-figure-02/';
+  if (text === 'Use cases' || text === 'Newsletter') return '/articles/';
+  if (text.startsWith('View methodology') || text === 'Methodology' || text === 'Editorial guidelines' || text === 'Sources & citations') return '/about/';
   if (text.startsWith('Submit')) return '/submit/';
   if (text === 'About') return '/about/';
   if (text.startsWith('View full company profile')) return '/companies/figure-ai/';

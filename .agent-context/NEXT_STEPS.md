@@ -4,7 +4,7 @@ Last updated: 2026-05-14 by Hermes/Gonzo.
 
 ## Current priority
 
-Deploy the Cloudflare-first Next.js MVP, then improve verified source-backed data.
+Deepen the source-backed content layer: verify Tier 1 robots/companies, enrich profile fields, and migrate more visible pages from static placeholders into data-driven content while preserving visual parity.
 
 The operating sequence remains:
 
@@ -25,10 +25,12 @@ Production routes:
 3. `/robots/[slug]/`
 4. `/companies/`
 5. `/companies/[slug]/`
-6. `/about/`
-7. `/submit/`
-8. `/sitemap.xml`
-9. `/robots.txt`
+6. `/articles/`
+7. `/articles/[slug]/`
+8. `/about/`
+9. `/submit/`
+10. `/sitemap.xml`
+11. `/robots.txt`
 
 Stack:
 
@@ -40,25 +42,26 @@ Stack:
 
 ## Immediate priorities
 
-1. Deploy to Cloudflare Pages.
+1. Verify and enrich Tier 1 profile content.
+   - Add stronger source notes for the 12 seed robot profiles.
+   - Add richer overview/timeline/verification fields for the 11 seed company profiles.
+   - Keep unknown values unknown; do not invent specs.
+
+2. Improve article/content experience.
+   - Add more internal links from imported homepage/robot/company pages into `/articles/`.
+   - Add article cards to homepage once visual parity can be preserved.
+   - Add structured data JSON-LD for articles and entity profiles.
+
+3. Expand toward launch content bar.
+   - 20 robots listed.
+   - 15 companies listed.
+   - 8–10 detailed profiles.
+   - At least 3 polished articles live.
+
+4. Deploy to Cloudflare Pages when content/design pass is ready.
    - Build command: `npm run build`
    - Output directory: `out`
    - Production branch: `main`
-
-2. Connect `humanoid.directory` DNS in Cloudflare.
-   - Point the domain to the Cloudflare Pages project.
-   - Enable SSL and Cloudflare Web Analytics.
-
-3. Improve the first data/content layer.
-   - Verify and refine the 12 seed robot profiles.
-   - Add stronger source notes for every spec/claim.
-   - Expand toward 20 high-quality profiles before broader launch.
-
-4. Add launch-critical polish.
-   - More complete methodology/about page.
-   - Better submit/update flow; later Cloudflare Pages Function + Turnstile.
-   - Open Graph image and richer structured data.
-   - Lighthouse/mobile polish.
 
 5. Later: Cloudflare backend layer.
    - D1 for database/admin if needed.

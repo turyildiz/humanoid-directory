@@ -85,4 +85,19 @@ h2 { font-size: clamp(32px, 4vw, 54px); line-height: 1; letter-spacing: -.05em; 
 .prose-grid { grid-template-columns: repeat(3,1fr); display: grid; gap: 22px; }
 .footer { max-width: 1320px; margin: 0 auto; padding: 48px 40px; border-top: 1px solid var(--line); display: flex; justify-content: space-between; gap: 30px; color: var(--muted); }
 .footer strong { color: var(--text); font-size: 20px; } .footer nav { display: flex; gap: 18px; flex-wrap: wrap; }
-@media (max-width: 900px) { .nav-inner { grid-template-columns: 1fr; } .nav-search { justify-self: start; } .cards-grid,.company-grid,.stats-strip,.split-section,.profile-layout,.prose-grid,.profile-hero { grid-template-columns: 1fr; } .hero,.page-hero,.profile-hero { padding: 78px 22px; min-height: auto; } .section { padding: 64px 22px; } .stats-strip { margin: 0 18px; } .profile-orb { width: 220px; height: 220px; } }
+.article-grid { grid-template-columns: repeat(2, minmax(0,1fr)); }
+.article-card h2 { font-size: clamp(28px, 3vw, 42px); }
+.article-hero .profile-meta { justify-content: center; }
+.article-layout { display: grid; grid-template-columns: minmax(0, 1fr) 360px; gap: 28px; align-items: start; }
+.article-body { padding: 38px; }
+.article-body section + section { margin-top: 34px; padding-top: 28px; border-top: 1px solid var(--line); }
+.article-body h2 { font-size: clamp(26px, 3vw, 38px); }
+.article-body p { font-size: 18px; color: #34404b; }
+.article-aside { position: sticky; top: 92px; }
+.timeline-item { padding: 16px 0; border-bottom: 1px solid var(--line); }
+.timeline-item:last-child { border-bottom: 0; }
+.timeline-item p { margin-bottom: 0; color: var(--muted); }
+.link-stack { display: grid; gap: 12px; }
+.link-stack a { border: 1px solid var(--line); border-radius: 14px; padding: 13px 14px; font-weight: 800; }
+.link-stack a:hover { border-color: var(--accent); color: #027da5; }
+@media (max-width: 900px) { .nav-inner { grid-template-columns: 1fr; } .nav-search { justify-self: start; } .cards-grid,.company-grid,.stats-strip,.split-section,.profile-layout,.prose-grid,.profile-hero,.article-grid,.article-layout { grid-template-columns: 1fr; } .article-aside { position: static; } .hero,.page-hero,.profile-hero { padding: 78px 22px; min-height: auto; } .section { padding: 64px 22px; } .stats-strip { margin: 0 18px; } .profile-orb { width: 220px; height: 220px; } }
