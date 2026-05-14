@@ -1,0 +1,1195 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Humanoid Directory — Robot Card Component Sheet</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --bg-dark: #0A0C10;
+    --bg-dark-2: #11141A;
+    --bg-dark-3: #161A21;
+    --bg-light: #F8F9FA;
+    --surface-light: #FFFFFF;
+    --accent: #00C2FF;
+    --accent-soft: rgba(0, 194, 255, 0.18);
+    --accent-glow: rgba(0, 194, 255, 0.35);
+
+    --text-on-dark: #FFFFFF;
+    --text-on-dark-2: #A0ADB8;
+    --text-on-dark-3: #6A7682;
+    --text-on-light: #0D1117;
+    --text-on-light-2: #6B7280;
+    --text-on-light-3: #9CA3AF;
+
+    --line-dark: rgba(255,255,255,0.08);
+    --line-dark-strong: rgba(255,255,255,0.16);
+    --line-light: #E5E7EB;
+    --line-light-soft: #EEF0F2;
+
+    --st-concept: #6B7280;
+    --st-prototype: #1D6FA4;
+    --st-research: #6D4AC0;
+    --st-pilot: #D97706;
+    --st-commercial: #059669;
+    --st-paused: #9CA3AF;
+    --st-discontinued: #DC2626;
+    --st-unknown-bg: #E5E7EB;
+    --st-unknown-fg: #0D1117;
+
+    --r-sm: 4px; --r-md: 8px; --r-lg: 12px; --r-xl: 16px;
+  }
+
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    font-size: 15px;
+    line-height: 1.6;
+    color: var(--text-on-light);
+    background: var(--bg-light);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  .mono { font-family: 'JetBrains Mono', ui-monospace, monospace; }
+  .num  { font-variant-numeric: tabular-nums; }
+  .sheet { max-width: 1440px; margin: 0 auto; }
+
+  /* ========== Header ========== */
+  .header {
+    background: var(--bg-dark);
+    color: var(--text-on-dark);
+    padding: 48px 56px 56px;
+    border-bottom: 1px solid var(--line-dark);
+  }
+  .crumb {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11.5px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--text-on-dark-3);
+    display: flex; align-items: center; gap: 12px;
+    margin-bottom: 22px;
+  }
+  .crumb a { color: var(--text-on-dark-2); text-decoration: none; }
+  .crumb .dot { width: 4px; height: 4px; border-radius: 50%; background: currentColor; opacity: 0.5; }
+  .crumb .live {
+    color: var(--accent);
+    display: flex; align-items: center; gap: 8px;
+  }
+  .crumb .live::before {
+    content: ""; width: 6px; height: 6px; border-radius: 50%;
+    background: var(--accent); box-shadow: 0 0 0 4px var(--accent-soft);
+  }
+
+  .header h1 {
+    font-size: 48px;
+    line-height: 1.05;
+    letter-spacing: -0.03em;
+    font-weight: 700;
+    margin: 0 0 14px;
+    max-width: 880px;
+  }
+  .header h1 em {
+    font-style: normal;
+    color: var(--text-on-dark-2);
+    font-weight: 500;
+  }
+  .header .lede {
+    font-size: 15.5px;
+    color: var(--text-on-dark-2);
+    max-width: 660px;
+    margin: 0 0 32px;
+    line-height: 1.65;
+  }
+
+  .meta-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+    border-top: 1px solid var(--line-dark);
+    padding-top: 24px;
+  }
+  .meta-grid .cell .k {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--text-on-dark-3);
+    margin-bottom: 8px;
+  }
+  .meta-grid .cell .v {
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--text-on-dark);
+  }
+  .meta-grid .cell .v .accent { color: var(--accent); }
+
+  /* ========== Section ========== */
+  .section {
+    padding: 64px 56px;
+    border-bottom: 1px solid var(--line-light);
+  }
+  .section.dark {
+    background: var(--bg-dark);
+    color: var(--text-on-dark);
+    border-bottom: 1px solid var(--line-dark);
+  }
+  .section:last-child { border-bottom: 0; }
+
+  .sec-head {
+    display: grid;
+    grid-template-columns: 80px 1fr 280px;
+    gap: 28px;
+    align-items: baseline;
+    margin-bottom: 36px;
+    padding-bottom: 18px;
+    border-bottom: 1px solid var(--line-light);
+  }
+  .section.dark .sec-head { border-bottom: 1px solid var(--line-dark); }
+  .sec-head .ix {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 0.1em;
+    color: var(--text-on-light-3);
+  }
+  .section.dark .sec-head .ix { color: var(--text-on-dark-3); }
+  .sec-head h2 {
+    margin: 0;
+    font-size: 22px;
+    font-weight: 700;
+    letter-spacing: -0.015em;
+  }
+  .sec-head h2 .sub {
+    color: var(--text-on-light-2);
+    font-weight: 500;
+    margin-left: 12px;
+    font-size: 16px;
+  }
+  .section.dark .sec-head h2 .sub { color: var(--text-on-dark-2); }
+  .sec-head .lede {
+    font-size: 13.5px;
+    color: var(--text-on-light-2);
+    text-align: right;
+    line-height: 1.5;
+  }
+  .section.dark .sec-head .lede { color: var(--text-on-dark-2); }
+
+  .legend {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--text-on-light-3);
+    margin-bottom: 14px;
+    display: flex; align-items: center; gap: 10px;
+  }
+  .section.dark .legend { color: var(--text-on-dark-3); }
+  .legend .line { flex: 1; height: 1px; background: var(--line-light-soft); }
+  .section.dark .legend .line { background: var(--line-dark); }
+
+  /* ========== Badge ========== */
+  .badge {
+    display: inline-flex; align-items: center; gap: 6px;
+    height: 22px; padding: 0 9px;
+    border-radius: 999px;
+    font-size: 11.5px; font-weight: 600; line-height: 1;
+    letter-spacing: 0.02em; white-space: nowrap;
+    color: #fff;
+  }
+  .badge .dot { width: 5px; height: 5px; border-radius: 50%; background: rgba(255,255,255,0.85); }
+  .b-concept       { background: var(--st-concept); }
+  .b-prototype     { background: var(--st-prototype); }
+  .b-research      { background: var(--st-research); }
+  .b-pilot         { background: var(--st-pilot); }
+  .b-commercial    { background: var(--st-commercial); }
+  .b-paused        { background: var(--st-paused); }
+  .b-discontinued  { background: var(--st-discontinued); }
+  .b-unknown       { background: var(--st-unknown-bg); color: var(--st-unknown-fg); }
+
+  /* ========== Robot Card ========== */
+  .robot-card {
+    background: var(--surface-light);
+    border: 1px solid var(--line-light);
+    border-radius: var(--r-lg);
+    overflow: hidden;
+    display: flex; flex-direction: column;
+    width: 100%;
+    transition: border-color .2s, box-shadow .2s, transform .2s;
+  }
+  .robot-card.dark {
+    background: var(--bg-dark-2);
+    border: 1px solid var(--line-dark);
+  }
+
+  .frame {
+    position: relative;
+    aspect-ratio: 4 / 3;
+    background:
+      repeating-linear-gradient(135deg, rgba(13,17,23,0.04) 0 1px, transparent 1px 12px),
+      linear-gradient(180deg, #FAFBFC 0%, #EEF0F2 100%);
+    border-bottom: 1px solid var(--line-light);
+    color: var(--text-on-light-3);
+    display: grid; place-items: center;
+    overflow: hidden;
+  }
+  .robot-card.dark .frame {
+    background:
+      repeating-linear-gradient(135deg, rgba(255,255,255,0.025) 0 1px, transparent 1px 12px),
+      linear-gradient(180deg, #161A21 0%, #0D1117 100%);
+    border-bottom: 1px solid var(--line-dark);
+    color: var(--text-on-dark-3);
+  }
+  .frame .badge-tl { position: absolute; top: 14px; left: 14px; }
+  .frame .id-tr {
+    position: absolute; top: 16px; right: 14px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10.5px;
+    letter-spacing: 0.08em;
+    color: var(--text-on-light-3);
+  }
+  .robot-card.dark .frame .id-tr { color: var(--text-on-dark-3); }
+  .frame .marker-bl {
+    position: absolute; bottom: 14px; left: 14px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.08em;
+    color: var(--text-on-light-3);
+    opacity: 0.8;
+  }
+  .robot-card.dark .frame .marker-bl { color: var(--text-on-dark-3); }
+  .frame .figure { position: absolute; inset: 0; display: grid; place-items: center; pointer-events: none; }
+  .frame .figure svg { opacity: 0.45; }
+  .robot-card.dark .frame .figure svg { opacity: 0.55; }
+
+  .body { padding: 18px 20px 20px; }
+  .name {
+    font-size: 22px;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    margin: 0 0 4px;
+    color: var(--text-on-light);
+    line-height: 1.15;
+  }
+  .robot-card.dark .name { color: var(--text-on-dark); }
+  .company {
+    font-size: 13px;
+    color: var(--text-on-light-2);
+    margin: 0 0 14px;
+    display: flex; align-items: center; gap: 8px;
+    line-height: 1.4;
+  }
+  .robot-card.dark .company { color: var(--text-on-dark-2); }
+  .company .sep { width: 3px; height: 3px; border-radius: 50%; background: currentColor; opacity: 0.55; }
+  .company .flag {
+    display: inline-block;
+    width: 16px; height: 11px;
+    border-radius: 1.5px;
+    background: linear-gradient(to bottom, #B22234 0 36%, #fff 36% 64%, #B22234 64%);
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 0 0 0.5px rgba(0,0,0,0.15) inset;
+  }
+  .company .flag::before {
+    content: ""; position: absolute; left: 0; top: 0;
+    width: 6.5px; height: 5.5px;
+    background: #3C3B6E;
+  }
+
+  .desc {
+    font-size: 13.5px;
+    line-height: 1.55;
+    color: var(--text-on-light-2);
+    margin: 0 0 16px;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  .robot-card.dark .desc { color: var(--text-on-dark-2); }
+
+  .spec-row {
+    display: flex; flex-wrap: wrap; gap: 6px;
+  }
+  .spec-chip {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11.5px;
+    font-weight: 500;
+    padding: 4px 9px;
+    border-radius: 5px;
+    background: transparent;
+    border: 1px solid var(--line-light);
+    color: var(--text-on-light);
+    font-variant-numeric: tabular-nums;
+  }
+  .robot-card.dark .spec-chip {
+    border: 1px solid var(--line-dark-strong);
+    color: var(--text-on-dark);
+    background: rgba(255,255,255,0.02);
+  }
+
+  /* hover */
+  .robot-card.hover {
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px var(--accent-soft), 0 12px 32px -16px var(--accent-glow);
+    transform: translateY(-2px);
+  }
+  .robot-card.dark.hover {
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px var(--accent-soft), 0 16px 40px -16px rgba(0,194,255,0.35);
+  }
+
+  /* ========== Grids ========== */
+  .grid-3 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+  .grid-2 {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+
+  .var-caption {
+    display: flex; justify-content: space-between; align-items: baseline;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10.5px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--text-on-light-2);
+    margin-bottom: 10px;
+  }
+  .var-caption .scope { color: var(--text-on-light-3); }
+  .section.dark .var-caption { color: var(--text-on-dark-2); }
+  .section.dark .var-caption .scope { color: var(--text-on-dark-3); }
+
+  /* ========== Featured (horizontal) card ========== */
+  .featured {
+    border: 1px solid var(--line-light);
+    border-radius: var(--r-lg);
+    background: var(--surface-light);
+    overflow: hidden;
+    display: grid;
+    grid-template-columns: 1.05fr 1fr;
+    min-height: 360px;
+  }
+  .featured .frame {
+    aspect-ratio: auto;
+    height: 100%;
+    border-bottom: 0;
+    border-right: 1px solid var(--line-light);
+  }
+  .featured .body {
+    padding: 32px 36px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .featured .eyebrow {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 14px;
+    display: flex; align-items: center; gap: 10px;
+  }
+  .featured .eyebrow .pulse {
+    width: 6px; height: 6px; border-radius: 50%;
+    background: var(--accent);
+    box-shadow: 0 0 0 4px var(--accent-soft);
+  }
+  .featured .name {
+    font-size: 36px;
+    letter-spacing: -0.025em;
+    margin-bottom: 6px;
+  }
+  .featured .company { font-size: 14px; margin-bottom: 18px; }
+  .featured .desc {
+    font-size: 15px;
+    line-height: 1.65;
+    -webkit-line-clamp: unset;
+    display: block;
+    margin-bottom: 22px;
+    max-width: 44ch;
+  }
+  .featured .specs-block {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+    border-top: 1px solid var(--line-light-soft);
+    border-bottom: 1px solid var(--line-light-soft);
+    margin-bottom: 22px;
+  }
+  .featured .spec {
+    padding: 14px 14px 14px 0;
+  }
+  .featured .spec + .spec { padding-left: 16px; border-left: 1px solid var(--line-light-soft); }
+  .featured .spec .k {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10.5px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-on-light-3);
+    margin-bottom: 4px;
+  }
+  .featured .spec .v {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--text-on-light);
+    font-variant-numeric: tabular-nums;
+  }
+  .featured .use-tags {
+    display: flex; gap: 8px; flex-wrap: wrap;
+    margin-bottom: 18px;
+  }
+  .use-tag {
+    display: inline-flex; align-items: center; gap: 6px;
+    height: 28px;
+    padding: 0 12px;
+    border-radius: 999px;
+    background: var(--bg-light);
+    border: 1px solid var(--line-light);
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--text-on-light);
+  }
+  .use-tag .ic { width: 5px; height: 5px; border-radius: 50%; background: var(--text-on-light); opacity: 0.7; }
+  .featured .footer-row {
+    display: flex; justify-content: space-between; align-items: center;
+    border-top: 1px solid var(--line-light-soft);
+    padding-top: 18px;
+  }
+  .featured .row-meta {
+    display: flex; gap: 16px; align-items: center;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--text-on-light-2);
+    letter-spacing: 0.06em;
+  }
+  .featured .row-meta .item { display: flex; align-items: center; gap: 6px; }
+  .featured .row-meta .item .lbl { color: var(--text-on-light-3); text-transform: uppercase; }
+  .view-link {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text-on-light);
+    text-decoration: none;
+    display: inline-flex; align-items: center; gap: 8px;
+    border-bottom: 1px solid var(--text-on-light);
+    padding-bottom: 2px;
+  }
+  .view-link .arrow { font-family: 'JetBrains Mono', monospace; }
+  .view-link:hover { color: var(--accent); border-bottom-color: var(--accent); }
+
+  /* ========== Compact row ========== */
+  .row-list {
+    border: 1px solid var(--line-light);
+    border-radius: var(--r-lg);
+    background: var(--surface-light);
+    overflow: hidden;
+  }
+  .row-item {
+    display: grid;
+    grid-template-columns: 64px 1.6fr 110px 1.4fr 28px;
+    gap: 20px;
+    align-items: center;
+    padding: 14px 20px;
+    border-bottom: 1px solid var(--line-light-soft);
+    transition: background .15s;
+  }
+  .row-item:last-child { border-bottom: 0; }
+  .row-item.hover { background: var(--bg-light); }
+  .row-item.hover .row-arrow { color: var(--accent); transform: translateX(4px); }
+  .row-thumb {
+    width: 64px; height: 48px;
+    border-radius: var(--r-sm);
+    background:
+      repeating-linear-gradient(135deg, rgba(13,17,23,0.05) 0 1px, transparent 1px 8px),
+      linear-gradient(180deg, #FAFBFC 0%, #EEF0F2 100%);
+    border: 1px solid var(--line-light);
+    position: relative;
+    overflow: hidden;
+    display: grid; place-items: center;
+    color: var(--text-on-light-3);
+  }
+  .row-thumb svg { opacity: 0.55; }
+  .row-name {
+    display: flex; flex-direction: column; gap: 2px;
+  }
+  .row-name .n { font-size: 15px; font-weight: 600; letter-spacing: -0.01em; color: var(--text-on-light); }
+  .row-name .c { font-size: 12.5px; color: var(--text-on-light-2); display: flex; align-items: center; gap: 6px; }
+  .row-name .c .sep { width: 3px; height: 3px; border-radius: 50%; background: currentColor; opacity: 0.55; }
+  .row-specs {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    color: var(--text-on-light);
+    font-variant-numeric: tabular-nums;
+    display: flex; gap: 10px; flex-wrap: wrap;
+  }
+  .row-specs .sep { color: var(--text-on-light-3); }
+  .row-arrow {
+    color: var(--text-on-light-3);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 14px;
+    transition: transform .15s, color .15s;
+    justify-self: end;
+  }
+
+  .row-head {
+    display: grid;
+    grid-template-columns: 64px 1.6fr 110px 1.4fr 28px;
+    gap: 20px;
+    padding: 10px 20px;
+    background: var(--bg-light);
+    border-bottom: 1px solid var(--line-light);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10.5px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--text-on-light-3);
+  }
+
+  /* ========== Empty state ========== */
+  .frame.empty {
+    background:
+      radial-gradient(circle at 50% 60%, rgba(13,17,23,0.04), transparent 60%),
+      var(--bg-light);
+  }
+  .empty-stack {
+    text-align: center; display: flex; flex-direction: column; align-items: center; gap: 10px;
+    color: var(--text-on-light-3);
+  }
+  .empty-stack .ic {
+    width: 56px; height: 56px;
+    border-radius: 50%;
+    border: 1.5px dashed var(--line-light);
+    display: grid; place-items: center;
+    color: var(--text-on-light-3);
+  }
+  .empty-stack .l1 {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--text-on-light-2);
+  }
+  .empty-stack .l2 {
+    font-size: 11.5px;
+    color: var(--text-on-light-3);
+    max-width: 220px;
+    line-height: 1.4;
+  }
+
+  /* ========== Anatomy labels ========== */
+  .anatomy-wrap {
+    display: grid;
+    grid-template-columns: minmax(260px, 320px) 1fr;
+    gap: 28px;
+    align-items: start;
+  }
+  .anno-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding-top: 4px;
+  }
+  .anno {
+    display: grid;
+    grid-template-columns: 22px 1fr;
+    align-items: center;
+    gap: 10px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.04em;
+    color: var(--text-on-dark-2);
+    background: rgba(255,255,255,0.02);
+    padding: 8px 12px;
+    border-radius: 6px;
+    border: 1px solid var(--line-dark);
+  }
+  .anno .num {
+    font-size: 10px;
+    color: var(--accent);
+    letter-spacing: 0.08em;
+  }
+  .anno .lbl { color: var(--text-on-dark); }
+
+  /* ========== Specs sidebar (right column of header on big screens) ========== */
+  .header-grid {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr;
+    gap: 56px;
+  }
+  .header-card-wrap {
+    align-self: end;
+  }
+
+  /* tiny global utils */
+  .row-flex { display: flex; gap: 14px; align-items: center; flex-wrap: wrap; }
+
+  @media (max-width: 1100px) {
+    .header { padding: 36px 32px 40px; }
+    .header h1 { font-size: 36px; }
+    .header-grid { grid-template-columns: 1fr; gap: 32px; }
+    .section { padding: 48px 32px; }
+    .sec-head { grid-template-columns: 1fr; }
+    .sec-head .lede { text-align: left; }
+    .grid-3 { grid-template-columns: 1fr 1fr; }
+    .anatomy-wrap { grid-template-columns: 1fr; }
+    .grid-2 { grid-template-columns: 1fr; }
+    .featured { grid-template-columns: 1fr; }
+    .featured .frame { border-right: 0; border-bottom: 1px solid var(--line-light); aspect-ratio: 4 / 3; }
+    .row-item, .row-head { grid-template-columns: 48px 1fr 90px 28px; }
+    .row-item .row-specs, .row-head .col-specs { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ====== reusable shapes ====== -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-arrow-r" viewBox="0 0 16 16">
+    <path d="M3 8h9m0 0L8 4m4 4l-4 4" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  </symbol>
+  <symbol id="i-image" viewBox="0 0 24 24">
+    <rect x="3.5" y="4.5" width="17" height="15" rx="2" fill="none" stroke="currentColor" stroke-width="1.4"/>
+    <circle cx="9" cy="10" r="1.5" fill="currentColor"/>
+    <path d="M4 17l5-5 4 4 3-2 4 4" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/>
+  </symbol>
+  <symbol id="i-bot" viewBox="0 0 120 160">
+    <rect x="40" y="8" width="40" height="34" rx="6" fill="none" stroke="currentColor" stroke-width="1.2"/>
+    <circle cx="52" cy="22" r="2" fill="currentColor"/>
+    <circle cx="68" cy="22" r="2" fill="currentColor"/>
+    <line x1="60" y1="2" x2="60" y2="8" stroke="currentColor" stroke-width="1.2"/>
+    <rect x="32" y="46" width="56" height="56" rx="4" fill="none" stroke="currentColor" stroke-width="1.2"/>
+    <line x1="60" y1="46" x2="60" y2="102" stroke="currentColor" stroke-width="1.2"/>
+    <rect x="18" y="50" width="6" height="44" rx="2" fill="none" stroke="currentColor" stroke-width="1.2"/>
+    <rect x="96" y="50" width="6" height="44" rx="2" fill="none" stroke="currentColor" stroke-width="1.2"/>
+    <rect x="44" y="106" width="14" height="44" rx="3" fill="none" stroke="currentColor" stroke-width="1.2"/>
+    <rect x="62" y="106" width="14" height="44" rx="3" fill="none" stroke="currentColor" stroke-width="1.2"/>
+    <rect x="40" y="150" width="22" height="6" rx="1" fill="none" stroke="currentColor" stroke-width="1.2"/>
+    <rect x="58" y="150" width="22" height="6" rx="1" fill="none" stroke="currentColor" stroke-width="1.2"/>
+  </symbol>
+  <symbol id="i-bot-thumb" viewBox="0 0 32 40">
+    <rect x="11" y="2" width="10" height="9" rx="2" fill="none" stroke="currentColor" stroke-width="1"/>
+    <rect x="8" y="13" width="16" height="14" rx="1.5" fill="none" stroke="currentColor" stroke-width="1"/>
+    <rect x="11" y="28" width="4" height="10" rx="1" fill="none" stroke="currentColor" stroke-width="1"/>
+    <rect x="17" y="28" width="4" height="10" rx="1" fill="none" stroke="currentColor" stroke-width="1"/>
+    <line x1="16" y1="13" x2="16" y2="27" stroke="currentColor" stroke-width="1"/>
+  </symbol>
+  <symbol id="i-no-image" viewBox="0 0 24 24">
+    <rect x="3.5" y="4.5" width="17" height="15" rx="2" fill="none" stroke="currentColor" stroke-width="1.4"/>
+    <path d="M4 19l16-15" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+  </symbol>
+  <symbol id="i-globe" viewBox="0 0 16 16">
+    <circle cx="8" cy="8" r="6.2" fill="none" stroke="currentColor" stroke-width="1.2"/>
+    <path d="M8 1.8c2.5 2 2.5 10.4 0 12.4M8 1.8c-2.5 2-2.5 10.4 0 12.4M1.8 8h12.4" fill="none" stroke="currentColor" stroke-width="1.2"/>
+  </symbol>
+</svg>
+
+<div class="sheet">
+
+  <!-- ============================== HEADER ============================== -->
+  <header class="header">
+    <div class="crumb">
+      <a href="#">Humanoid Directory</a>
+      <span class="dot"></span>
+      <a href="#">Design system</a>
+      <span class="dot"></span>
+      <a href="#">Components</a>
+      <span class="dot"></span>
+      <span class="live">Robot card · live spec</span>
+    </div>
+
+    <div class="header-grid">
+      <div>
+        <h1>Robot card <em>— the atomic unit of the directory.</em></h1>
+        <p class="lede">Every robot in Humanoid Directory is presented through one card system, rendered across six contexts: directory grid, dark hero, featured slot, list row, status variants, and a graceful empty state for entries without imagery.</p>
+
+        <div class="meta-grid">
+          <div class="cell"><div class="k">Component</div><div class="v">RobotCard</div></div>
+          <div class="cell"><div class="k">Variants</div><div class="v num">6 <span style="color:var(--text-on-dark-3)">layouts</span></div></div>
+          <div class="cell"><div class="k">Statuses</div><div class="v num">8 <span style="color:var(--text-on-dark-3)">states</span></div></div>
+          <div class="cell"><div class="k">Status</div><div class="v"><span class="accent">Stable · v1.2</span></div></div>
+        </div>
+      </div>
+
+      <!-- Anatomy diagram with annotations -->
+      <div class="header-card-wrap">
+        <div class="legend" style="color:var(--text-on-dark-3); margin-bottom: 10px;">
+          <span>Anatomy · grid card on dark</span>
+          <span class="line" style="background:var(--line-dark)"></span>
+        </div>
+        <div class="anatomy-wrap">
+          <article class="robot-card dark">
+            <div class="frame">
+              <span class="badge b-pilot badge-tl"><span class="dot"></span>Pilot</span>
+              <span class="id-tr">HD-007</span>
+              <div class="figure"><svg width="110" height="148"><use href="#i-bot"/></svg></div>
+              <span class="marker-bl">[ 1600 × 1200 ]</span>
+            </div>
+            <div class="body">
+              <h3 class="name">Figure 02</h3>
+              <p class="company">Figure AI<span class="sep"></span><span class="flag" aria-hidden="true"></span>United States</p>
+              <p class="desc">General-purpose humanoid for industrial work. Successor to Figure 01, pilot deployments with automotive OEMs.</p>
+              <div class="spec-row">
+                <span class="spec-chip">168 cm</span>
+                <span class="spec-chip">70 kg</span>
+                <span class="spec-chip">~5h</span>
+                <span class="spec-chip">16 DOF</span>
+              </div>
+            </div>
+          </article>
+          <div class="anno-list">
+            <div class="anno"><span class="num">01</span><span class="lbl">Status badge · pill</span></div>
+            <div class="anno"><span class="num">02</span><span class="lbl">Robot ID · mono</span></div>
+            <div class="anno"><span class="num">03</span><span class="lbl">Hero image · 4:3</span></div>
+            <div class="anno"><span class="num">04</span><span class="lbl">Name + company</span></div>
+            <div class="anno"><span class="num">05</span><span class="lbl">Spec chips · mono</span></div>
+            <div class="anno"><span class="num">06</span><span class="lbl">Description · 2 lines</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ============================== 01 GRID — LIGHT ============================== -->
+  <section class="section">
+    <div class="sec-head">
+      <div class="ix">01</div>
+      <h2>Grid card · light <span class="sub">/robots — directory browse</span></h2>
+      <p class="lede">Default browsing card. Three across desktop, 4:3 image, content padding 18/20. Same dimensions as dark and status variants.</p>
+    </div>
+
+    <div class="legend"><span>Default · hover</span><span class="line"></span><span>2 columns shown</span></div>
+    <div class="grid-2" style="max-width: 900px;">
+
+      <div>
+        <div class="var-caption"><span>· Default</span><span class="scope">resting</span></div>
+        <article class="robot-card">
+          <div class="frame">
+            <span class="badge b-pilot badge-tl"><span class="dot"></span>Pilot</span>
+            <span class="id-tr">HD-007</span>
+            <div class="figure"><svg width="110" height="148"><use href="#i-bot"/></svg></div>
+            <span class="marker-bl">[ hero image 1600×1200 ]</span>
+          </div>
+          <div class="body">
+            <h3 class="name">Figure 02</h3>
+            <p class="company">Figure AI<span class="sep"></span><span class="flag" aria-hidden="true"></span>United States</p>
+            <p class="desc">General-purpose humanoid for industrial work. Successor to Figure 01, pilot deployments with automotive OEMs.</p>
+            <div class="spec-row">
+              <span class="spec-chip">168 cm</span>
+              <span class="spec-chip">70 kg</span>
+              <span class="spec-chip">~5h battery</span>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <div>
+        <div class="var-caption"><span>· Hover</span><span class="scope">accent glow, lift −2px</span></div>
+        <article class="robot-card hover">
+          <div class="frame">
+            <span class="badge b-pilot badge-tl"><span class="dot"></span>Pilot</span>
+            <span class="id-tr">HD-007</span>
+            <div class="figure"><svg width="110" height="148"><use href="#i-bot"/></svg></div>
+            <span class="marker-bl">[ hero image 1600×1200 ]</span>
+          </div>
+          <div class="body">
+            <h3 class="name">Figure 02</h3>
+            <p class="company">Figure AI<span class="sep"></span><span class="flag" aria-hidden="true"></span>United States</p>
+            <p class="desc">General-purpose humanoid for industrial work. Successor to Figure 01, pilot deployments with automotive OEMs.</p>
+            <div class="spec-row">
+              <span class="spec-chip">168 cm</span>
+              <span class="spec-chip">70 kg</span>
+              <span class="spec-chip">~5h battery</span>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================== 02 GRID — DARK ============================== -->
+  <section class="section dark">
+    <div class="sec-head">
+      <div class="ix">02</div>
+      <h2>Grid card · dark <span class="sub">/ hero · compare · related</span></h2>
+      <p class="lede">Dark surface variant. Identical layout, swapped tokens. Frame uses #161A21 → #0D1117 gradient.</p>
+    </div>
+
+    <div class="legend"><span>Default · hover</span><span class="line"></span><span>2 columns shown</span></div>
+    <div class="grid-2" style="max-width: 900px;">
+
+      <div>
+        <div class="var-caption"><span>· Default</span><span class="scope">resting</span></div>
+        <article class="robot-card dark">
+          <div class="frame">
+            <span class="badge b-pilot badge-tl"><span class="dot"></span>Pilot</span>
+            <span class="id-tr">HD-007</span>
+            <div class="figure"><svg width="110" height="148"><use href="#i-bot"/></svg></div>
+            <span class="marker-bl">[ hero image 1600×1200 ]</span>
+          </div>
+          <div class="body">
+            <h3 class="name">Figure 02</h3>
+            <p class="company">Figure AI<span class="sep"></span><span class="flag" aria-hidden="true"></span>United States</p>
+            <p class="desc">General-purpose humanoid for industrial work. Successor to Figure 01, pilot deployments with automotive OEMs.</p>
+            <div class="spec-row">
+              <span class="spec-chip">168 cm</span>
+              <span class="spec-chip">70 kg</span>
+              <span class="spec-chip">~5h battery</span>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <div>
+        <div class="var-caption"><span>· Hover</span><span class="scope">accent glow, lift −2px</span></div>
+        <article class="robot-card dark hover">
+          <div class="frame">
+            <span class="badge b-pilot badge-tl"><span class="dot"></span>Pilot</span>
+            <span class="id-tr">HD-007</span>
+            <div class="figure"><svg width="110" height="148"><use href="#i-bot"/></svg></div>
+            <span class="marker-bl">[ hero image 1600×1200 ]</span>
+          </div>
+          <div class="body">
+            <h3 class="name">Figure 02</h3>
+            <p class="company">Figure AI<span class="sep"></span><span class="flag" aria-hidden="true"></span>United States</p>
+            <p class="desc">General-purpose humanoid for industrial work. Successor to Figure 01, pilot deployments with automotive OEMs.</p>
+            <div class="spec-row">
+              <span class="spec-chip">168 cm</span>
+              <span class="spec-chip">70 kg</span>
+              <span class="spec-chip">~5h battery</span>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================== 03 FEATURED ============================== -->
+  <section class="section">
+    <div class="sec-head">
+      <div class="ix">03</div>
+      <h2>Featured card <span class="sub">/ homepage · "Featured robots"</span></h2>
+      <p class="lede">Wide layout. Image left, content right. Adds use-case tags, structured spec block, and "View profile →" link.</p>
+    </div>
+
+    <article class="featured">
+      <div class="frame">
+        <span class="badge b-pilot badge-tl"><span class="dot"></span>Pilot</span>
+        <span class="id-tr">HD-007</span>
+        <div class="figure"><svg width="200" height="260"><use href="#i-bot"/></svg></div>
+        <span class="marker-bl">[ hero image · 2400 × 1800 ]</span>
+      </div>
+      <div class="body">
+        <div>
+          <div class="eyebrow"><span class="pulse"></span>Featured this week · Updated 12 May 2026</div>
+          <h3 class="name">Figure 02</h3>
+          <p class="company">Figure AI<span class="sep"></span><span class="flag" aria-hidden="true"></span>United States<span class="sep"></span>Sunnyvale, CA</p>
+          <p class="desc">General-purpose humanoid for industrial work. Successor to Figure 01, pilot deployments with automotive OEMs across Tennessee and Bavaria.</p>
+
+          <div class="specs-block">
+            <div class="spec"><div class="k">Height</div><div class="v">168 cm</div></div>
+            <div class="spec"><div class="k">Mass</div><div class="v">70 kg</div></div>
+            <div class="spec"><div class="k">Endurance</div><div class="v">~5 h</div></div>
+            <div class="spec"><div class="k">DOF</div><div class="v">16</div></div>
+          </div>
+
+          <div class="use-tags" aria-label="Primary use cases">
+            <span class="use-tag"><span class="ic"></span>Manufacturing</span>
+            <span class="use-tag"><span class="ic"></span>Logistics</span>
+            <span class="use-tag"><span class="ic"></span>Material handling</span>
+          </div>
+        </div>
+
+        <div class="footer-row">
+          <div class="row-meta">
+            <div class="item"><span class="lbl">Unveiled</span><span>Aug 2024</span></div>
+            <div class="item"><span class="lbl">Sources</span><span>14</span></div>
+          </div>
+          <a href="#" class="view-link">View profile <span class="arrow">→</span></a>
+        </div>
+      </div>
+    </article>
+  </section>
+
+  <!-- ============================== 04 COMPACT ROW ============================== -->
+  <section class="section" style="background:#fff;">
+    <div class="sec-head">
+      <div class="ix">04</div>
+      <h2>Compact row <span class="sub">/ list view toggle</span></h2>
+      <p class="lede">Dense, scannable list. Thumbnail, name+company, status, key specs, jump arrow. 76px tall, hover-highlight on the whole row.</p>
+    </div>
+
+    <div class="row-list">
+      <div class="row-head">
+        <div>Image</div>
+        <div>Robot · Company</div>
+        <div>Status</div>
+        <div class="col-specs">Specs</div>
+        <div></div>
+      </div>
+
+      <div class="row-item hover">
+        <div class="row-thumb"><svg width="22" height="28"><use href="#i-bot-thumb"/></svg></div>
+        <div class="row-name">
+          <span class="n">Figure 02</span>
+          <span class="c">Figure AI<span class="sep"></span><span class="flag" aria-hidden="true" style="display:inline-block;width:14px;height:10px;border-radius:1px;background:linear-gradient(to bottom,#B22234 0 36%,#fff 36% 64%,#B22234 64%);"></span>United States</span>
+        </div>
+        <div><span class="badge b-pilot"><span class="dot"></span>Pilot</span></div>
+        <div class="row-specs num"><span>168 cm</span><span class="sep">·</span><span>70 kg</span><span class="sep">·</span><span>~5h</span><span class="sep">·</span><span>16 DOF</span></div>
+        <div class="row-arrow">→</div>
+      </div>
+
+      <div class="row-item">
+        <div class="row-thumb"><svg width="22" height="28"><use href="#i-bot-thumb"/></svg></div>
+        <div class="row-name">
+          <span class="n">Atlas (Electric)</span>
+          <span class="c">Boston Dynamics<span class="sep"></span><span style="display:inline-block;width:14px;height:10px;border-radius:1px;background:linear-gradient(to bottom,#B22234 0 36%,#fff 36% 64%,#B22234 64%);"></span>United States</span>
+        </div>
+        <div><span class="badge b-prototype"><span class="dot"></span>Prototype</span></div>
+        <div class="row-specs num"><span>150 cm</span><span class="sep">·</span><span>85 kg</span><span class="sep">·</span><span>~4h</span><span class="sep">·</span><span>28 DOF</span></div>
+        <div class="row-arrow">→</div>
+      </div>
+
+      <div class="row-item">
+        <div class="row-thumb"><svg width="22" height="28"><use href="#i-bot-thumb"/></svg></div>
+        <div class="row-name">
+          <span class="n">Optimus Gen 2</span>
+          <span class="c">Tesla<span class="sep"></span><span style="display:inline-block;width:14px;height:10px;border-radius:1px;background:linear-gradient(to bottom,#B22234 0 36%,#fff 36% 64%,#B22234 64%);"></span>United States</span>
+        </div>
+        <div><span class="badge b-prototype"><span class="dot"></span>Prototype</span></div>
+        <div class="row-specs num"><span>173 cm</span><span class="sep">·</span><span>57 kg</span><span class="sep">·</span><span>~8h</span><span class="sep">·</span><span>40 DOF</span></div>
+        <div class="row-arrow">→</div>
+      </div>
+
+      <div class="row-item">
+        <div class="row-thumb"><svg width="22" height="28"><use href="#i-bot-thumb"/></svg></div>
+        <div class="row-name">
+          <span class="n">Digit v5</span>
+          <span class="c">Agility Robotics<span class="sep"></span><span style="display:inline-block;width:14px;height:10px;border-radius:1px;background:linear-gradient(to bottom,#B22234 0 36%,#fff 36% 64%,#B22234 64%);"></span>United States</span>
+        </div>
+        <div><span class="badge b-commercial"><span class="dot"></span>Commercial</span></div>
+        <div class="row-specs num"><span>175 cm</span><span class="sep">·</span><span>65 kg</span><span class="sep">·</span><span>~16h</span><span class="sep">·</span><span>20 DOF</span></div>
+        <div class="row-arrow">→</div>
+      </div>
+
+      <div class="row-item">
+        <div class="row-thumb"><svg width="22" height="28"><use href="#i-bot-thumb"/></svg></div>
+        <div class="row-name">
+          <span class="n">H1</span>
+          <span class="c">Unitree<span class="sep"></span><span style="display:inline-block;width:14px;height:10px;border-radius:1px;background:#DE2910;position:relative;overflow:hidden;"></span>China</span>
+        </div>
+        <div><span class="badge b-commercial"><span class="dot"></span>Commercial</span></div>
+        <div class="row-specs num"><span>180 cm</span><span class="sep">·</span><span>47 kg</span><span class="sep">·</span><span>~2h</span><span class="sep">·</span><span>27 DOF</span></div>
+        <div class="row-arrow">→</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================== 05 STATUS VARIANTS ============================== -->
+  <section class="section">
+    <div class="sec-head">
+      <div class="ix">05</div>
+      <h2>Status variants <span class="sub">/ same content, six states</span></h2>
+      <p class="lede">Only the badge changes. Content, layout, and dimensions are identical — establishes parity between status colors at-a-glance.</p>
+    </div>
+
+    <div class="grid-3">
+      <!-- Concept -->
+      <article class="robot-card">
+        <div class="frame">
+          <span class="badge b-concept badge-tl"><span class="dot"></span>Concept</span>
+          <span class="id-tr">HD-007</span>
+          <div class="figure"><svg width="100" height="135"><use href="#i-bot"/></svg></div>
+        </div>
+        <div class="body">
+          <h3 class="name">Figure 02</h3>
+          <p class="company">Figure AI<span class="sep"></span><span class="flag" aria-hidden="true"></span>United States</p>
+          <p class="desc">General-purpose humanoid for industrial work. Successor to Figure 01, pilot deployments with automotive OEMs.</p>
+          <div class="spec-row">
+            <span class="spec-chip">168 cm</span>
+            <span class="spec-chip">70 kg</span>
+            <span class="spec-chip">~5h</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- Prototype -->
+      <article class="robot-card">
+        <div class="frame">
+          <span class="badge b-prototype badge-tl"><span class="dot"></span>Prototype</span>
+          <span class="id-tr">HD-007</span>
+          <div class="figure"><svg width="100" height="135"><use href="#i-bot"/></svg></div>
+        </div>
+        <div class="body">
+          <h3 class="name">Figure 02</h3>
+          <p class="company">Figure AI<span class="sep"></span><span class="flag" aria-hidden="true"></span>United States</p>
+          <p class="desc">General-purpose humanoid for industrial work. Successor to Figure 01, pilot deployments with automotive OEMs.</p>
+          <div class="spec-row">
+            <span class="spec-chip">168 cm</span>
+            <span class="spec-chip">70 kg</span>
+            <span class="spec-chip">~5h</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- Research -->
+      <article class="robot-card">
+        <div class="frame">
+          <span class="badge b-research badge-tl"><span class="dot"></span>Research</span>
+          <span class="id-tr">HD-007</span>
+          <div class="figure"><svg width="100" height="135"><use href="#i-bot"/></svg></div>
+        </div>
+        <div class="body">
+          <h3 class="name">Figure 02</h3>
+          <p class="company">Figure AI<span class="sep"></span><span class="flag" aria-hidden="true"></span>United States</p>
+          <p class="desc">General-purpose humanoid for industrial work. Successor to Figure 01, pilot deployments with automotive OEMs.</p>
+          <div class="spec-row">
+            <span class="spec-chip">168 cm</span>
+            <span class="spec-chip">70 kg</span>
+            <span class="spec-chip">~5h</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- Pilot -->
+      <article class="robot-card">
+        <div class="frame">
+          <span class="badge b-pilot badge-tl"><span class="dot"></span>Pilot</span>
+          <span class="id-tr">HD-007</span>
+          <div class="figure"><svg width="100" height="135"><use href="#i-bot"/></svg></div>
+        </div>
+        <div class="body">
+          <h3 class="name">Figure 02</h3>
+          <p class="company">Figure AI<span class="sep"></span><span class="flag" aria-hidden="true"></span>United States</p>
+          <p class="desc">General-purpose humanoid for industrial work. Successor to Figure 01, pilot deployments with automotive OEMs.</p>
+          <div class="spec-row">
+            <span class="spec-chip">168 cm</span>
+            <span class="spec-chip">70 kg</span>
+            <span class="spec-chip">~5h</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- Commercial -->
+      <article class="robot-card">
+        <div class="frame">
+          <span class="badge b-commercial badge-tl"><span class="dot"></span>Commercial</span>
+          <span class="id-tr">HD-007</span>
+          <div class="figure"><svg width="100" height="135"><use href="#i-bot"/></svg></div>
+        </div>
+        <div class="body">
+          <h3 class="name">Figure 02</h3>
+          <p class="company">Figure AI<span class="sep"></span><span class="flag" aria-hidden="true"></span>United States</p>
+          <p class="desc">General-purpose humanoid for industrial work. Successor to Figure 01, pilot deployments with automotive OEMs.</p>
+          <div class="spec-row">
+            <span class="spec-chip">168 cm</span>
+            <span class="spec-chip">70 kg</span>
+            <span class="spec-chip">~5h</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- Discontinued -->
+      <article class="robot-card" style="opacity: 0.92;">
+        <div class="frame" style="filter: grayscale(0.4);">
+          <span class="badge b-discontinued badge-tl"><span class="dot"></span>Discontinued</span>
+          <span class="id-tr">HD-007</span>
+          <div class="figure"><svg width="100" height="135"><use href="#i-bot"/></svg></div>
+        </div>
+        <div class="body">
+          <h3 class="name">Figure 02</h3>
+          <p class="company">Figure AI<span class="sep"></span><span class="flag" aria-hidden="true"></span>United States</p>
+          <p class="desc">General-purpose humanoid for industrial work. Successor to Figure 01, pilot deployments with automotive OEMs.</p>
+          <div class="spec-row">
+            <span class="spec-chip">168 cm</span>
+            <span class="spec-chip">70 kg</span>
+            <span class="spec-chip">~5h</span>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- ============================== 06 EMPTY STATE ============================== -->
+  <section class="section" style="background:#fff;">
+    <div class="sec-head">
+      <div class="ix">06</div>
+      <h2>Empty state <span class="sub">/ no image available</span></h2>
+      <p class="lede">When source imagery hasn't been verified or licensed, frame becomes a quiet placeholder. Content underneath behaves normally.</p>
+    </div>
+
+    <div class="grid-2" style="max-width: 900px;">
+
+      <div>
+        <div class="var-caption"><span>· Empty · light</span><span class="scope">no verified image</span></div>
+        <article class="robot-card">
+          <div class="frame empty">
+            <span class="badge b-pilot badge-tl"><span class="dot"></span>Pilot</span>
+            <span class="id-tr">HD-007</span>
+            <div class="empty-stack">
+              <div class="ic"><svg width="26" height="26"><use href="#i-no-image"/></svg></div>
+              <div class="l1">Image not yet available</div>
+              <div class="l2">Awaiting source verification · contribute one →</div>
+            </div>
+          </div>
+          <div class="body">
+            <h3 class="name">Figure 02</h3>
+            <p class="company">Figure AI<span class="sep"></span><span class="flag" aria-hidden="true"></span>United States</p>
+            <p class="desc">General-purpose humanoid for industrial work. Successor to Figure 01, pilot deployments with automotive OEMs.</p>
+            <div class="spec-row">
+              <span class="spec-chip">168 cm</span>
+              <span class="spec-chip">70 kg</span>
+              <span class="spec-chip">~5h</span>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <div>
+        <div class="var-caption"><span>· Empty · dark</span><span class="scope">no verified image</span></div>
+        <article class="robot-card dark">
+          <div class="frame">
+            <span class="badge b-pilot badge-tl"><span class="dot"></span>Pilot</span>
+            <span class="id-tr">HD-007</span>
+            <div class="empty-stack" style="color: var(--text-on-dark-3);">
+              <div class="ic" style="border-color: var(--line-dark-strong); color: var(--text-on-dark-3);"><svg width="26" height="26"><use href="#i-no-image"/></svg></div>
+              <div class="l1" style="color: var(--text-on-dark-2);">Image not yet available</div>
+              <div class="l2" style="color: var(--text-on-dark-3);">Awaiting source verification · contribute one →</div>
+            </div>
+          </div>
+          <div class="body">
+            <h3 class="name">Figure 02</h3>
+            <p class="company">Figure AI<span class="sep"></span><span class="flag" aria-hidden="true"></span>United States</p>
+            <p class="desc">General-purpose humanoid for industrial work. Successor to Figure 01, pilot deployments with automotive OEMs.</p>
+            <div class="spec-row">
+              <span class="spec-chip">168 cm</span>
+              <span class="spec-chip">70 kg</span>
+              <span class="spec-chip">~5h</span>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================== Footer ============================== -->
+  <footer style="padding: 28px 56px; display:flex; justify-content: space-between; align-items:center; font-family:'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-on-light-2); background:#fff; border-top: 1px solid var(--line-light);">
+    <div>Humanoid Directory · Robot card · v1.2 · 14 May 2026</div>
+    <div style="display:flex; gap:14px;">
+      <span style="border:1px solid var(--line-light); border-radius:999px; padding:6px 10px; color:var(--text-on-light);">6 variants</span>
+      <span style="border:1px solid var(--line-light); border-radius:999px; padding:6px 10px; color:var(--text-on-light);">2 surfaces</span>
+    </div>
+  </footer>
+
+</div>
+
+</body>
+</html>

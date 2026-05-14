@@ -1,0 +1,1343 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Humanoid Directory — Design System</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    /* Core */
+    --bg-dark: #0A0C10;
+    --bg-dark-2: #11141A;
+    --bg-light: #F8F9FA;
+    --surface-light: #FFFFFF;
+    --accent: #00C2FF;
+    --accent-soft: rgba(0, 194, 255, 0.12);
+
+    /* Text */
+    --text-on-dark: #FFFFFF;
+    --text-on-dark-2: #A0ADB8;
+    --text-on-dark-3: #6A7682;
+    --text-on-light: #0D1117;
+    --text-on-light-2: #6B7280;
+    --text-on-light-3: #9CA3AF;
+
+    /* Lines */
+    --line-dark: rgba(255,255,255,0.08);
+    --line-dark-strong: rgba(255,255,255,0.16);
+    --line-light: #E5E7EB;
+    --line-light-soft: #EEF0F2;
+
+    /* Status */
+    --st-concept: #6B7280;
+    --st-prototype: #1D6FA4;
+    --st-research: #6D4AC0;
+    --st-pilot: #D97706;
+    --st-commercial: #059669;
+    --st-paused: #9CA3AF;
+    --st-discontinued: #DC2626;
+    --st-unknown-bg: #E5E7EB;
+    --st-unknown-fg: #0D1117;
+
+    --radius-sm: 4px;
+    --radius-md: 8px;
+    --radius-lg: 12px;
+  }
+
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    font-size: 15px;
+    line-height: 1.6;
+    color: var(--text-on-light);
+    background: var(--bg-light);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  .mono { font-family: 'JetBrains Mono', ui-monospace, monospace; font-feature-settings: "tnum" 1; }
+  .num  { font-variant-numeric: tabular-nums; }
+
+  /* ============ Page chrome ============ */
+  .sheet {
+    max-width: 1440px;
+    margin: 0 auto;
+  }
+
+  /* ============ DARK SECTION ============ */
+  .dark {
+    background: var(--bg-dark);
+    color: var(--text-on-dark);
+  }
+  .dark .meta-label { color: var(--text-on-dark-3); }
+  .dark .meta-value { color: var(--text-on-dark); }
+
+  .nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 22px 56px;
+    border-bottom: 1px solid var(--line-dark);
+  }
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+  .brand-mark {
+    width: 30px;
+    height: 30px;
+    border-radius: 7px;
+    background: var(--text-on-dark);
+    color: var(--bg-dark);
+    display: grid;
+    place-items: center;
+    font-weight: 800;
+    font-size: 15px;
+    letter-spacing: -0.02em;
+  }
+  .brand-name {
+    font-weight: 700;
+    font-size: 15px;
+    letter-spacing: -0.01em;
+  }
+  .brand-name span {
+    color: var(--text-on-dark-2);
+    font-weight: 500;
+  }
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+    font-size: 13.5px;
+    color: var(--text-on-dark-2);
+  }
+  .nav-links a {
+    color: inherit;
+    text-decoration: none;
+  }
+  .nav-links a.active {
+    color: var(--accent);
+  }
+  .nav-cta {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+  }
+
+  .hero {
+    padding: 56px 56px 64px;
+    display: grid;
+    grid-template-columns: 1.1fr 1fr;
+    gap: 80px;
+    border-bottom: 1px solid var(--line-dark);
+  }
+  .hero-eyebrow {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 18px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .hero-eyebrow .dot {
+    width: 6px; height: 6px; border-radius: 50%;
+    background: var(--accent);
+    box-shadow: 0 0 0 4px var(--accent-soft);
+  }
+  .hero-title {
+    font-size: 56px;
+    line-height: 1.04;
+    letter-spacing: -0.035em;
+    font-weight: 700;
+    margin: 0 0 22px;
+  }
+  .hero-title em {
+    font-style: normal;
+    color: var(--text-on-dark-2);
+    font-weight: 500;
+  }
+  .hero-sub {
+    font-size: 16px;
+    line-height: 1.65;
+    color: var(--text-on-dark-2);
+    max-width: 540px;
+    margin: 0 0 32px;
+  }
+  .hero-stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+    border-top: 1px solid var(--line-dark);
+    padding-top: 24px;
+  }
+  .stat .k {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-on-dark-3);
+    margin-bottom: 8px;
+  }
+  .stat .v {
+    font-size: 28px;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    font-variant-numeric: tabular-nums;
+  }
+  .stat .v small {
+    color: var(--text-on-dark-3);
+    font-weight: 400;
+    font-size: 13px;
+    letter-spacing: 0;
+  }
+
+  /* Hero right column: featured dark robot card */
+  .hero-card-wrap {
+    align-self: stretch;
+    display: flex;
+    align-items: stretch;
+  }
+
+  /* ============ Robot card (dark) ============ */
+  .robot-card {
+    background: var(--bg-dark-2);
+    border: 1px solid var(--line-dark);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+  .robot-card .frame {
+    position: relative;
+    aspect-ratio: 4 / 3;
+    background:
+      repeating-linear-gradient(135deg, rgba(255,255,255,0.025) 0 1px, transparent 1px 12px),
+      linear-gradient(180deg, #15191F 0%, #0D1117 100%);
+    border-bottom: 1px solid var(--line-dark);
+    display: grid;
+    place-items: center;
+    color: var(--text-on-dark-3);
+  }
+  .robot-card.light .frame {
+    background:
+      repeating-linear-gradient(135deg, rgba(13,17,23,0.04) 0 1px, transparent 1px 12px),
+      linear-gradient(180deg, #FAFBFC 0%, #EEF0F2 100%);
+    border-bottom: 1px solid var(--line-light);
+    color: var(--text-on-light-3);
+  }
+  .frame-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+  .frame-figure {
+    position: absolute;
+    inset: 0;
+    display: grid;
+    place-items: center;
+    pointer-events: none;
+  }
+  .frame-figure svg { opacity: 0.5; }
+  .robot-card.light .frame-figure svg { opacity: 0.35; }
+
+  .frame .badge-tl {
+    position: absolute;
+    top: 14px;
+    left: 14px;
+  }
+  .frame .corner-tr {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    display: flex;
+    gap: 6px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10.5px;
+    letter-spacing: 0.08em;
+    color: var(--text-on-dark-3);
+  }
+  .robot-card.light .frame .corner-tr { color: var(--text-on-light-3); }
+
+  .robot-card .body {
+    padding: 20px 22px 22px;
+  }
+  .robot-card .name {
+    font-size: 26px;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    margin: 0 0 4px;
+    color: var(--text-on-dark);
+  }
+  .robot-card.light .name { color: var(--text-on-light); }
+  .robot-card .company {
+    font-size: 13.5px;
+    color: var(--text-on-dark-2);
+    margin: 0 0 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .robot-card.light .company { color: var(--text-on-light-2); }
+  .robot-card .company .sep {
+    width: 3px; height: 3px; border-radius: 50%;
+    background: currentColor;
+    opacity: 0.5;
+  }
+  .robot-card .desc {
+    font-size: 14px;
+    line-height: 1.6;
+    color: var(--text-on-dark-2);
+    margin: 0 0 18px;
+  }
+  .robot-card.light .desc { color: var(--text-on-light-2); }
+
+  .spec-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+  .spec-chip {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11.5px;
+    font-weight: 500;
+    padding: 5px 9px;
+    border-radius: 5px;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid var(--line-dark);
+    color: var(--text-on-dark);
+    font-variant-numeric: tabular-nums;
+  }
+  .robot-card.light .spec-chip {
+    background: var(--bg-light);
+    border: 1px solid var(--line-light);
+    color: var(--text-on-light);
+  }
+
+  /* ============ Section system ============ */
+  .section {
+    padding: 72px 56px;
+    border-bottom: 1px solid var(--line-light);
+  }
+  .dark.section { border-bottom: 1px solid var(--line-dark); }
+  .section:last-child { border-bottom: 0; }
+
+  .section-head {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    margin-bottom: 36px;
+    padding-bottom: 18px;
+    border-bottom: 1px solid var(--line-light);
+  }
+  .dark .section-head { border-bottom: 1px solid var(--line-dark); }
+  .section-head h2 {
+    margin: 0;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--text-on-light);
+  }
+  .dark .section-head h2 { color: var(--text-on-dark); }
+  .section-head .ix {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11.5px;
+    letter-spacing: 0.1em;
+    color: var(--text-on-light-3);
+  }
+  .dark .section-head .ix { color: var(--text-on-dark-3); }
+  .section-head .lede {
+    font-size: 13.5px;
+    color: var(--text-on-light-2);
+    max-width: 480px;
+    text-align: right;
+  }
+  .dark .section-head .lede { color: var(--text-on-dark-2); }
+
+  /* ============ Color swatches ============ */
+  .swatch-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 20px;
+  }
+  .swatch {
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    border: 1px solid var(--line-light);
+    background: #fff;
+  }
+  .swatch .chip {
+    aspect-ratio: 1 / 1;
+    border-bottom: 1px solid var(--line-light);
+  }
+  .swatch.dark .chip { border-bottom: 1px solid var(--line-light-soft); }
+  .swatch .meta {
+    padding: 12px 14px 14px;
+  }
+  .swatch .role {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--text-on-light);
+    letter-spacing: -0.005em;
+    margin-bottom: 2px;
+  }
+  .swatch .use {
+    font-size: 11.5px;
+    color: var(--text-on-light-2);
+    line-height: 1.4;
+    margin-bottom: 8px;
+  }
+  .swatch .hex {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11.5px;
+    color: var(--text-on-light);
+    letter-spacing: 0.02em;
+  }
+
+  /* ============ Status badges ============ */
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    height: 22px;
+    padding: 0 9px;
+    border-radius: 999px;
+    font-size: 11.5px;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    line-height: 1;
+    white-space: nowrap;
+    color: #fff;
+  }
+  .badge .dot {
+    width: 5px; height: 5px; border-radius: 50%;
+    background: rgba(255,255,255,0.85);
+  }
+  .b-concept       { background: var(--st-concept); }
+  .b-prototype     { background: var(--st-prototype); }
+  .b-research      { background: var(--st-research); }
+  .b-pilot         { background: var(--st-pilot); }
+  .b-commercial    { background: var(--st-commercial); }
+  .b-paused        { background: var(--st-paused); }
+  .b-discontinued  { background: var(--st-discontinued); }
+  .b-unknown       { background: var(--st-unknown-bg); color: var(--st-unknown-fg); }
+  .b-unknown .dot  { background: var(--st-unknown-fg); opacity: 0.55; }
+
+  .badge-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px 14px;
+    align-items: center;
+    margin-bottom: 22px;
+  }
+  .badge-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+  }
+  .badge-table th, .badge-table td {
+    text-align: left;
+    padding: 12px 14px;
+    border-bottom: 1px solid var(--line-light-soft);
+    vertical-align: middle;
+  }
+  .badge-table th {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-on-light-2);
+    border-bottom: 1px solid var(--line-light);
+  }
+  .badge-table td.hex {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    color: var(--text-on-light);
+  }
+  .badge-table td.use {
+    color: var(--text-on-light-2);
+    font-size: 12.5px;
+  }
+
+  /* ============ Typography scale ============ */
+  .type-grid {
+    display: grid;
+    grid-template-columns: 160px 1fr 220px;
+    gap: 0;
+  }
+  .type-row {
+    display: contents;
+  }
+  .type-row > * {
+    padding: 22px 0;
+    border-top: 1px solid var(--line-light-soft);
+  }
+  .type-row:first-child > * { border-top: 0; }
+  .type-row .label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11.5px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--text-on-light-2);
+    padding-top: 28px;
+  }
+  .type-row .spec {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11.5px;
+    color: var(--text-on-light-2);
+    text-align: right;
+    padding-top: 28px;
+  }
+  .type-row .sample {
+    color: var(--text-on-light);
+  }
+  .t-h1 { font-size: 48px; font-weight: 700; letter-spacing: -0.03em; line-height: 1.05; }
+  .t-h2 { font-size: 32px; font-weight: 700; letter-spacing: -0.02em; line-height: 1.15; }
+  .t-h3 { font-size: 20px; font-weight: 600; letter-spacing: -0.01em; line-height: 1.3; }
+  .t-body { font-size: 15px; font-weight: 400; line-height: 1.7; max-width: 60ch; }
+  .t-cap { font-size: 12px; font-weight: 500; color: var(--text-on-light-2); letter-spacing: 0.04em; text-transform: uppercase; }
+  .t-mono { font-family: 'JetBrains Mono', monospace; font-size: 13px; font-variant-numeric: tabular-nums; }
+
+  /* ============ Cards section ============ */
+  .cards-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 28px;
+  }
+  .card-wrap {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .card-caption {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-on-light-2);
+  }
+  .card-caption .scope {
+    color: var(--text-on-light-3);
+  }
+
+  /* Light variant card */
+  .robot-card.light {
+    background: var(--surface-light);
+    border: 1px solid var(--line-light);
+  }
+
+  /* ============ Buttons ============ */
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    height: 40px;
+    padding: 0 18px;
+    border-radius: var(--radius-md);
+    font-family: 'Inter', sans-serif;
+    font-size: 13.5px;
+    font-weight: 600;
+    letter-spacing: -0.005em;
+    line-height: 1;
+    cursor: pointer;
+    border: 1px solid transparent;
+    transition: background .15s, border-color .15s, color .15s, transform .05s;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+  .btn:active { transform: translateY(1px); }
+  .btn .arrow { font-family: 'JetBrains Mono', monospace; font-weight: 500; }
+
+  /* Light context */
+  .btn-primary {
+    background: var(--text-on-light);
+    color: #fff;
+  }
+  .btn-primary:hover { background: #1f2937; }
+  .btn-secondary {
+    background: #fff;
+    color: var(--text-on-light);
+    border-color: var(--line-light);
+  }
+  .btn-secondary:hover { border-color: #B5BCC4; }
+  .btn-ghost {
+    background: transparent;
+    color: var(--text-on-light);
+  }
+  .btn-ghost:hover { background: rgba(13,17,23,0.05); }
+
+  /* Dark context */
+  .btn-primary-dark {
+    background: var(--accent);
+    color: var(--bg-dark);
+  }
+  .btn-primary-dark:hover { background: #2ECDFF; }
+  .btn-secondary-dark {
+    background: transparent;
+    color: var(--text-on-dark);
+    border-color: var(--line-dark-strong);
+  }
+  .btn-secondary-dark:hover { border-color: var(--text-on-dark-2); }
+  .btn-ghost-dark {
+    background: transparent;
+    color: var(--text-on-dark-2);
+  }
+  .btn-ghost-dark:hover { background: rgba(255,255,255,0.06); color: var(--text-on-dark); }
+
+  .btn-sm { height: 32px; padding: 0 13px; font-size: 12.5px; }
+
+  .btn-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    border: 1px solid var(--line-light);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+  }
+  .btn-grid > div {
+    padding: 28px 32px;
+  }
+  .btn-grid .col-dark {
+    background: var(--bg-dark);
+    color: var(--text-on-dark);
+  }
+  .btn-grid .col-head {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--text-on-light-2);
+    margin-bottom: 18px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .col-dark .col-head { color: var(--text-on-dark-3); }
+  .btn-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    align-items: flex-start;
+  }
+  .btn-stack-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  /* ============ Search ============ */
+  .search-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+  }
+  .search {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    height: 52px;
+    padding: 0 16px;
+    border: 1px solid var(--line-light);
+    background: #fff;
+    border-radius: var(--radius-md);
+    transition: border-color .15s, box-shadow .15s;
+  }
+  .search.focus {
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px rgba(0,194,255,0.18);
+  }
+  .search .icon { color: var(--text-on-light-3); flex-shrink: 0; }
+  .search .input {
+    flex: 1;
+    font-size: 14.5px;
+    color: var(--text-on-light);
+  }
+  .search .input.placeholder { color: var(--text-on-light-3); }
+  .search .input .caret {
+    display: inline-block;
+    width: 1.5px;
+    height: 16px;
+    background: var(--accent);
+    vertical-align: -3px;
+    margin-left: 1px;
+    animation: blink 1s steps(1) infinite;
+  }
+  @keyframes blink { 50% { opacity: 0; } }
+  .search .kbd {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--text-on-light-2);
+    border: 1px solid var(--line-light);
+    border-radius: 4px;
+    padding: 3px 6px;
+    background: var(--bg-light);
+  }
+  .search-dark {
+    background: var(--bg-dark-2);
+    border-color: var(--line-dark-strong);
+  }
+  .search-dark .icon { color: var(--text-on-dark-3); }
+  .search-dark .input { color: var(--text-on-dark); }
+  .search-dark .input.placeholder { color: var(--text-on-dark-3); }
+  .search-dark .kbd {
+    border-color: var(--line-dark-strong);
+    background: rgba(255,255,255,0.04);
+    color: var(--text-on-dark-2);
+  }
+
+  /* ============ Filter chips ============ */
+  .chip-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    align-items: center;
+  }
+  .chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    height: 30px;
+    padding: 0 4px 0 12px;
+    border-radius: 999px;
+    border: 1px solid var(--line-light);
+    background: #fff;
+    font-size: 12.5px;
+    font-weight: 500;
+    color: var(--text-on-light);
+  }
+  .chip .x {
+    width: 22px; height: 22px;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    color: var(--text-on-light-2);
+    cursor: pointer;
+  }
+  .chip .x:hover { background: var(--bg-light); color: var(--text-on-light); }
+  .chip .cat {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10.5px;
+    color: var(--text-on-light-3);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+  .chip.active {
+    background: var(--text-on-light);
+    color: #fff;
+    border-color: var(--text-on-light);
+  }
+  .chip.active .cat { color: rgba(255,255,255,0.55); }
+  .chip.active .x { color: rgba(255,255,255,0.7); }
+  .chip.active .x:hover { background: rgba(255,255,255,0.12); color: #fff; }
+
+  .chip-clearall {
+    font-size: 12px;
+    color: var(--text-on-light-2);
+    margin-left: 6px;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    cursor: pointer;
+  }
+
+  /* ============ Footer ============ */
+  .foot {
+    padding: 28px 56px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-on-light-2);
+    background: var(--surface-light);
+    border-top: 1px solid var(--line-light);
+  }
+  .foot .pill {
+    border: 1px solid var(--line-light);
+    border-radius: 999px;
+    padding: 6px 10px;
+    color: var(--text-on-light);
+  }
+
+  /* small helpers */
+  .row { display: flex; gap: 16px; align-items: center; }
+  .stack-2col { display: grid; grid-template-columns: 1.1fr 1fr; gap: 48px; }
+  .stack-2col.wide { grid-template-columns: 1fr 1.2fr; gap: 56px; }
+
+  .legend {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--text-on-light-3);
+    margin-bottom: 12px;
+  }
+  .dark .legend { color: var(--text-on-dark-3); }
+
+  @media (max-width: 1100px) {
+    .hero { grid-template-columns: 1fr; gap: 48px; padding: 40px; }
+    .section { padding: 56px 40px; }
+    .nav { padding: 18px 40px; }
+    .swatch-grid { grid-template-columns: repeat(3, 1fr); }
+    .cards-grid { grid-template-columns: 1fr; }
+    .btn-grid { grid-template-columns: 1fr; }
+    .stack-2col, .stack-2col.wide { grid-template-columns: 1fr; gap: 36px; }
+    .type-grid { grid-template-columns: 100px 1fr; }
+    .type-row .spec { display: none; }
+    .hero-title { font-size: 40px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ===== Reusable badge icons (using small svg dots) ===== -->
+<svg width="0" height="0" style="position:absolute">
+  <symbol id="i-search" viewBox="0 0 20 20">
+    <path d="M9 2.5a6.5 6.5 0 014.96 10.71l3.92 3.91a1 1 0 01-1.42 1.42l-3.91-3.92A6.5 6.5 0 119 2.5zm0 2a4.5 4.5 0 100 9 4.5 4.5 0 000-9z" fill="currentColor"/>
+  </symbol>
+  <symbol id="i-x" viewBox="0 0 16 16">
+    <path d="M4.3 3.3a1 1 0 011.4 0L8 5.6l2.3-2.3a1 1 0 111.4 1.4L9.4 7l2.3 2.3a1 1 0 11-1.4 1.4L8 8.4l-2.3 2.3a1 1 0 01-1.4-1.4L6.6 7 4.3 4.7a1 1 0 010-1.4z" fill="currentColor"/>
+  </symbol>
+  <symbol id="i-arrow-r" viewBox="0 0 16 16">
+    <path d="M3 8h9m0 0L8 4m4 4l-4 4" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  </symbol>
+  <symbol id="i-filter" viewBox="0 0 20 20">
+    <path d="M3 5h14M5 10h10M8 15h4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" fill="none"/>
+  </symbol>
+  <symbol id="i-globe" viewBox="0 0 16 16">
+    <circle cx="8" cy="8" r="6.2" fill="none" stroke="currentColor" stroke-width="1.2"/>
+    <path d="M8 1.8c2.5 2 2.5 10.4 0 12.4M8 1.8c-2.5 2-2.5 10.4 0 12.4M1.8 8h12.4" fill="none" stroke="currentColor" stroke-width="1.2"/>
+  </symbol>
+</svg>
+
+<div class="sheet">
+
+  <!-- ===================== DARK SECTION ===================== -->
+  <header class="dark">
+
+    <!-- Nav -->
+    <nav class="nav">
+      <div class="brand">
+        <div class="brand-mark">H</div>
+        <div class="brand-name">Humanoid Directory <span>/ Design System v0.1</span></div>
+      </div>
+      <div class="nav-links">
+      <a href="/robots/">Robots</a>
+      <a href="/companies/">Companies</a>
+      <a href="#">Compare</a>
+      <a href="#">Use cases</a>
+    </div>
+      <div class="nav-cta">
+        <a href="#" class="btn btn-sm btn-ghost-dark">Sign in</a>
+        <a href="#" class="btn btn-sm btn-primary-dark">Submit a robot <svg width="12" height="12"><use href="#i-arrow-r"/></svg></a>
+      </div>
+    </nav>
+
+    <!-- Hero / context -->
+    <section class="hero">
+      <div>
+        <div class="hero-eyebrow"><span class="dot"></span>Reference sheet · Updated 14 May 2026</div>
+        <h1 class="hero-title">The editorial directory of <em>every humanoid robot</em> ever announced.</h1>
+        <p class="hero-sub">A neutral, source-verified atlas of bipedal and android robotics — from concept renders to commercial fleets. Engineered for researchers, journalists, investors, and the merely curious.</p>
+
+        <div class="row" style="gap:10px; margin-bottom:36px;">
+          <a href="#" class="btn btn-primary-dark">Browse 412 robots <svg width="12" height="12"><use href="#i-arrow-r"/></svg></a>
+          <a href="#" class="btn btn-secondary-dark">Read the methodology</a>
+        </div>
+
+        <div class="hero-stats">
+          <div class="stat"><div class="k">Robots tracked</div><div class="v num">412</div></div>
+          <div class="stat"><div class="k">Companies</div><div class="v num">137</div></div>
+          <div class="stat"><div class="k">Countries</div><div class="v num">28</div></div>
+          <div class="stat"><div class="k">Commercial</div><div class="v num">31 <small>/ 412</small></div></div>
+        </div>
+      </div>
+
+      <div class="hero-card-wrap">
+        <!-- Dark robot card (featured) -->
+        <article class="robot-card">
+          <div class="frame">
+            <span class="badge b-pilot badge-tl"><span class="dot"></span>Pilot</span>
+            <div class="corner-tr">
+              <span>HD-014</span>
+              <span style="opacity:.4">·</span>
+              <span>v2.0</span>
+            </div>
+            <div class="frame-figure" aria-hidden="true">
+              <svg width="120" height="160" viewBox="0 0 120 160" fill="none" stroke="currentColor" stroke-width="1.2">
+                <rect x="40" y="8" width="40" height="34" rx="6"/>
+                <circle cx="52" cy="22" r="2" fill="currentColor"/>
+                <circle cx="68" cy="22" r="2" fill="currentColor"/>
+                <rect x="32" y="46" width="56" height="56" rx="4"/>
+                <line x1="60" y1="46" x2="60" y2="102"/>
+                <line x1="22" y1="50" x2="32" y2="50"/>
+                <line x1="88" y1="50" x2="98" y2="50"/>
+                <rect x="18" y="50" width="6" height="44" rx="2"/>
+                <rect x="96" y="50" width="6" height="44" rx="2"/>
+                <rect x="44" y="106" width="14" height="44" rx="3"/>
+                <rect x="62" y="106" width="14" height="44" rx="3"/>
+                <rect x="40" y="150" width="22" height="6" rx="1"/>
+                <rect x="58" y="150" width="22" height="6" rx="1"/>
+              </svg>
+            </div>
+            <div style="position:absolute;bottom:14px;left:14px;font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.08em;color:var(--text-on-dark-3)">[ HERO IMAGE — 1600×1200 ]</div>
+          </div>
+          <div class="body">
+            <h3 class="name">Figure 02</h3>
+            <p class="company">Figure AI<span class="sep"></span><svg width="12" height="12" style="opacity:.6"><use href="#i-globe"/></svg>United States</p>
+            <p class="desc">General-purpose humanoid for industrial work. Successor to 01, pilot deployments with automotive OEMs.</p>
+            <div class="spec-row">
+              <span class="spec-chip">168 cm</span>
+              <span class="spec-chip">70 kg</span>
+              <span class="spec-chip">~5h battery</span>
+              <span class="spec-chip">2 arm · 5 finger</span>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+  </header>
+
+  <!-- ===================== 01 COLOR ===================== -->
+  <section class="section">
+    <div class="section-head">
+      <h2>01 — Color system</h2>
+      <span class="ix">/ tokens / palette</span>
+      <p class="lede">Near-black hero surfaces frame editorial content; clean light surfaces host data. Accent used sparingly — links, focus, active state.</p>
+    </div>
+
+    <div class="legend">Foundation</div>
+    <div class="swatch-grid" style="margin-bottom: 36px;">
+      <div class="swatch dark">
+        <div class="chip" style="background:#0A0C10"></div>
+        <div class="meta">
+          <div class="role">Background · Dark</div>
+          <div class="use">Hero, nav, footer.</div>
+          <div class="hex">#0A0C10</div>
+        </div>
+      </div>
+      <div class="swatch dark">
+        <div class="chip" style="background:#11141A"></div>
+        <div class="meta">
+          <div class="role">Surface · Dark</div>
+          <div class="use">Cards on dark.</div>
+          <div class="hex">#11141A</div>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="chip" style="background:#F8F9FA"></div>
+        <div class="meta">
+          <div class="role">Background · Light</div>
+          <div class="use">Default content surface.</div>
+          <div class="hex">#F8F9FA</div>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="chip" style="background:#FFFFFF; border-bottom:1px solid var(--line-light);"></div>
+        <div class="meta">
+          <div class="role">Surface · Light</div>
+          <div class="use">Cards, modals on light.</div>
+          <div class="hex">#FFFFFF</div>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="chip" style="background:#00C2FF"></div>
+        <div class="meta">
+          <div class="role">Accent · Electric</div>
+          <div class="use">Links, focus, active.</div>
+          <div class="hex">#00C2FF</div>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="chip" style="background:#E5E7EB"></div>
+        <div class="meta">
+          <div class="role">Hairline · Light</div>
+          <div class="use">Dividers, borders.</div>
+          <div class="hex">#E5E7EB</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="legend">Text</div>
+    <div class="swatch-grid">
+      <div class="swatch dark">
+        <div class="chip" style="background:#FFFFFF"></div>
+        <div class="meta">
+          <div class="role">Text · On dark · Primary</div>
+          <div class="use">Headlines on dark.</div>
+          <div class="hex">#FFFFFF</div>
+        </div>
+      </div>
+      <div class="swatch dark">
+        <div class="chip" style="background:#A0ADB8"></div>
+        <div class="meta">
+          <div class="role">Text · On dark · Secondary</div>
+          <div class="use">Body, meta on dark.</div>
+          <div class="hex">#A0ADB8</div>
+        </div>
+      </div>
+      <div class="swatch dark">
+        <div class="chip" style="background:#6A7682"></div>
+        <div class="meta">
+          <div class="role">Text · On dark · Tertiary</div>
+          <div class="use">Captions, labels.</div>
+          <div class="hex">#6A7682</div>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="chip" style="background:#0D1117"></div>
+        <div class="meta">
+          <div class="role">Text · On light · Primary</div>
+          <div class="use">Headlines, body.</div>
+          <div class="hex">#0D1117</div>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="chip" style="background:#6B7280"></div>
+        <div class="meta">
+          <div class="role">Text · On light · Secondary</div>
+          <div class="use">Captions, meta.</div>
+          <div class="hex">#6B7280</div>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="chip" style="background:#9CA3AF"></div>
+        <div class="meta">
+          <div class="role">Text · On light · Tertiary</div>
+          <div class="use">Placeholders, disabled.</div>
+          <div class="hex">#9CA3AF</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== 02 STATUS BADGES ===================== -->
+  <section class="section" style="background:#fff;">
+    <div class="section-head">
+      <h2>02 — Status badges</h2>
+      <span class="ix">/ component / 8 states</span>
+      <p class="lede">Every robot record carries one status. Pill-shaped, 22px tall, used inline in cards, tables, and as filter chips.</p>
+    </div>
+
+    <div class="stack-2col wide">
+      <div>
+        <div class="legend">All states</div>
+        <div class="badge-row" style="margin-bottom:32px;">
+          <span class="badge b-concept"><span class="dot"></span>Concept</span>
+          <span class="badge b-prototype"><span class="dot"></span>Prototype</span>
+          <span class="badge b-research"><span class="dot"></span>Research</span>
+          <span class="badge b-pilot"><span class="dot"></span>Pilot</span>
+          <span class="badge b-commercial"><span class="dot"></span>Commercial</span>
+          <span class="badge b-paused"><span class="dot"></span>Paused</span>
+          <span class="badge b-discontinued"><span class="dot"></span>Discontinued</span>
+          <span class="badge b-unknown"><span class="dot"></span>Unknown</span>
+        </div>
+
+        <div class="legend">In context · on dark</div>
+        <div style="background:var(--bg-dark); border-radius:var(--radius-md); padding:18px 20px;">
+          <div class="badge-row" style="margin:0;">
+            <span class="badge b-concept"><span class="dot"></span>Concept</span>
+            <span class="badge b-prototype"><span class="dot"></span>Prototype</span>
+            <span class="badge b-research"><span class="dot"></span>Research</span>
+            <span class="badge b-pilot"><span class="dot"></span>Pilot</span>
+            <span class="badge b-commercial"><span class="dot"></span>Commercial</span>
+            <span class="badge b-paused"><span class="dot"></span>Paused</span>
+            <span class="badge b-discontinued"><span class="dot"></span>Discontinued</span>
+            <span class="badge b-unknown"><span class="dot"></span>Unknown</span>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <div class="legend">Definitions</div>
+        <table class="badge-table">
+          <thead>
+            <tr><th>Status</th><th>Meaning</th><th>Hex</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><span class="badge b-concept"><span class="dot"></span>Concept</span></td><td class="use">Announced or rendered, not yet built.</td><td class="hex">#6B7280</td></tr>
+            <tr><td><span class="badge b-prototype"><span class="dot"></span>Prototype</span></td><td class="use">Working hardware, limited demos.</td><td class="hex">#1D6FA4</td></tr>
+            <tr><td><span class="badge b-research"><span class="dot"></span>Research</span></td><td class="use">Academic platform, no product intent.</td><td class="hex">#6D4AC0</td></tr>
+            <tr><td><span class="badge b-pilot"><span class="dot"></span>Pilot</span></td><td class="use">Deployed with paying or partner customers.</td><td class="hex">#D97706</td></tr>
+            <tr><td><span class="badge b-commercial"><span class="dot"></span>Commercial</span></td><td class="use">Generally available, fleet shipping.</td><td class="hex">#059669</td></tr>
+            <tr><td><span class="badge b-paused"><span class="dot"></span>Paused</span></td><td class="use">Development halted, may resume.</td><td class="hex">#9CA3AF</td></tr>
+            <tr><td><span class="badge b-discontinued"><span class="dot"></span>Discontinued</span></td><td class="use">Program officially ended.</td><td class="hex">#DC2626</td></tr>
+            <tr><td><span class="badge b-unknown"><span class="dot"></span>Unknown</span></td><td class="use">Insufficient public information.</td><td class="hex">#E5E7EB</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== 03 TYPOGRAPHY ===================== -->
+  <section class="section">
+    <div class="section-head">
+      <h2>03 — Typography</h2>
+      <span class="ix">/ Inter · JetBrains Mono</span>
+      <p class="lede">Inter for everything human-readable, weight 400–700. JetBrains Mono with tabular figures for specs, hex, IDs, dates.</p>
+    </div>
+
+    <div class="type-grid">
+      <div class="type-row">
+        <div class="label">H1 · Display</div>
+        <div class="sample t-h1">The atlas of bipedal machines.</div>
+        <div class="spec">Inter 700 · 48 / 50<br/>tracking −3.0%</div>
+      </div>
+      <div class="type-row">
+        <div class="label">H2 · Section</div>
+        <div class="sample t-h2">412 robots, 137 companies, one source of truth.</div>
+        <div class="spec">Inter 700 · 32 / 37<br/>tracking −2.0%</div>
+      </div>
+      <div class="type-row">
+        <div class="label">H3 · Card</div>
+        <div class="sample t-h3">Figure 02 · General-purpose humanoid</div>
+        <div class="spec">Inter 600 · 20 / 26<br/>tracking −1.0%</div>
+      </div>
+      <div class="type-row">
+        <div class="label">Body</div>
+        <div class="sample t-body">A neutral, source-verified record of every humanoid robot ever announced — from concept renders to commercial fleets. Every entry cites its sources; every spec carries a date and a confidence rating.</div>
+        <div class="spec">Inter 400 · 15 / 26<br/>tracking 0</div>
+      </div>
+      <div class="type-row">
+        <div class="label">Caption</div>
+        <div class="sample t-cap">Last verified · 12 May 2026</div>
+        <div class="spec">Inter 500 · 12 / 16<br/>tracking +4%, UPPERCASE</div>
+      </div>
+      <div class="type-row">
+        <div class="label">Mono · Spec</div>
+        <div class="sample t-mono">168 cm · 70 kg · 48 V · 2.4 kWh · IP54 · ROS 2</div>
+        <div class="spec">JetBrains Mono 400 · 13 / 20<br/>tabular-nums</div>
+      </div>
+      <div class="type-row">
+        <div class="label">Robot name</div>
+        <div class="sample">
+          <div style="font-size:32px;font-weight:700;letter-spacing:-0.02em;line-height:1.1;">Figure 02</div>
+          <div style="font-size:14px;color:var(--text-on-light-2);margin-top:4px;">Figure AI · United States</div>
+        </div>
+        <div class="spec">Name: Inter 700 · 32<br/>Company: Inter 400 · 14</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== 04 CARDS ===================== -->
+  <section class="section" style="background:#fff;">
+    <div class="section-head">
+      <h2>04 — Robot card</h2>
+      <span class="ix">/ component / 2 surfaces</span>
+      <p class="lede">The directory's atomic unit. Same content, two surfaces. Image, status, name, company, country, blurb, spec chips.</p>
+    </div>
+
+    <div class="cards-grid">
+      <!-- Dark variant -->
+      <div class="card-wrap">
+        <div class="card-caption"><span>Surface · Dark</span><span class="scope">used in hero, comparisons</span></div>
+        <article class="robot-card">
+          <div class="frame">
+            <span class="badge b-commercial badge-tl"><span class="dot"></span>Commercial</span>
+            <div class="corner-tr"><span>HD-007</span></div>
+            <div class="frame-figure" aria-hidden="true">
+              <svg width="120" height="160" viewBox="0 0 120 160" fill="none" stroke="currentColor" stroke-width="1.2">
+                <rect x="40" y="8" width="40" height="34" rx="6"/>
+                <circle cx="52" cy="22" r="2" fill="currentColor"/>
+                <circle cx="68" cy="22" r="2" fill="currentColor"/>
+                <rect x="32" y="46" width="56" height="56" rx="4"/>
+                <line x1="60" y1="46" x2="60" y2="102"/>
+                <rect x="18" y="50" width="6" height="44" rx="2"/>
+                <rect x="96" y="50" width="6" height="44" rx="2"/>
+                <rect x="44" y="106" width="14" height="44" rx="3"/>
+                <rect x="62" y="106" width="14" height="44" rx="3"/>
+                <rect x="40" y="150" width="22" height="6" rx="1"/>
+                <rect x="58" y="150" width="22" height="6" rx="1"/>
+              </svg>
+            </div>
+          </div>
+          <div class="body">
+            <h3 class="name">Figure 02</h3>
+            <p class="company">Figure AI<span class="sep"></span><svg width="12" height="12" style="opacity:.6"><use href="#i-globe"/></svg>United States</p>
+            <p class="desc">General-purpose humanoid for industrial work.</p>
+            <div class="spec-row">
+              <span class="spec-chip">168 cm</span>
+              <span class="spec-chip">70 kg</span>
+              <span class="spec-chip">~5h battery</span>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <!-- Light variant -->
+      <div class="card-wrap">
+        <div class="card-caption"><span>Surface · Light</span><span class="scope">used in index, detail pages</span></div>
+        <article class="robot-card light">
+          <div class="frame">
+            <span class="badge b-commercial badge-tl"><span class="dot"></span>Commercial</span>
+            <div class="corner-tr"><span>HD-007</span></div>
+            <div class="frame-figure" aria-hidden="true">
+              <svg width="120" height="160" viewBox="0 0 120 160" fill="none" stroke="currentColor" stroke-width="1.2">
+                <rect x="40" y="8" width="40" height="34" rx="6"/>
+                <circle cx="52" cy="22" r="2" fill="currentColor"/>
+                <circle cx="68" cy="22" r="2" fill="currentColor"/>
+                <rect x="32" y="46" width="56" height="56" rx="4"/>
+                <line x1="60" y1="46" x2="60" y2="102"/>
+                <rect x="18" y="50" width="6" height="44" rx="2"/>
+                <rect x="96" y="50" width="6" height="44" rx="2"/>
+                <rect x="44" y="106" width="14" height="44" rx="3"/>
+                <rect x="62" y="106" width="14" height="44" rx="3"/>
+                <rect x="40" y="150" width="22" height="6" rx="1"/>
+                <rect x="58" y="150" width="22" height="6" rx="1"/>
+              </svg>
+            </div>
+          </div>
+          <div class="body">
+            <h3 class="name">Figure 02</h3>
+            <p class="company">Figure AI<span class="sep"></span><svg width="12" height="12" style="opacity:.6"><use href="#i-globe"/></svg>United States</p>
+            <p class="desc">General-purpose humanoid for industrial work.</p>
+            <div class="spec-row">
+              <span class="spec-chip">168 cm</span>
+              <span class="spec-chip">70 kg</span>
+              <span class="spec-chip">~5h battery</span>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== 05 BUTTONS ===================== -->
+  <section class="section">
+    <div class="section-head">
+      <h2>05 — Buttons</h2>
+      <span class="ix">/ component / 2 contexts × 3 styles</span>
+      <p class="lede">Primary uses near-black on light, accent on dark. Secondary outlines, ghost transparent. 40px tall default, 32px small.</p>
+    </div>
+
+    <div class="btn-grid">
+      <div>
+        <div class="col-head"><span>On light surface</span><span>40 / 32 px</span></div>
+        <div class="btn-stack">
+          <div class="btn-stack-row">
+            <button class="btn btn-primary">Browse robots <svg width="12" height="12"><use href="#i-arrow-r"/></svg></button>
+            <button class="btn btn-secondary">Compare</button>
+            <button class="btn btn-ghost">View methodology</button>
+          </div>
+          <div class="btn-stack-row">
+            <button class="btn btn-sm btn-primary">Save to list</button>
+            <button class="btn btn-sm btn-secondary">Export CSV</button>
+            <button class="btn btn-sm btn-ghost">Share</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-dark">
+        <div class="col-head"><span>On dark surface</span><span>40 / 32 px</span></div>
+        <div class="btn-stack">
+          <div class="btn-stack-row">
+            <button class="btn btn-primary-dark">Submit a robot <svg width="12" height="12"><use href="#i-arrow-r"/></svg></button>
+            <button class="btn btn-secondary-dark">Read methodology</button>
+            <button class="btn btn-ghost-dark">Sign in</button>
+          </div>
+          <div class="btn-stack-row">
+            <button class="btn btn-sm btn-primary-dark">Subscribe</button>
+            <button class="btn btn-sm btn-secondary-dark">Cite</button>
+            <button class="btn btn-sm btn-ghost-dark">Cancel</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== 06 SEARCH ===================== -->
+  <section class="section" style="background:#fff;">
+    <div class="section-head">
+      <h2>06 — Search</h2>
+      <span class="ix">/ component / 3 states</span>
+      <p class="lede">Global ⌘K-style search bar. Single field, 52px tall, focus ring uses the accent at 18% opacity.</p>
+    </div>
+
+    <div class="search-stack">
+      <div>
+        <div class="legend">Default · empty</div>
+        <div class="search">
+          <svg class="icon" width="18" height="18"><use href="#i-search"/></svg>
+          <div class="input placeholder">Search 412 robots, companies, or specs…</div>
+          <span class="kbd">⌘K</span>
+        </div>
+      </div>
+      <div>
+        <div class="legend">Focused · typing</div>
+        <div class="search focus">
+          <svg class="icon" width="18" height="18" style="color:var(--accent)"><use href="#i-search"/></svg>
+          <div class="input">Tesla Op<span class="caret"></span></div>
+          <span class="kbd">esc</span>
+        </div>
+      </div>
+      <div>
+        <div class="legend">On dark surface</div>
+        <div class="search search-dark">
+          <svg class="icon" width="18" height="18"><use href="#i-search"/></svg>
+          <div class="input placeholder">Search robots, companies, or specs…</div>
+          <span class="kbd">⌘K</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== 07 FILTER CHIPS ===================== -->
+  <section class="section">
+    <div class="section-head">
+      <h2>07 — Filter chips</h2>
+      <span class="ix">/ component / removable</span>
+      <p class="lede">Selected facets stack above the result grid. Each carries its category prefix in mono, the value in sans, and an × to remove.</p>
+    </div>
+
+    <div class="legend">Applied filters</div>
+    <div class="chip-row" style="margin-bottom: 32px;">
+      <span class="chip"><span class="cat">Status:</span>Pilot<span class="x"><svg width="10" height="10"><use href="#i-x"/></svg></span></span>
+      <span class="chip"><span class="cat">Country:</span>United States<span class="x"><svg width="10" height="10"><use href="#i-x"/></svg></span></span>
+      <span class="chip"><span class="cat">Use case:</span>Manufacturing<span class="x"><svg width="10" height="10"><use href="#i-x"/></svg></span></span>
+      <span class="chip-clearall">Clear all</span>
+    </div>
+
+    <div class="legend">States · default · active · hover-x</div>
+    <div class="chip-row" style="margin-bottom: 32px;">
+      <span class="chip"><span class="cat">Status:</span>Commercial<span class="x"><svg width="10" height="10"><use href="#i-x"/></svg></span></span>
+      <span class="chip active"><span class="cat">Status:</span>Pilot<span class="x"><svg width="10" height="10"><use href="#i-x"/></svg></span></span>
+      <span class="chip"><span class="cat">Country:</span>Japan<span class="x" style="background:var(--bg-light);color:var(--text-on-light);"><svg width="10" height="10"><use href="#i-x"/></svg></span></span>
+    </div>
+
+    <div class="legend">Available facets (selectable, no remove)</div>
+    <div class="chip-row">
+      <span class="chip" style="padding-right:12px;"><span class="cat">+</span>Add status</span>
+      <span class="chip" style="padding-right:12px;"><span class="cat">+</span>Add country</span>
+      <span class="chip" style="padding-right:12px;"><span class="cat">+</span>Add use case</span>
+      <span class="chip" style="padding-right:12px;"><span class="cat">+</span>Add company</span>
+      <span class="chip" style="padding-right:12px;"><span class="cat">+</span>Height · weight</span>
+      <span class="chip" style="padding-right:12px;"><span class="cat">+</span>DOF</span>
+    </div>
+  </section>
+
+  <!-- ===================== Footer ===================== -->
+  <footer class="foot">
+    <div>Humanoid Directory · Design System · v0.1 · 14 May 2026</div>
+    <div class="pill">Internal · Reference sheet</div>
+  </footer>
+
+</div>
+
+</body>
+</html>

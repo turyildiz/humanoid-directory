@@ -46,7 +46,23 @@ GitHub remote:
 - `origin`: `https://github.com/turyildiz/humanoid-directory.git`
 - Default branch: `main`
 
-The repo now contains static HTML frontend pages plus planning/context docs. It is not yet a Next.js/app-code implementation.
+The repo now contains:
+
+- Static HTML frontend pages from GitHub.
+- Clean production route copies for serving:
+  - `index.html`
+  - `robots/index.html`
+  - `companies/index.html`
+  - `robots/figure-02/index.html`
+  - `companies/figure-ai/index.html`
+  - `design-system/index.html`
+  - `components/robot-card/index.html`
+- Planning/context docs.
+- No-install scripts in `package.json`:
+  - `npm test`
+  - `npm run serve`
+
+It is not yet a Next.js/app-code implementation.
 
 A pre-import backup was created under `/home/hermes/backups/` before importing the frontend.
 

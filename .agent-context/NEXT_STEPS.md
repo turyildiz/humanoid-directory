@@ -32,17 +32,22 @@ Static HTML reference pages now available:
 
 ## Immediate priorities
 
-1. Review the imported static HTML frontend.
-   - Identify reusable visual system, sections, cards, typography, navigation, and data structures.
-   - Check whether any claims/specs in the HTML need source verification before publishing.
+1. Review/publish the current static frontend implementation.
+   - Production routes are available as static HTML.
+   - Run `npm test` to verify routed pages and links.
+   - Run `npm run serve` to preview locally on port `4173`.
 
-2. Decide implementation path.
-   - Option A: keep static HTML temporarily for visual review.
+2. Decide deployment path for the static site.
+   - It can be deployed as plain static HTML now.
+   - If using Cloudflare Pages/Vercel/static hosting, no package installation is required for the current version.
+
+3. Decide implementation path for the next iteration.
+   - Option A: keep static HTML temporarily and iterate content/design.
    - Option B: convert the HTML into a proper Next.js App Router project.
-   - Proposed production path remains: Next.js App Router + TypeScript + Tailwind + static seed data first.
+   - Proposed production app path remains: Next.js App Router + TypeScript + Tailwind + static seed data first.
    - Do not install/scaffold packages until Turgay explicitly confirms.
 
-3. Create first structured seed dataset.
+4. Create first structured seed dataset.
    - Start with 12 high-recognition humanoid robots.
    - Keep unknown values unknown.
    - Add sources for every factual claim.

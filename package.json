@@ -1,0 +1,10 @@
+{
+  "name": "humanoid-directory",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Static frontend prototype for Humanoid Directory.",
+  "scripts": {
+    "test": "python3 tests/static_site_check.py",
+    "serve": "python3 -m http.server 4173"
+  }
+}

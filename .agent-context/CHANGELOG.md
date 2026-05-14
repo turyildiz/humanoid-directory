@@ -1,5 +1,19 @@
 # Changelog — Humanoid Directory
 
+## 2026-05-14 — Static frontend implemented with production routes
+
+- Converted imported static HTML files into clean production routes:
+  - `/`
+  - `/robots/`
+  - `/companies/`
+  - `/robots/figure-02/`
+  - `/companies/figure-ai/`
+  - `/design-system/`
+  - `/components/robot-card/`
+- Added `package.json` with no-install scripts: `npm test` and `npm run serve`.
+- Added `tests/static_site_check.py` to verify routed pages, titles, and legacy filename links.
+- Verified all production routes return HTTP 200 locally via `python3 -m http.server`.
+
 ## 2026-05-14 — Static HTML frontend imported
 
 - Connected `/home/repos/humanoid-directory` to `https://github.com/turyildiz/humanoid-directory.git` on branch `main`.
