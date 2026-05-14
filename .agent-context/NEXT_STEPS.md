@@ -16,7 +16,7 @@ verified robot/company data
 
 ## Current implementation baseline
 
-The repo now contains a Next.js App Router application converted from the imported static HTML frontend.
+The repo now contains a Next.js App Router application whose live visual layer wraps the imported static HTML frontend files, so staging matches the original designs first. React-native data/filter rebuilds can happen after the visual baseline is preserved.
 
 Production routes:
 

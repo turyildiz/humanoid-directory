@@ -46,11 +46,11 @@ GitHub remote:
 - `origin`: `https://github.com/turyildiz/humanoid-directory.git`
 - Default branch: `main`
 
-The repo now contains a Cloudflare-first Next.js application:
+The repo now contains a Cloudflare-first Next.js application. The live/staging visual layer now uses the imported static HTML files as the design source of truth, wrapped by Next.js routes so the site matches the frontend Turgay provided:
 
 - Next.js App Router + TypeScript.
 - Cloudflare Pages-compatible static export via `next.config.mjs` with `output: 'export'`.
-- Premium data-driven public routes:
+- Imported HTML-backed public routes:
   - `/`
   - `/robots/`
   - `/robots/[slug]/`

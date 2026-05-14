@@ -1,5 +1,12 @@
 # Changelog — Humanoid Directory
 
+## 2026-05-14 — Staging visual layer realigned to imported HTML
+
+- Replaced the live Next.js route rendering for `/`, `/robots/`, `/companies/`, `/robots/figure-02/`, `/companies/figure-ai/`, `/design-system/`, and `/components/robot-card/` with wrappers around the imported static HTML files.
+- Removed the custom Next.js layout header/footer from those rendered pages so the supplied frontend design is the visible source of truth.
+- Rewrote legacy `.html` links inside the imported pages to clean app routes.
+- Verified `npm run build` and `npm test` pass after the visual realignment.
+
 ## 2026-05-14 — Next.js Cloudflare app scaffolded and implemented
 
 - Installed/scaffolded the confirmed Next.js stack: Next.js App Router, React, TypeScript, Tailwind/PostCSS tooling, ESLint config dependency.
