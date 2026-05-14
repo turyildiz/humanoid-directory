@@ -230,6 +230,25 @@ export const timelineEvents: TimelineEvent[] = [
   },
 
   {
+    id: 'engineai-founded',
+    date: '2023-10',
+    title: 'EngineAI established in Shenzhen',
+    summary: 'EngineAI says it was established in October 2023 in Shenzhen, with humanoid robot R&D, manufacturing, and scenario deployment as core business areas.',
+    robotSlugs: ['pm01'],
+    companySlugs: ['engineai'],
+    sourceIds: ['engineai-about'],
+  },
+  {
+    id: 'engineai-pm01-listed',
+    date: '2026',
+    title: 'EngineAI lists PM01 with public specs and purchase price',
+    summary: 'EngineAI’s PM01 product and purchase pages describe a lightweight, high-dynamic, open embodied humanoid platform and list PM01 at ¥188,000, while delivery/support details remain unclear.',
+    robotSlugs: ['pm01'],
+    companySlugs: ['engineai'],
+    sourceIds: ['engineai-pm01', 'engineai-purchase'],
+  },
+
+  {
     id: 'agility-digit-solutions-positioning',
     date: '2026',
     title: 'Agility positions Digit as a humanoid automation platform',

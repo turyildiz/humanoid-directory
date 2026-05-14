@@ -62,7 +62,11 @@ export const sources: Source[] = [
   { id: 'ubtech-humanoid-solutions', title: 'UBTECH humanoid robot industrial application solution', url: 'https://www.ubtrobot.com/en/humanoid/solutions', publisher: 'UBTECH Robotics', sourceType: 'company', accessedAt: '2026-05-14', reliability: 'primary' },
   { id: 'ubtech-company-profile', title: 'About UBTECH', url: 'https://www.ubtrobot.com/en/about/company-profile', publisher: 'UBTECH Robotics', sourceType: 'company', accessedAt: '2026-05-14', reliability: 'primary' },
   { id: 'ubtech-hkex-walker-s', title: 'As Walker S Strikes the Gong, UBTECH Robotics becomes the first humanoid robot company listed on the main board of the HKEX', url: 'https://www.ubtrobot.com/en/about/news/498762019606597', publisher: 'UBTECH Robotics', sourceType: 'press', publishedAt: '2023-12-30', accessedAt: '2026-05-14', reliability: 'primary' },
-  { id: 'engineai-pm01', title: 'EngineAI humanoid robots', url: 'https://www.engineai.com.cn/', publisher: 'EngineAI', sourceType: 'company' },
+  { id: 'engineai-home', title: 'EngineAI homepage', url: 'https://en.engineai.com.cn/', publisher: 'EngineAI', sourceType: 'company', accessedAt: '2026-05-14', reliability: 'primary' },
+  { id: 'engineai-pm01', title: 'PM01 open embodied intelligent agent', url: 'https://en.engineai.com.cn/product-pm01.html', publisher: 'EngineAI', sourceType: 'company', accessedAt: '2026-05-14', reliability: 'primary' },
+  { id: 'engineai-purchase', title: 'EngineAI product purchase page', url: 'https://en.engineai.com.cn/product-purchase.html', publisher: 'EngineAI', sourceType: 'company', accessedAt: '2026-05-14', reliability: 'primary' },
+  { id: 'engineai-about', title: 'About EngineAI', url: 'https://en.engineai.com.cn/about-us.html', publisher: 'EngineAI', sourceType: 'company', accessedAt: '2026-05-14', reliability: 'primary' },
+  { id: 'engineai-news', title: 'EngineAI media coverage and news', url: 'https://en.engineai.com.cn/about-news.html', publisher: 'EngineAI', sourceType: 'press', accessedAt: '2026-05-14', reliability: 'primary' },
 ];
 
 export function getSource(id: string) {

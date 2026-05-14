@@ -159,11 +159,19 @@ export const robots: Robot[] = [
     similarRobots: ['gr-1', 'unitree-g1', 'electric-atlas'],
   },
   {
-    slug: 'pm01', name: 'EngineAI PM01', companySlug: 'engineai', status: 'prototype', country: 'China', announcedYear: null,
-    availability: 'Company demonstrations / early platform', summary: 'PM01 is a humanoid robot from EngineAI.',
-    useCases: ['research', 'mobility demos', 'development'], capabilities: ['bipedal locomotion', 'humanoid platform development'],
-    specs: { heightCm: null, weightKg: null, payloadKg: null, batteryLifeHours: null, maxSpeedMps: null, degreesOfFreedom: null, locomotion: 'Bipedal', hands: 'Unknown' },
-    sources: ['engineai-pm01'], lastVerifiedAt: '2026-05-14'
+    slug: 'pm01', name: 'EngineAI PM01', companySlug: 'engineai', status: 'commercial', country: 'China', announcedYear: 2025,
+    availability: 'Official EngineAI product and purchase pages list PM01 as a lightweight, high-dynamic, fully open embodied intelligent agent with a posted ¥188,000 price; delivery terms, support geography, fleet scale, and independent customer usage remain undisclosed.',
+    summary: 'PM01 is EngineAI’s smaller open embodied humanoid platform, positioned around high-dynamic movement, secondary development, and a publicly listed purchase price.',
+    overview: 'EngineAI PM01 is a lightweight bipedal humanoid platform from Shenzhen-based EngineAI. Official EngineAI pages describe PM01 as a “lightweight, highly-dynamic, and fully-open embodied intelligent agent” with 138 cm height on the homepage, a product-page standing dimension of 1400 mm, 42–43 kg weight depending on configuration, 23–24 total degrees of freedom, >2 m/s hardware-supported movement speed, a 10000 mAh quick-release battery with about 2 hours runtime, and an education edition with two depth cameras and an NVIDIA Jetson Orin NX 16 GB module. The product page also emphasizes full-stack proprietary actuator design, up to 130 N·m peak torque / 130 N·m/kg peak torque density, low-level hardware interfaces, and code support for training and deployment. The purchase page lists PM01 at ¥188,000, but this profile stays cautious about delivery terms, geographic availability, routine customer evidence, and real-world support.',
+    useCases: ['research and education', 'embodied AI development', 'bipedal mobility demos', 'secondary development', 'robotics labs'],
+    capabilities: ['bipedal locomotion', 'high-dynamic movement', 'front-flip and dance demonstrations', '320° waist rotation', 'hardware-interface openness', 'training and deployment code support', 'depth-camera perception on education edition', 'NVIDIA Jetson Orin NX compute on education edition'],
+    specs: { heightCm: 140, weightKg: 43, payloadKg: null, batteryLifeHours: 2, maxSpeedMps: 2, degreesOfFreedom: 24, locomotion: 'Bipedal; EngineAI says PM01 supports >2 m/s hardware movement speed', hands: 'Humanoid arms with 5 DOF per arm; detailed hand/payload specs are not fully disclosed' },
+    sources: ['engineai-home', 'engineai-pm01', 'engineai-purchase', 'engineai-about', 'engineai-news'], lastVerifiedAt: '2026-05-14', featured: true,
+    seoTitle: 'EngineAI PM01 humanoid robot profile',
+    seoDescription: 'Source-backed profile of EngineAI PM01: public price, specs, openness claims, mobility demos, and known unknowns.',
+    statusConfidence: 'official',
+    verificationNotes: 'EngineAI official pages support the product listing, PM01 public price, and main technical specifications. The profile treats PM01 as commercially listed but keeps delivery, support geography, production volume, customer usage, and real-world reliability as unknown.',
+    similarRobots: ['unitree-g1', 'gr-1', 'walker-s'],
   },
 ];
 

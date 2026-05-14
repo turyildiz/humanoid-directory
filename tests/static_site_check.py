@@ -26,6 +26,7 @@ EXPECTED_PAGES = {
     "robots/electric-atlas/index.html": "Boston Dynamics Electric Atlas humanoid robot profile — Humanoid Directory",
     "robots/gr-1/index.html": "Fourier GR-1 humanoid robot profile — Humanoid Directory",
     "robots/walker-s/index.html": "UBTECH Walker S humanoid robot profile — Humanoid Directory",
+    "robots/pm01/index.html": "EngineAI PM01 humanoid robot profile — Humanoid Directory",
     "companies/tesla/index.html": "Tesla humanoid robotics profile — Humanoid Directory",
     "companies/unitree-robotics/index.html": "Unitree Robotics humanoid company profile — Humanoid Directory",
     "companies/agility-robotics/index.html": "Agility Robotics humanoid company profile — Humanoid Directory",
@@ -35,6 +36,7 @@ EXPECTED_PAGES = {
     "companies/boston-dynamics/index.html": "Boston Dynamics humanoid robotics company profile — Humanoid Directory",
     "companies/fourier-intelligence/index.html": "Fourier Intelligence humanoid robotics company profile — Humanoid Directory",
     "companies/ubtech-robotics/index.html": "UBTECH Robotics humanoid robotics company profile — Humanoid Directory",
+    "companies/engineai/index.html": "EngineAI humanoid robotics company profile — Humanoid Directory",
 }
 LEGACY_FILENAMES = [
     "Humanoid Directory - Homepage.html",
@@ -171,6 +173,16 @@ def main() -> None:
             fail("UBTECH company profile missing stage enrichment")
         if rel == "companies/ubtech-robotics/index.html" and "Hong Kong Stock Exchange" not in text:
             fail("UBTECH company profile missing HKEX/company context")
+        if rel == "robots/pm01/index.html" and "140 cm" not in text:
+            fail("PM01 profile missing official height spec")
+        if rel == "robots/pm01/index.html" and "¥188,000" not in text:
+            fail("PM01 profile missing official purchase price evidence")
+        if rel == "robots/pm01/index.html" and "NVIDIA Jetson Orin NX" not in text:
+            fail("PM01 profile missing education-edition compute evidence")
+        if rel == "companies/engineai/index.html" and "Commercially listed / early-stage humanoid robotics company" not in text:
+            fail("EngineAI company profile missing stage enrichment")
+        if rel == "companies/engineai/index.html" and "October 2023" not in text:
+            fail("EngineAI company profile missing founding context")
     for rel in REQUIRED_ASSETS:
         if not (OUT / rel).exists():
             fail(f"missing exported asset out/{rel}")

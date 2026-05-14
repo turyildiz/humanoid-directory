@@ -85,6 +85,8 @@ def main() -> None:
         fail("Fourier GR-1 profile must include Fourier official rollout/source evidence and public specs")
     if "ubtech-humanoid-solutions" not in robots_data or "heightCm: 170" not in robots_data or "degreesOfFreedom: 41" not in robots_data:
         fail("UBTECH Walker S profile must include official industrial-solution evidence and public specs")
+    if "engineai-purchase" not in robots_data or "heightCm: 140" not in robots_data or "degreesOfFreedom: 24" not in robots_data:
+        fail("EngineAI PM01 profile must include official purchase-page evidence and public specs")
     if re.search(r"Not publicly disclosed|Unknown|null", robots_data) is None:
         fail("robots data should preserve unknown values instead of inventing facts")
     articles_data = (ROOT / "src/data/articles.ts").read_text()

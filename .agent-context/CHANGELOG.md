@@ -1,5 +1,14 @@
 # Changelog — Humanoid Directory
 
+## 2026-05-14 — EngineAI PM01 and EngineAI profiles enriched
+
+- Enriched the EngineAI PM01 robot profile with official EngineAI source evidence, public ¥188,000 purchase-page pricing, product-page specs, 140 cm / 43 kg / 24 DOF / >2 m/s / ~2 hour battery details, NVIDIA Jetson Orin NX education-edition compute context, openness/secondary-development positioning, SEO metadata, and verification notes.
+- Added primary EngineAI source records for the English homepage, PM01 product page, product purchase page, About EngineAI page, and media/news page.
+- Expanded EngineAI company profile with Shenzhen/October 2023 founding context, PM01/SE01/T800/SA01/S2/JS01 product-family positioning, commercially listed stage wording, and cautious treatment of delivery, export, support, production-volume, and customer-usage unknowns.
+- Added EngineAI/PM01 timeline milestones and refreshed methodology/status/market-map article references.
+- Updated tests to verify PM01 and EngineAI enrichment appears in typed data and static export.
+- Verified `npm run build && npm test` and local routes for `/robots/pm01/` and `/companies/engineai/`.
+
 ## 2026-05-14 — UBTECH Walker S and UBTECH Robotics profiles enriched
 
 - Enriched the UBTECH Walker S robot profile with official UBTECH source evidence, Walker S/S1/S2 product-line context, industrial-solution cases, public 170 cm / 41 servo-joint details, ROSA 2.0 and perception/navigation capabilities, SEO metadata, cautious pilot/deployment-stage wording, and verification notes.
