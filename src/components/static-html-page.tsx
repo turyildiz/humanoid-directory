@@ -85,7 +85,33 @@ function rewriteKnownCards(html: string) {
   );
 }
 
-function renderDocumentFragment(html: string) {
+function sourceBackedFigureNote(page: HtmlKey) {
+  if (page === 'figure02') {
+    return `
+      <section class="source-backed-note" aria-label="Source-backed status update">
+        <p class="source-backed-eyebrow">Source-backed status update · 2026-05-14</p>
+        <h2>Figure 02 is now tracked as a retired / superseded pilot platform</h2>
+        <p>Figure’s own BMW deployment update says F.02 contributed to production of 30,000 cars at BMW Group Plant Spartanburg, then returned to Figure HQ as part of fleet-wide retirement. The visual page remains preserved as the imported design reference, while the directory data now treats Figure 02 as historically important deployment evidence rather than a currently available commercial product.</p>
+        <p class="source-backed-links"><a href="https://www.figure.ai/news/production-at-bmw">Figure BMW deployment update ↗</a> <a href="https://www.figure.ai/news/introducing-figure-03">Figure 03 announcement ↗</a></p>
+      </section>
+    `;
+  }
+
+  if (page === 'figureAi') {
+    return `
+      <section class="source-backed-note" aria-label="Source-backed company status update">
+        <p class="source-backed-eyebrow">Source-backed company update · 2026-05-14</p>
+        <h2>Figure AI profile aligned with Figure 03, Helix, BotQ, and F.02 retirement context</h2>
+        <p>Figure AI remains a leading humanoid robotics company, but the structured directory record now separates Figure 02 historical deployment evidence from the current Figure 03 / Helix program. Figure also says it exceeded $1B in committed Series C capital at a $39B post-money valuation in 2025.</p>
+        <p class="source-backed-links"><a href="https://www.figure.ai/news/series-c">Figure Series C release ↗</a> <a href="https://www.figure.ai/news/botq">BotQ manufacturing release ↗</a></p>
+      </section>
+    `;
+  }
+
+  return '';
+}
+
+function renderDocumentFragment(html: string, page: HtmlKey) {
   const head = extractTag(html, 'head');
   const body = extractTag(html, 'body');
   const styles = Array.from(head.matchAll(/<style[^>]*>[\s\S]*?<\/style>/gi)).map((match) => match[0]).join('\n');
@@ -103,7 +129,12 @@ function renderDocumentFragment(html: string) {
     .replaceAll('Humanoid Directory - Figure AI.html', '/companies/figure-ai/')
     .replaceAll('Humanoid Directory - Design System.html', '/design-system/')
     .replaceAll('Humanoid Directory - Robot Card.html', '/components/robot-card/');
-  return `${fontLinks}\n${styles}\n${safeBody}`;
+  const sourceNoteStyles = `
+    <style>
+      .source-backed-note{max-width:1180px;margin:32px auto 56px;padding:28px;border:1px solid rgba(148,163,184,.32);border-radius:28px;background:linear-gradient(135deg,rgba(15,23,42,.94),rgba(30,41,59,.9));color:#e5edf7;box-shadow:0 24px 80px rgba(15,23,42,.22);font-family:Inter,system-ui,sans-serif}.source-backed-note h2{margin:0 0 12px;font-size:clamp(1.4rem,2.2vw,2rem);letter-spacing:-.03em}.source-backed-note p{max-width:920px;line-height:1.7;color:#cbd5e1}.source-backed-eyebrow{margin:0 0 10px!important;text-transform:uppercase;letter-spacing:.14em;font-size:.74rem;color:#93c5fd!important}.source-backed-links{display:flex;gap:16px;flex-wrap:wrap;margin-top:18px!important}.source-backed-links a{color:#bfdbfe;text-decoration:none;border-bottom:1px solid rgba(191,219,254,.45)}
+    </style>
+  `;
+  return `${fontLinks}\n${styles}\n${sourceNoteStyles}\n${safeBody}\n${sourceBackedFigureNote(page)}`;
 }
 
 export function getStaticHtmlMetadata(key: HtmlKey) {
@@ -113,5 +144,5 @@ export function getStaticHtmlMetadata(key: HtmlKey) {
 
 export function StaticHtmlPage({ page }: { page: HtmlKey }) {
   const html = readFileSync(join(process.cwd(), htmlMap[page]), 'utf8');
-  return <div dangerouslySetInnerHTML={{ __html: renderDocumentFragment(html) }} />;
+  return <div dangerouslySetInnerHTML={{ __html: renderDocumentFragment(html, page) }} />;
 }

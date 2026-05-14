@@ -1,5 +1,15 @@
 # Changelog — Humanoid Directory
 
+## 2026-05-14 — Figure 02 and Figure AI source-backed alignment
+
+- Enriched Figure 02 typed data with Figure primary sources, BMW deployment evidence, Figure 03 supersession context, Helix/BotQ research and manufacturing context, cautious retired/superseded status, SEO metadata, and verification notes.
+- Added primary Figure source records for the homepage/news index, BMW production update, Helix, reinforcement-learning walking, BotQ, Series C, and Figure 03 announcement.
+- Expanded Figure AI company data with current Figure 03 / Helix direction, BotQ manufacturing context, Series C funding note, and separation between Figure 02 historical deployment evidence and current-generation work.
+- Preserved imported Figure 02 and Figure AI HTML visual pages while appending source-backed status update panels to resolve current-status drift without redesigning the pages.
+- Updated Figure timeline events and refreshed methodology/status/comparison/market-map article references.
+- Updated tests to verify Figure source-backed alignment appears in typed data and static output.
+- Verified `npm run build && npm test` and local staging routes for `/robots/figure-02/`, `/companies/figure-ai/`, and `/articles/current-status-of-figure-02/`.
+
 ## 2026-05-14 — Apptronik Apollo and Apptronik profiles enriched
 
 - Enriched the Apollo robot profile with official Apptronik source evidence, public specs, industrial/logistics use-case positioning, partner pilot/commercialization wording, cautious pilot-stage notes, SEO metadata, and related robots.

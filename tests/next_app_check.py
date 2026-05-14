@@ -73,6 +73,8 @@ def main() -> None:
         fail("Digit profile must include Agility solutions/workflow evidence")
     if "apptronik-mercedes" not in robots_data or "55 Lbs payload" not in robots_data:
         fail("Apollo profile must include Apptronik partner evidence and official public specs")
+    if "figure-bmw-production" not in robots_data or "fleet-wide retirement" not in robots_data:
+        fail("Figure 02 profile must include BMW deployment evidence and retirement/supersession context")
     if re.search(r"Not publicly disclosed|Unknown|null", robots_data) is None:
         fail("robots data should preserve unknown values instead of inventing facts")
     articles_data = (ROOT / "src/data/articles.ts").read_text()

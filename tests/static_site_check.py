@@ -93,6 +93,10 @@ def main() -> None:
             fail("out/articles/index.html missing article detail links")
         if rel == "articles/what-counts-as-a-humanoid-robot/index.html" and "/robots/figure-02/" not in parser.hrefs:
             fail("article page missing related robot links")
+        if rel == "robots/figure-02/index.html" and "fleet-wide retirement" not in text:
+            fail("Figure 02 page missing source-backed retirement/supersession update")
+        if rel == "companies/figure-ai/index.html" and "Figure 03 / Helix program" not in text:
+            fail("Figure AI page missing source-backed current-program update")
         if rel == "robots/optimus/index.html" and "no public commercial availability confirmed by Tesla" not in text:
             fail("Optimus profile missing cautious availability wording")
         if rel == "companies/tesla/index.html" and "Prototype program" not in text:
