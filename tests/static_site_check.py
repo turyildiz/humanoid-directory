@@ -1,19 +1,19 @@
 #!/usr/bin/env python3
-"""Static production site checks for Humanoid Directory."""
+"""Static export checks for the Cloudflare Pages build output."""
 from html.parser import HTMLParser
 from pathlib import Path
-import re
 import sys
 
 ROOT = Path(__file__).resolve().parents[1]
+OUT = ROOT / "out"
 EXPECTED_PAGES = {
     "index.html": "Humanoid Directory — The global directory of humanoid robots",
     "robots/index.html": "Humanoid Robots — Humanoid Directory",
     "companies/index.html": "Humanoid Robot Companies — Humanoid Directory",
     "robots/figure-02/index.html": "Figure 02 — Humanoid Directory",
     "companies/figure-ai/index.html": "Figure AI — Humanoid Directory",
-    "design-system/index.html": "Humanoid Directory — Design System",
-    "components/robot-card/index.html": "Humanoid Directory — Robot Card Component Sheet",
+    "about/index.html": "Methodology — Humanoid Directory",
+    "submit/index.html": "Submit a robot or update — Humanoid Directory",
 }
 LEGACY_FILENAMES = [
     "Humanoid Directory - Homepage.html",
@@ -24,7 +24,7 @@ LEGACY_FILENAMES = [
     "Humanoid Directory - Robot Card.html",
     "Humanoid Directory - Design System.html",
 ]
-REQUIRED_NAV_LINKS = ["/", "/robots/", "/companies/"]
+REQUIRED_ASSETS = ["robots.txt", "sitemap.xml"]
 
 class Parser(HTMLParser):
     def __init__(self):
@@ -34,49 +34,46 @@ class Parser(HTMLParser):
         self._in_title = False
     def handle_starttag(self, tag, attrs):
         attrs = dict(attrs)
-        if tag == "title":
-            self._in_title = True
-        if tag == "a" and "href" in attrs:
-            self.hrefs.append(attrs["href"])
+        if tag == "title": self._in_title = True
+        if tag == "a" and "href" in attrs: self.hrefs.append(attrs["href"])
     def handle_endtag(self, tag):
-        if tag == "title":
-            self._in_title = False
+        if tag == "title": self._in_title = False
     def handle_data(self, data):
-        if self._in_title:
-            self.titles.append(data.strip())
-
-def parse(path: Path) -> Parser:
-    p = Parser()
-    p.feed(path.read_text(encoding="utf-8"))
-    return p
+        if self._in_title: self.titles.append(data.strip())
 
 def fail(msg: str) -> None:
     print(f"FAIL: {msg}")
     sys.exit(1)
 
+def parse(path: Path) -> Parser:
+    parser = Parser()
+    parser.feed(path.read_text(encoding="utf-8"))
+    return parser
+
 def main() -> None:
+    if not OUT.exists():
+        fail("missing out/ directory; run npm run build first")
     for rel, expected_title in EXPECTED_PAGES.items():
-        path = ROOT / rel
+        path = OUT / rel
         if not path.exists():
-            fail(f"missing production page {rel}")
+            fail(f"missing exported page out/{rel}")
         text = path.read_text(encoding="utf-8")
         parser = parse(path)
         title = " ".join(t for t in parser.titles if t)
         if title != expected_title:
-            fail(f"{rel} title mismatch: {title!r}")
+            fail(f"out/{rel} title mismatch: {title!r}")
         for legacy in LEGACY_FILENAMES:
             if legacy in text:
-                fail(f"{rel} still links/references legacy filename {legacy!r}")
+                fail(f"out/{rel} still references legacy filename {legacy!r}")
         for href in parser.hrefs:
             if href.startswith("http") or href.startswith("#") or href.startswith("mailto:"):
                 continue
             if " " in href:
-                fail(f"{rel} has non-production href with spaces: {href!r}")
-    homepage_hrefs = parse(ROOT / "index.html").hrefs
-    for required in REQUIRED_NAV_LINKS:
-        if required not in homepage_hrefs:
-            fail(f"homepage missing nav link {required}")
-    print("OK: static site production checks passed")
+                fail(f"out/{rel} has non-production href with spaces: {href!r}")
+    for rel in REQUIRED_ASSETS:
+        if not (OUT / rel).exists():
+            fail(f"missing exported asset out/{rel}")
+    print("OK: static export checks passed")
 
 if __name__ == "__main__":
     main()

@@ -1,10 +1,29 @@
 {
   "name": "humanoid-directory",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "private": true,
-  "description": "Static frontend prototype for Humanoid Directory.",
+  "description": "Cloudflare-first Next.js directory for humanoid robots.",
   "scripts": {
-    "test": "python3 tests/static_site_check.py",
-    "serve": "python3 -m http.server 4173"
+    "dev": "next dev",
+    "build": "next build",
+    "start": "python3 -m http.server 4173 -d out",
+    "lint": "python3 tests/next_app_check.py",
+    "test": "python3 tests/next_app_check.py && python3 tests/static_site_check.py"
+  },
+  "dependencies": {
+    "next": "^16.0.10",
+    "react": "^19.2.1",
+    "react-dom": "^19.2.1"
+  },
+  "devDependencies": {
+    "@types/node": "^25.0.2",
+    "@types/react": "^19.2.7",
+    "@types/react-dom": "^19.2.3",
+    "autoprefixer": "^10.4.23",
+    "eslint": "^9.39.2",
+    "eslint-config-next": "^16.0.10",
+    "postcss": "^8.5.6",
+    "tailwindcss": "^4.1.18",
+    "typescript": "^5.9.3"
   }
 }

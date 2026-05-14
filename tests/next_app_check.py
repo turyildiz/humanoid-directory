@@ -1,0 +1,70 @@
+#!/usr/bin/env python3
+"""Project structure/data checks for the Next.js Cloudflare Humanoid Directory app."""
+from pathlib import Path
+import json
+import re
+import sys
+
+ROOT = Path(__file__).resolve().parents[1]
+REQUIRED_FILES = [
+    "next.config.mjs",
+    "tailwind.config.ts",
+    "postcss.config.mjs",
+    "src/app/layout.tsx",
+    "src/app/page.tsx",
+    "src/app/robots/page.tsx",
+    "src/app/robots/[slug]/page.tsx",
+    "src/app/companies/page.tsx",
+    "src/app/companies/[slug]/page.tsx",
+    "src/app/about/page.tsx",
+    "src/app/submit/page.tsx",
+    "src/app/sitemap.ts",
+    "src/app/robots.ts",
+    "src/components/site-header.tsx",
+    "src/components/site-footer.tsx",
+    "src/components/robot-card.tsx",
+    "src/components/company-card.tsx",
+    "src/components/status-badge.tsx",
+    "src/data/robots.ts",
+    "src/data/companies.ts",
+    "src/data/sources.ts",
+    "src/lib/types.ts",
+]
+
+
+def fail(message: str) -> None:
+    print(f"FAIL: {message}")
+    sys.exit(1)
+
+
+def main() -> None:
+    package_path = ROOT / "package.json"
+    if not package_path.exists():
+        fail("package.json missing")
+    package = json.loads(package_path.read_text())
+    scripts = package.get("scripts", {})
+    for script in ["dev", "build", "start", "lint", "test"]:
+        if script not in scripts:
+            fail(f"package.json missing script {script}")
+    for dep in ["next", "react", "react-dom"]:
+        if dep not in package.get("dependencies", {}):
+            fail(f"package.json missing dependency {dep}")
+    for rel in REQUIRED_FILES:
+        if not (ROOT / rel).exists():
+            fail(f"missing required file {rel}")
+    next_config = (ROOT / "next.config.mjs").read_text()
+    if "output: 'export'" not in next_config and 'output: "export"' not in next_config:
+        fail("next.config.mjs must use output: 'export' for Cloudflare Pages static export")
+    robots_data = (ROOT / "src/data/robots.ts").read_text()
+    robot_count = len(re.findall(r"slug:\s*['\"]", robots_data))
+    if robot_count < 12:
+        fail(f"expected at least 12 seed robots, found {robot_count}")
+    if "sources:" not in robots_data:
+        fail("robots data must include sources references")
+    if re.search(r"Not publicly disclosed|Unknown|null", robots_data) is None:
+        fail("robots data should preserve unknown values instead of inventing facts")
+    print("OK: Next.js Cloudflare app checks passed")
+
+
+if __name__ == "__main__":
+    main()

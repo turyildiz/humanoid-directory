@@ -1,5 +1,16 @@
 # Changelog — Humanoid Directory
 
+## 2026-05-14 — Next.js Cloudflare app scaffolded and implemented
+
+- Installed/scaffolded the confirmed Next.js stack: Next.js App Router, React, TypeScript, Tailwind/PostCSS tooling, ESLint config dependency.
+- Converted the imported static HTML design into a real data-driven Next.js app under `src/`.
+- Added Cloudflare Pages static export config with `output: 'export'` and output directory `out/`.
+- Added public routes for homepage, robot directory, robot profiles, company directory, company profiles, methodology, and submit placeholder.
+- Added typed seed data for 12 humanoid robots, companies, and sources.
+- Added generated `sitemap.xml` and `robots.txt` metadata routes.
+- Added tests for app structure/data and static export output.
+- Verified `npm run build`, `npm test`, and local HTTP serving of exported routes.
+
 ## 2026-05-14 — Cloudflare-first stack decision recorded
 
 - Decided Humanoid Directory should be a Cloudflare-first project.

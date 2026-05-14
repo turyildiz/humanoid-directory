@@ -4,11 +4,9 @@ Last updated: 2026-05-14 by Hermes/Gonzo.
 
 ## Current priority
 
-Website first.
+Deploy the Cloudflare-first Next.js MVP, then improve verified source-backed data.
 
-Turgay clarified: build the Humanoid Directory website before expanding social account operations.
-
-Social remains part of the broader plan, but it is downstream of the website:
+The operating sequence remains:
 
 ```text
 verified robot/company data
@@ -16,55 +14,56 @@ verified robot/company data
 → social posts/newsletter
 ```
 
-## Current frontend baseline
+## Current implementation baseline
 
-The GitHub frontend has been imported into `/home/repos/humanoid-directory` without deleting the existing planning/context files.
+The repo now contains a Next.js App Router application converted from the imported static HTML frontend.
 
-Static HTML reference pages now available:
+Production routes:
 
-1. `Humanoid Directory - Homepage.html`
-2. `Humanoid Directory - Robots.html`
-3. `Humanoid Directory - Companies.html`
-4. `Humanoid Directory - Figure 02.html`
-5. `Humanoid Directory - Figure AI.html`
-6. `Humanoid Directory - Robot Card.html`
-7. `Humanoid Directory - Design System.html`
+1. `/`
+2. `/robots/`
+3. `/robots/[slug]/`
+4. `/companies/`
+5. `/companies/[slug]/`
+6. `/about/`
+7. `/submit/`
+8. `/sitemap.xml`
+9. `/robots.txt`
+
+Stack:
+
+- Next.js App Router
+- TypeScript
+- Tailwind dependency installed; current visual system is implemented in `src/app/globals.css`
+- Static export for Cloudflare Pages
+- Local typed TS data in `src/data/`
 
 ## Immediate priorities
 
-1. Review/publish the current static frontend implementation.
-   - Production routes are available as static HTML.
-   - Run `npm test` to verify routed pages and links.
-   - Run `npm run serve` to preview locally on port `4173`.
+1. Deploy to Cloudflare Pages.
+   - Build command: `npm run build`
+   - Output directory: `out`
+   - Production branch: `main`
 
-2. Decide deployment path for the static site.
-   - It can be deployed as plain static HTML now.
-   - If using Cloudflare Pages/Vercel/static hosting, no package installation is required for the current version.
+2. Connect `humanoid.directory` DNS in Cloudflare.
+   - Point the domain to the Cloudflare Pages project.
+   - Enable SSL and Cloudflare Web Analytics.
 
-3. Decide implementation path for the next iteration.
-   - Option A: keep static HTML temporarily and iterate content/design.
-   - Option B: convert the HTML into a proper Next.js App Router project.
-   - Proposed production app path remains: Next.js App Router + TypeScript + Tailwind + static seed data first.
-   - Do not install/scaffold packages until Turgay explicitly confirms.
+3. Improve the first data/content layer.
+   - Verify and refine the 12 seed robot profiles.
+   - Add stronger source notes for every spec/claim.
+   - Expand toward 20 high-quality profiles before broader launch.
 
-4. Create first structured seed dataset.
-   - Start with 12 high-recognition humanoid robots.
-   - Keep unknown values unknown.
-   - Add sources for every factual claim.
+4. Add launch-critical polish.
+   - More complete methodology/about page.
+   - Better submit/update flow; later Cloudflare Pages Function + Turnstile.
+   - Open Graph image and richer structured data.
+   - Lighthouse/mobile polish.
 
-4. Build first visible MVP.
-   - Homepage
-   - Robot directory
-   - Robot detail pages
-   - Company directory
-   - Company detail pages
-   - About/methodology
-   - Submit/update placeholder
-   - SEO metadata and sitemap
-
-5. Then resume content/social expansion.
-   - Turgay's robotics account list becomes source monitoring input.
-   - Social posts should point back to website pages/articles.
+5. Later: Cloudflare backend layer.
+   - D1 for database/admin if needed.
+   - R2 for approved robot/company media.
+   - Workers/Pages Functions for submissions/admin APIs.
 
 ## First seed robot list
 
@@ -81,21 +80,17 @@ Static HTML reference pages now available:
 11. UBTECH Walker S
 12. EngineAI PM01
 
-Note: Verify/refine the seed list before turning it into structured data.
+## Verification commands
 
-## Needed from Turgay next
-
-If converting the static HTML into a Next.js application, get explicit confirmation before any package install/scaffolding.
-
-Safe next command from Turgay:
-
-```text
-Confirmed, convert the Humanoid Directory HTML frontend into a Next.js app.
+```bash
+npm run build
+npm test
+npm start
 ```
 
-Optional but helpful:
+## Notes
 
-- Preferred deployment target: Vercel, Cloudflare Pages, VPS, etc.
-- Whether public brand/domain copy should be exactly `Humanoid Directory` / `humanoid.directory`.
-
-Do not send API keys, passwords, or social account credentials in chat.
+- Keep unknown values unknown; do not invent specs.
+- Every factual claim should have a source or be marked unknown/unverified.
+- Original static HTML files remain as design references but production implementation now lives under `src/`.
+- npm audit currently reports moderate advisories through Next's nested PostCSS dependency; the suggested fix is an invalid major downgrade, so do not apply `npm audit fix --force` blindly.

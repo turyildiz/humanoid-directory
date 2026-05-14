@@ -1,0 +1,91 @@
+import type { Robot } from '@/lib/types';
+
+export const robots: Robot[] = [
+  {
+    slug: 'optimus', name: 'Tesla Optimus', companySlug: 'tesla', generation: 'Gen 2', status: 'prototype', country: 'United States', announcedYear: 2021,
+    availability: 'Prototype / company demonstrations', summary: 'Tesla Optimus is a general-purpose humanoid robot program connected to Tesla AI, autonomy, and manufacturing work.',
+    useCases: ['manufacturing', 'general purpose', 'logistics'], capabilities: ['bipedal locomotion', 'object handling', 'AI-driven autonomy'],
+    specs: { heightCm: null, weightKg: null, payloadKg: null, batteryLifeHours: null, maxSpeedMps: null, degreesOfFreedom: null, locomotion: 'Bipedal', hands: 'Dexterous hands shown in demos' },
+    sources: ['tesla-optimus'], lastVerifiedAt: '2026-05-14', featured: true,
+  },
+  {
+    slug: 'figure-02', name: 'Figure 02', companySlug: 'figure-ai', generation: '02', status: 'pilot', country: 'United States', announcedYear: 2024,
+    availability: 'Pilot deployments / company demonstrations', summary: 'Figure 02 is Figure AI’s second-generation humanoid robot for real-world labor automation.',
+    useCases: ['manufacturing', 'logistics'], capabilities: ['bipedal locomotion', 'manipulation', 'speech interaction'],
+    specs: { heightCm: null, weightKg: null, payloadKg: null, batteryLifeHours: null, maxSpeedMps: null, degreesOfFreedom: null, locomotion: 'Bipedal', hands: 'Human-like hands' },
+    sources: ['figure-02'], lastVerifiedAt: '2026-05-14', featured: true,
+  },
+  {
+    slug: 'unitree-g1', name: 'Unitree G1', companySlug: 'unitree-robotics', status: 'commercial', country: 'China', announcedYear: 2024,
+    availability: 'Commercially listed by manufacturer', summary: 'Unitree G1 is a compact humanoid platform from Unitree Robotics.',
+    useCases: ['research', 'education', 'development'], capabilities: ['bipedal locomotion', 'whole-body control'],
+    specs: { heightCm: null, weightKg: null, payloadKg: null, batteryLifeHours: null, maxSpeedMps: null, degreesOfFreedom: null, locomotion: 'Bipedal', hands: 'Optional / configuration-dependent' },
+    sources: ['unitree-g1'], lastVerifiedAt: '2026-05-14', featured: true,
+  },
+  {
+    slug: 'unitree-h1', name: 'Unitree H1', companySlug: 'unitree-robotics', status: 'commercial', country: 'China', announcedYear: null,
+    availability: 'Commercially listed by manufacturer', summary: 'Unitree H1 is a full-size humanoid robot platform from Unitree Robotics.',
+    useCases: ['research', 'industrial R&D', 'mobility demos'], capabilities: ['bipedal locomotion', 'dynamic movement'],
+    specs: { heightCm: null, weightKg: null, payloadKg: null, batteryLifeHours: null, maxSpeedMps: null, degreesOfFreedom: null, locomotion: 'Bipedal', hands: 'Not publicly disclosed' },
+    sources: ['unitree-h1'], lastVerifiedAt: '2026-05-14', featured: true,
+  },
+  {
+    slug: 'digit', name: 'Digit', companySlug: 'agility-robotics', status: 'pilot', country: 'United States', announcedYear: null,
+    availability: 'Commercial pilots / deployments reported by company', summary: 'Digit is a bipedal humanoid-style robot designed for logistics and warehouse workflows.',
+    useCases: ['logistics', 'warehouse automation'], capabilities: ['bipedal locomotion', 'tote handling'],
+    specs: { heightCm: null, weightKg: null, payloadKg: null, batteryLifeHours: null, maxSpeedMps: null, degreesOfFreedom: null, locomotion: 'Bipedal', hands: 'End effectors for material handling' },
+    sources: ['agility-digit'], lastVerifiedAt: '2026-05-14', featured: true,
+  },
+  {
+    slug: 'apollo', name: 'Apollo', companySlug: 'apptronik', status: 'pilot', country: 'United States', announcedYear: 2023,
+    availability: 'Company demonstrations / partner pilots', summary: 'Apollo is Apptronik’s humanoid robot for industrial and logistics work.',
+    useCases: ['manufacturing', 'logistics', 'industrial work'], capabilities: ['bipedal locomotion', 'modular payload work', 'human-centered design'],
+    specs: { heightCm: null, weightKg: null, payloadKg: null, batteryLifeHours: null, maxSpeedMps: null, degreesOfFreedom: null, locomotion: 'Bipedal', hands: 'Not publicly disclosed' },
+    sources: ['apptronik-apollo'], lastVerifiedAt: '2026-05-14', featured: true,
+  },
+  {
+    slug: 'neo', name: '1X NEO', companySlug: '1x-technologies', status: 'prototype', country: 'Norway / United States', announcedYear: null,
+    availability: 'Company demonstrations / early access messaging', summary: 'NEO is 1X Technologies’ humanoid robot aimed at assistance and embodied AI applications.',
+    useCases: ['home assistance', 'general purpose'], capabilities: ['bipedal locomotion', 'assistance tasks', 'AI interaction'],
+    specs: { heightCm: null, weightKg: null, payloadKg: null, batteryLifeHours: null, maxSpeedMps: null, degreesOfFreedom: null, locomotion: 'Bipedal', hands: 'Human-like hands shown in company material' },
+    sources: ['1x-neo'], lastVerifiedAt: '2026-05-14'
+  },
+  {
+    slug: 'phoenix', name: 'Sanctuary AI Phoenix', companySlug: 'sanctuary-ai', status: 'pilot', country: 'Canada', announcedYear: null,
+    availability: 'Company demonstrations / pilots', summary: 'Phoenix is Sanctuary AI’s general-purpose humanoid robot platform.',
+    useCases: ['general purpose', 'industrial tasks', 'retail tasks'], capabilities: ['dexterous manipulation', 'teleoperation/autonomy mix', 'task learning'],
+    specs: { heightCm: null, weightKg: null, payloadKg: null, batteryLifeHours: null, maxSpeedMps: null, degreesOfFreedom: null, locomotion: 'Bipedal / platform-dependent', hands: 'Dexterous hands' },
+    sources: ['sanctuary-phoenix'], lastVerifiedAt: '2026-05-14'
+  },
+  {
+    slug: 'electric-atlas', name: 'Boston Dynamics Electric Atlas', companySlug: 'boston-dynamics', status: 'prototype', country: 'United States', announcedYear: 2024,
+    availability: 'Prototype / company demonstrations', summary: 'Electric Atlas is Boston Dynamics’ all-electric humanoid robot platform.',
+    useCases: ['research', 'industrial R&D', 'mobility'], capabilities: ['dynamic mobility', 'whole-body motion', 'manipulation R&D'],
+    specs: { heightCm: null, weightKg: null, payloadKg: null, batteryLifeHours: null, maxSpeedMps: null, degreesOfFreedom: null, locomotion: 'Bipedal', hands: 'Not publicly disclosed' },
+    sources: ['boston-atlas'], lastVerifiedAt: '2026-05-14'
+  },
+  {
+    slug: 'gr-1', name: 'Fourier GR-1', companySlug: 'fourier-intelligence', status: 'prototype', country: 'China', announcedYear: null,
+    availability: 'Company demonstrations / platform development', summary: 'GR-1 is Fourier Intelligence’s humanoid robot platform.',
+    useCases: ['research', 'rehabilitation-adjacent R&D', 'general purpose'], capabilities: ['bipedal locomotion', 'humanoid platform development'],
+    specs: { heightCm: null, weightKg: null, payloadKg: null, batteryLifeHours: null, maxSpeedMps: null, degreesOfFreedom: null, locomotion: 'Bipedal', hands: 'Not publicly disclosed' },
+    sources: ['fourier-gr1'], lastVerifiedAt: '2026-05-14'
+  },
+  {
+    slug: 'walker-s', name: 'UBTECH Walker S', companySlug: 'ubtech-robotics', status: 'pilot', country: 'China', announcedYear: null,
+    availability: 'Company demonstrations / industrial pilot messaging', summary: 'Walker S is UBTECH’s humanoid robot platform for service and industrial scenarios.',
+    useCases: ['industrial pilots', 'service robotics'], capabilities: ['bipedal locomotion', 'task demonstrations'],
+    specs: { heightCm: null, weightKg: null, payloadKg: null, batteryLifeHours: null, maxSpeedMps: null, degreesOfFreedom: null, locomotion: 'Bipedal', hands: 'Not publicly disclosed' },
+    sources: ['ubtech-walker'], lastVerifiedAt: '2026-05-14'
+  },
+  {
+    slug: 'pm01', name: 'EngineAI PM01', companySlug: 'engineai', status: 'prototype', country: 'China', announcedYear: null,
+    availability: 'Company demonstrations / early platform', summary: 'PM01 is a humanoid robot from EngineAI.',
+    useCases: ['research', 'mobility demos', 'development'], capabilities: ['bipedal locomotion', 'humanoid platform development'],
+    specs: { heightCm: null, weightKg: null, payloadKg: null, batteryLifeHours: null, maxSpeedMps: null, degreesOfFreedom: null, locomotion: 'Bipedal', hands: 'Unknown' },
+    sources: ['engineai-pm01'], lastVerifiedAt: '2026-05-14'
+  },
+];
+
+export function getRobot(slug: string) { return robots.find((robot) => robot.slug === slug); }
+export const featuredRobots = robots.filter((robot) => robot.featured);
