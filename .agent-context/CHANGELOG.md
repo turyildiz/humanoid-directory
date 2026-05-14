@@ -1,5 +1,14 @@
 # Changelog — Humanoid Directory
 
+## 2026-05-14 — Sanctuary AI Phoenix and Sanctuary AI profiles enriched
+
+- Enriched the Phoenix robot profile with official Sanctuary source evidence, Gen 8 Phoenix context, Carbon AI positioning, tactile-sensor and hydraulic-hand manipulation evidence, Magna partnership context, Microsoft/Hannover Messe demo evidence, cautious pilot/commercialization wording, SEO metadata, and verification notes.
+- Added primary Sanctuary source records for the homepage, technology page, Gen 8 Phoenix release, touch-sensor update, hydraulic-hand reinforcement-learning update, Magna partnership, and Microsoft/Messe demo post.
+- Expanded Sanctuary AI company profile with Vancouver/founding context, industrial humanoid strategy, Carbon AI focus, dexterous manipulation emphasis, and stage/program notes.
+- Added Sanctuary/Phoenix timeline milestones and refreshed methodology/status/market-map article references.
+- Updated tests to verify Phoenix and Sanctuary enrichment appears in typed data and static export.
+- Verified `npm run build && npm test` and local routes for `/robots/phoenix/` and `/companies/sanctuary-ai/`.
+
 ## 2026-05-14 — 1X NEO and 1X Technologies profiles enriched
 
 - Enriched the 1X NEO robot profile with official 1X source evidence, public home-robot order terms, public hardware specs, Redwood AI context, scheduled Expert Mode caveats, SEO metadata, verification notes, and related robots.

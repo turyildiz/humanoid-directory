@@ -22,11 +22,13 @@ EXPECTED_PAGES = {
     "robots/digit/index.html": "Agility Robotics Digit humanoid robot profile — Humanoid Directory",
     "robots/apollo/index.html": "Apptronik Apollo humanoid robot profile — Humanoid Directory",
     "robots/neo/index.html": "1X NEO humanoid robot profile — Humanoid Directory",
+    "robots/phoenix/index.html": "Sanctuary AI Phoenix humanoid robot profile — Humanoid Directory",
     "companies/tesla/index.html": "Tesla humanoid robotics profile — Humanoid Directory",
     "companies/unitree-robotics/index.html": "Unitree Robotics humanoid company profile — Humanoid Directory",
     "companies/agility-robotics/index.html": "Agility Robotics humanoid company profile — Humanoid Directory",
     "companies/apptronik/index.html": "Apptronik humanoid robotics company profile — Humanoid Directory",
     "companies/1x-technologies/index.html": "1X Technologies humanoid robotics company profile — Humanoid Directory",
+    "companies/sanctuary-ai/index.html": "Sanctuary AI humanoid robotics company profile — Humanoid Directory",
 }
 LEGACY_FILENAMES = [
     "Humanoid Directory - Homepage.html",
@@ -123,6 +125,16 @@ def main() -> None:
             fail("1X NEO profile missing early-autonomy/remote-supervision caveat")
         if rel == "companies/1x-technologies/index.html" and "Commercial pre-order / early-access home humanoid program" not in text:
             fail("1X company profile missing stage enrichment")
+        if rel == "robots/phoenix/index.html" and "Gen 8 Phoenix" not in text:
+            fail("Phoenix profile missing Gen 8 source-backed evidence")
+        if rel == "robots/phoenix/index.html" and "21 degrees of freedom dexterous robotic hands" not in text:
+            fail("Phoenix profile missing dexterous-hand evidence")
+        if rel == "robots/phoenix/index.html" and "Magna" not in text:
+            fail("Phoenix profile missing Magna partnership evidence")
+        if rel == "companies/sanctuary-ai/index.html" and "Carbon AI control system" not in text:
+            fail("Sanctuary company profile missing Carbon AI context")
+        if rel == "companies/sanctuary-ai/index.html" and "Pilot and commercialization-stage industrial humanoid program" not in text:
+            fail("Sanctuary company profile missing stage enrichment")
     for rel in REQUIRED_ASSETS:
         if not (OUT / rel).exists():
             fail(f"missing exported asset out/{rel}")

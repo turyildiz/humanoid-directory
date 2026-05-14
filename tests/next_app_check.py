@@ -77,6 +77,8 @@ def main() -> None:
         fail("Figure 02 profile must include BMW deployment evidence and retirement/supersession context")
     if "1x-order" not in robots_data or "$499/month subscription" not in robots_data or "scheduled Expert Mode" not in robots_data:
         fail("1X NEO profile must include official order terms and early-autonomy caveats")
+    if "sanctuary-phoenix-gen8" not in robots_data or "21 degrees of freedom dexterous robotic hands" not in robots_data:
+        fail("Phoenix profile must include Sanctuary Gen 8 and dexterous-hand evidence")
     if re.search(r"Not publicly disclosed|Unknown|null", robots_data) is None:
         fail("robots data should preserve unknown values instead of inventing facts")
     articles_data = (ROOT / "src/data/articles.ts").read_text()
