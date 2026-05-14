@@ -30,6 +30,40 @@ After meaningful work, update:
 - `.agent-context/NEXT_STEPS.md` if priorities changed
 - `.agent-context/DECISIONS.md` if a decision was locked in
 
+## Agent workflow
+
+Use this sequence for meaningful work on Humanoid Directory:
+
+1. **Context first**
+   - Read the required context files listed above.
+   - Check `git status --short` and the latest commit before editing.
+   - Load the `owned-directory-product-ops` skill for product/content work.
+   - Load relevant implementation skills for code, Cloudflare/static export, debugging, or social/source monitoring.
+
+2. **Preserve visual source of truth**
+   - The imported static HTML files remain the visible design source of truth unless Turgay explicitly approves a redesign.
+   - When adding features, prefer additive routes/data/components over replacing supplied visual pages.
+   - If migrating an imported page to React, preserve visual parity section-by-section and verify links/cards still work.
+
+3. **Source-backed content loop**
+   - Pick the next item from `content-backlog.csv` or `.agent-context/NEXT_STEPS.md`.
+   - Gather primary/credible sources before writing claims.
+   - Update typed data in `src/data/` and add article/profile content only when claims are sourced or uncertainty-labeled.
+   - Add internal links between articles, robots, companies, and methodology pages.
+
+4. **Implementation loop**
+   - Make small, coherent changes.
+   - Update tests when routes/data/content expectations change.
+   - Run `npm run build && npm test` for code/content route changes.
+   - For staging-facing changes, verify local/public routes when possible.
+
+5. **Documentation and handoff**
+   - Update `.agent-context/CHANGELOG.md` after meaningful work.
+   - Update `.agent-context/CURRENT_STATE.md` if implementation reality changed.
+   - Update `.agent-context/NEXT_STEPS.md` if priorities changed.
+   - Commit and push finished coherent changes to `main`.
+   - Tell Turgay what changed, why it matters, what was verified, and the next recommended step.
+
 ## Content standards
 
 - Every factual robot/company claim should be source-backed or marked unknown/unverified.

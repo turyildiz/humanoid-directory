@@ -1,5 +1,10 @@
 # Changelog — Humanoid Directory
 
+## 2026-05-14 — Agent workflow updated
+
+- Added an explicit agent workflow to `AGENTS.md` covering context loading, git checks, skill usage, visual parity preservation, source-backed content production, implementation/testing, docs updates, commit/push, and concise handoff expectations.
+- Clarified that imported static HTML remains the visual source of truth unless Turgay explicitly approves a redesign.
+
 ## 2026-05-14 — Articles and data-driven content profiles added
 
 - Added `src/data/articles.ts` with five initial source-backed editorial pieces.
