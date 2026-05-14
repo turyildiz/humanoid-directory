@@ -1,5 +1,12 @@
 # Changelog — Humanoid Directory
 
+## 2026-05-14 — Content production plan started
+
+- Added `docs-content-production-plan.md` with editorial standards, first sprint priorities, profile/article targets, data model improvements, and launch content quality bar.
+- Added `content-backlog.csv` with Tier 1 robot/company/profile/article production queue.
+- Content direction: source-backed directory first, then articles/social/newsletter derived from verified website content.
+
+
 ## 2026-05-14 — Featured cards linked to profile pages
 
 - Converted known imported card blocks into clickable card links while preserving the imported visual design.

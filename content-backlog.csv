@@ -1,0 +1,32 @@
+type,priority,slug,name,company_or_parent,status,content_state,next_action
+robot,1,figure-02,Figure 02,Figure AI,pilot,visual profile exists,Verify and enrich all specs/timeline/source claims
+robot,1,optimus,Tesla Optimus,Tesla,prototype,seed data only,Create full profile matching Figure 02 template
+robot,1,unitree-g1,Unitree G1,Unitree Robotics,commercial,seed data only,Verify specs and create full profile
+robot,1,unitree-h1,Unitree H1,Unitree Robotics,commercial,seed data only,Verify specs and create full profile
+robot,1,digit,Digit,Agility Robotics,pilot,seed data only,Verify deployment/customer claims and create full profile
+robot,1,apollo,Apollo,Apptronik,pilot,seed data only,Verify specs/partner claims and create full profile
+robot,1,neo,NEO,1X Technologies,prototype,seed data only,Verify status and create full profile
+robot,1,phoenix,Phoenix,Sanctuary AI,pilot,seed data only,Verify capabilities/status and create full profile
+robot,1,electric-atlas,Electric Atlas,Boston Dynamics,prototype,seed data only,Verify launch/demo sources and create full profile
+robot,1,gr-1,GR-1,Fourier Intelligence,prototype,seed data only,Verify specs and create full profile
+robot,1,walker-s,Walker S,UBTECH Robotics,pilot,seed data only,Verify industrial pilot claims and create full profile
+robot,1,pm01,PM01,EngineAI,prototype,seed data only,Verify official product/source details and create full profile
+robot,2,figure-01,Figure 01,Figure AI,discontinued or predecessor candidate,not added,Research and add as predecessor profile
+robot,2,eve,EVE,1X Technologies,prototype or pilot candidate,not added,Research current status and add profile
+robot,2,talos,TALOS,PAL Robotics,research/commercial platform candidate,not added,Research and add if fits humanoid criteria
+company,1,figure-ai,Figure AI,,active,visual profile exists,Verify and enrich company timeline/source claims
+company,1,tesla,Tesla,,active,seed data only,Create humanoid robotics company profile focused on Optimus
+company,1,unitree-robotics,Unitree Robotics,,active,seed data only,Create company profile with G1/H1 links
+company,1,agility-robotics,Agility Robotics,,active,seed data only,Create company profile with Digit deployment evidence
+company,1,apptronik,Apptronik,,active,seed data only,Create company profile with Apollo evidence
+company,1,1x-technologies,1X Technologies,,active,seed data only,Create company profile with NEO/EVE evidence
+company,1,sanctuary-ai,Sanctuary AI,,active,seed data only,Create company profile with Phoenix evidence
+company,1,boston-dynamics,Boston Dynamics,,active,seed data only,Create company profile with Atlas evidence
+company,1,fourier-intelligence,Fourier Intelligence,,active,seed data only,Create company profile with GR-1 evidence
+company,1,ubtech-robotics,UBTECH Robotics,,active,seed data only,Create company profile with Walker evidence
+company,1,engineai,EngineAI,,active,seed data only,Create company profile with PM01 evidence
+article,1,what-counts-as-a-humanoid-robot,What counts as a humanoid robot?,,draft needed,not added,Draft methodology/definition article
+article,1,current-status-of-figure-02,The current status of Figure 02,,draft needed,not added,Draft source-backed Figure 02 article
+article,1,tesla-optimus-vs-figure-02,Tesla Optimus vs Figure 02: what is actually known?,,draft needed,not added,Draft comparison with unknowns clearly labeled
+article,1,status-labels-explained,Commercial vs pilot vs prototype: status labels explained,,draft needed,not added,Draft taxonomy article
+article,1,humanoid-robot-companies-to-watch,Humanoid robot companies to watch,,draft needed,not added,Draft Tier 1 company overview
