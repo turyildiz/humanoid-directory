@@ -49,11 +49,20 @@ export const timelineEvents: TimelineEvent[] = [
   {
     id: 'unitree-g1-listed',
     date: '2024',
-    title: 'Unitree G1 listed as a humanoid platform',
-    summary: 'Unitree Robotics publicly listed G1 as a compact humanoid platform.',
+    title: 'Unitree G1 listed as a compact humanoid platform',
+    summary: 'Unitree Robotics publicly listed G1 with product-page parameters, price-from messaging, and commercial positioning for education, research, and development use.',
     robotSlugs: ['unitree-g1'],
     companySlugs: ['unitree-robotics'],
     sourceIds: ['unitree-g1'],
+  },
+  {
+    id: 'unitree-g1-shop-listing',
+    date: '2024',
+    title: 'Unitree G1 appears in official shop',
+    summary: 'The official Unitree shop lists G1 for purchase, supporting a commercial status label while configuration and availability still require current purchase-time verification.',
+    robotSlugs: ['unitree-g1'],
+    companySlugs: ['unitree-robotics'],
+    sourceIds: ['unitree-g1-shop'],
   },
   {
     id: 'boston-electric-atlas',

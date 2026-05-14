@@ -1,5 +1,14 @@
 # Changelog — Humanoid Directory
 
+## 2026-05-14 — Unitree G1 and Unitree Robotics profiles enriched
+
+- Enriched the Unitree G1 robot profile with official commercial-listing evidence, public product-page specs, cautious configuration notes, SEO metadata, related robots, and verification notes.
+- Added primary Unitree source records for the homepage, G1 product page, G1 shop listing, and H1 product page.
+- Expanded Unitree Robotics company profile with humanoid-specific overview, stage, focus areas, and commercial-listing caveats.
+- Added Unitree/G1 timeline milestones and updated methodology/market-map article source references.
+- Updated tests to verify Unitree enrichment appears in static export.
+- Verified `npm run build && npm test` and local staging routes for `/robots/unitree-g1/` and `/companies/unitree-robotics/`.
+
 ## 2026-05-14 — Tesla Optimus and Tesla profiles enriched
 
 - Enriched the Tesla Optimus robot profile with a fuller source-backed overview, cautious availability wording, verification notes, SEO metadata, and related robots.

@@ -18,7 +18,9 @@ EXPECTED_PAGES = {
     "articles/what-counts-as-a-humanoid-robot/index.html": "What counts as a humanoid robot? — Humanoid Directory",
     "articles/current-status-of-figure-02/index.html": "The current status of Figure 02 — Humanoid Directory",
     "robots/optimus/index.html": "Tesla Optimus humanoid robot profile — Humanoid Directory",
+    "robots/unitree-g1/index.html": "Unitree G1 humanoid robot profile — Humanoid Directory",
     "companies/tesla/index.html": "Tesla humanoid robotics profile — Humanoid Directory",
+    "companies/unitree-robotics/index.html": "Unitree Robotics humanoid company profile — Humanoid Directory",
 }
 LEGACY_FILENAMES = [
     "Humanoid Directory - Homepage.html",
@@ -91,6 +93,10 @@ def main() -> None:
             fail("Optimus profile missing cautious availability wording")
         if rel == "companies/tesla/index.html" and "Prototype program" not in text:
             fail("Tesla company profile missing program-stage enrichment")
+        if rel == "robots/unitree-g1/index.html" and "Price from $13.5K" not in text:
+            fail("Unitree G1 profile missing official commercial-listing evidence")
+        if rel == "companies/unitree-robotics/index.html" and "Commercially listed humanoid platforms" not in text:
+            fail("Unitree company profile missing stage enrichment")
     for rel in REQUIRED_ASSETS:
         if not (OUT / rel).exists():
             fail(f"missing exported asset out/{rel}")

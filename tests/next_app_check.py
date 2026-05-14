@@ -67,6 +67,8 @@ def main() -> None:
         fail("robots data must include sources references")
     if "tesla-optimus-gen-2" not in robots_data or "no public commercial availability confirmed by Tesla" not in robots_data:
         fail("Tesla Optimus profile must include primary-source enrichment and cautious availability wording")
+    if "unitree-g1-shop" not in robots_data or "Price from $13.5K" not in robots_data:
+        fail("Unitree G1 profile must include official commercial-listing and shop evidence")
     if re.search(r"Not publicly disclosed|Unknown|null", robots_data) is None:
         fail("robots data should preserve unknown values instead of inventing facts")
     articles_data = (ROOT / "src/data/articles.ts").read_text()
