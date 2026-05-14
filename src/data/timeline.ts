@@ -2,6 +2,33 @@ import type { TimelineEvent } from '@/lib/types';
 
 export const timelineEvents: TimelineEvent[] = [
   {
+    id: 'figure-01-unveiled',
+    date: '2023-03',
+    title: 'Figure emerges from stealth with Figure 01',
+    summary: 'Figure unveiled Figure 01 as its first public general-purpose humanoid robot, initially framed around supply-chain labor and commercially viable humanoid work.',
+    robotSlugs: ['figure-01'],
+    companySlugs: ['figure-ai'],
+    sourceIds: ['figure-01-prnewswire'],
+  },
+  {
+    id: 'figure-01-bmw-agreement',
+    date: '2024-01',
+    title: 'Figure announces BMW Manufacturing agreement',
+    summary: 'Figure announced a commercial agreement with BMW Manufacturing to bring general-purpose robots into automotive production, a predecessor milestone before later Figure 02 deployment reporting.',
+    robotSlugs: ['figure-01', 'figure-02'],
+    companySlugs: ['figure-ai'],
+    sourceIds: ['figure-bmw-agreement'],
+  },
+  {
+    id: 'figure-01-openai-demo',
+    date: '2024-03',
+    title: 'Figure shows OpenAI speech-to-speech demo',
+    summary: 'Figure published an official video titled “Figure Status Update - OpenAI Speech-to-Speech Reasoning,” showing Figure 01 in a conversational task demo.',
+    robotSlugs: ['figure-01'],
+    companySlugs: ['figure-ai'],
+    sourceIds: ['figure-01-openai-video'],
+  },
+  {
     id: 'figure-02-unveiled',
     date: '2024-08',
     title: 'Figure 02 publicly introduced',

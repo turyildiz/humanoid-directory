@@ -11,6 +11,7 @@ EXPECTED_PAGES = {
     "robots/index.html": "Humanoid Robots — Humanoid Directory",
     "companies/index.html": "Humanoid Robot Companies — Humanoid Directory",
     "robots/figure-02/index.html": "Figure 02 — Humanoid Directory",
+    "robots/figure-01/index.html": "Figure 01 humanoid robot profile — Humanoid Directory",
     "companies/figure-ai/index.html": "Figure AI — Humanoid Directory",
     "about/index.html": "Methodology — Humanoid Directory",
     "submit/index.html": "Submit a robot or update — Humanoid Directory",
@@ -108,6 +109,10 @@ def main() -> None:
             fail("article page missing related robot links")
         if rel == "robots/figure-02/index.html" and "fleet-wide retirement" not in text:
             fail("Figure 02 page missing source-backed retirement/supersession update")
+        if rel == "robots/figure-01/index.html" and "20 kg" not in text:
+            fail("Figure 01 page missing reported payload spec")
+        if rel == "robots/figure-01/index.html" and "IEEE Spectrum Robots Guide" not in text:
+            fail("Figure 01 page missing reported-spec source context")
         if rel == "companies/figure-ai/index.html" and "Figure 03 / Helix program" not in text:
             fail("Figure AI page missing source-backed current-program update")
         if rel == "robots/optimus/index.html" and "no public commercial availability confirmed by Tesla" not in text:

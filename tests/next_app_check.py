@@ -75,6 +75,8 @@ def main() -> None:
         fail("Digit profile must include Agility solutions/workflow evidence")
     if "apptronik-mercedes" not in robots_data or "55 Lbs payload" not in robots_data:
         fail("Apollo profile must include Apptronik partner evidence and official public specs")
+    if "figure-01-prnewswire" not in robots_data or "figure-01-robots-guide" not in robots_data or "heightCm: 168" not in robots_data or "payloadKg: 20" not in robots_data:
+        fail("Figure 01 profile must include launch/source evidence and reported public specs")
     if "figure-bmw-production" not in robots_data or "fleet-wide retirement" not in robots_data:
         fail("Figure 02 profile must include BMW deployment evidence and retirement/supersession context")
     if "1x-order" not in robots_data or "$499/month subscription" not in robots_data or "scheduled Expert Mode" not in robots_data:

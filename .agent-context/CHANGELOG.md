@@ -1,5 +1,15 @@
 # Changelog — Humanoid Directory
 
+## 2026-05-14 — Figure 01 predecessor profile added
+
+- Added a source-backed Figure 01 robot profile as Figure AI’s first public humanoid predecessor, now labeled discontinued/superseded rather than current-generation.
+- Added Figure 01 launch, BMW agreement, OpenAI speech-to-speech demo, and IEEE Spectrum Robots Guide source records.
+- Added reported Figure 01 specs with source caution: 168 cm height, 60 kg weight, 20 kg payload, 4.3 km/h / 1.2 m/s speed, 40+ DOF, and about five hours of battery runtime.
+- Updated Figure AI company data to include Figure 01 predecessor context alongside Figure 02 retired/pilot evidence and Figure 03/Helix current direction.
+- Added Figure 01 timeline milestones and refreshed article references so methodology, status, comparison, and market-map content can link the predecessor history.
+- Updated tests to verify Figure 01 typed data and static export output.
+- Verified `npm run build && npm test` and local routes for `/robots/figure-01/` and `/companies/figure-ai/`.
+
 ## 2026-05-14 — Unitree H1 and Unitree Robotics profiles deepened
 
 - Deepened the Unitree H1 robot profile with official Unitree H1/H1-2 product-page evidence, shop-listing evidence, public H1 specs, H1-2 variant context, SEO metadata, and verification notes.
