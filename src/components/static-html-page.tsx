@@ -52,6 +52,36 @@ function rewritePlaceholderLinks(html: string) {
   });
 }
 
+function escapeRegex(value: string) {
+  return value.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+}
+
+function removeNestedAnchors(cardHtml: string) {
+  return cardHtml.replace(/<a([^>]*)href=(['"])[\s\S]*?\2([^>]*)>([\s\S]*?)<\/a>/gi, '<span$1$3>$4</span>');
+}
+
+function linkCardByText(html: string, className: string, requiredText: string, route: string) {
+  const pattern = new RegExp(`<article class="${escapeRegex(className)}">([\\s\\S]*?${escapeRegex(requiredText)}[\\s\\S]*?)<\\/article>`, 'i');
+
+  return html.replace(pattern, (_match, cardBody) => {
+    return `<a href="${route}" class="${className}" style="display:block;color:inherit;text-decoration:none;">${removeNestedAnchors(cardBody)}</a>`;
+  });
+}
+
+function rewriteKnownCards(html: string) {
+  return linkCardByText(
+    linkCardByText(
+      linkCardByText(html, 'feature-card', 'Figure 02', '/robots/figure-02/'),
+      'robot-card',
+      'Figure 02',
+      '/robots/figure-02/',
+    ),
+    'co-card',
+    'Figure AI',
+    '/companies/figure-ai/',
+  );
+}
+
 function renderDocumentFragment(html: string) {
   const head = extractTag(html, 'head');
   const body = extractTag(html, 'body');
@@ -61,7 +91,7 @@ function renderDocumentFragment(html: string) {
   // Inline scripts inserted through dangerouslySetInnerHTML do not execute in React,
   // so strip them for deterministic static rendering. The imported HTML is currently
   // used as the visual/design source of truth; interactive filters can be rebuilt in React later.
-  const safeBody = rewritePlaceholderLinks(body)
+  const safeBody = rewritePlaceholderLinks(rewriteKnownCards(body))
     .replace(/<script[\s\S]*?<\/script>/gi, '')
     .replaceAll('Humanoid Directory - Homepage.html', '/')
     .replaceAll('Humanoid Directory - Robots.html', '/robots/')

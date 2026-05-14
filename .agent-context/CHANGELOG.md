@@ -1,5 +1,12 @@
 # Changelog — Humanoid Directory
 
+## 2026-05-14 — Featured cards linked to profile pages
+
+- Converted known imported card blocks into clickable card links while preserving the imported visual design.
+- Linked Figure 02 cards on the homepage and robots page to `/robots/figure-02/`.
+- Linked the Figure AI company card on the companies page to `/companies/figure-ai/`.
+- Added static export checks for those card links and verified local/public HTML contains the expected hrefs.
+
 ## 2026-05-14 — Placeholder nav links routed
 
 - Rewrote key imported `href="#"` placeholders at render time so main navigation and core CTAs route to clean Next pages (`/`, `/robots/`, `/companies/`, `/submit/`, `/about/`, profiles, design-system/component demos).

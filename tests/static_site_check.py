@@ -74,6 +74,10 @@ def main() -> None:
             for required_href in ("/", "/robots/", "/companies/", "/submit/"):
                 if required_href not in parser.hrefs:
                     fail(f"out/{rel} missing routed navigation link {required_href!r}")
+        if rel in {"index.html", "robots/index.html"} and "/robots/figure-02/" not in parser.hrefs:
+            fail(f"out/{rel} missing linked Figure 02 card")
+        if rel == "companies/index.html" and "/companies/figure-ai/" not in parser.hrefs:
+            fail("out/companies/index.html missing linked Figure AI card")
     for rel in REQUIRED_ASSETS:
         if not (OUT / rel).exists():
             fail(f"missing exported asset out/{rel}")
