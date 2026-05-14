@@ -73,6 +73,25 @@ export const timelineEvents: TimelineEvent[] = [
     companySlugs: ['boston-dynamics'],
     sourceIds: ['boston-atlas'],
   },
+
+  {
+    id: 'agility-digit-solutions-positioning',
+    date: '2026',
+    title: 'Agility positions Digit as a humanoid automation platform',
+    summary: 'Agility’s solutions material presents Digit with Arc workflow software for warehouse automation, manufacturing, logistics, distribution, and fleet monitoring use cases.',
+    robotSlugs: ['digit'],
+    companySlugs: ['agility-robotics'],
+    sourceIds: ['agility-solutions'],
+  },
+  {
+    id: 'agility-robofab-digit-production',
+    date: '2026',
+    title: 'Agility highlights RoboFab production capacity',
+    summary: 'Agility describes RoboFab in Salem, Oregon as a full-scale humanoid factory for producing Digit, with stated peak capacity of 10,000 robots annually.',
+    robotSlugs: ['digit'],
+    companySlugs: ['agility-robotics'],
+    sourceIds: ['agility-robofab'],
+  },
   {
     id: 'apollo-product-direction',
     date: '2023',

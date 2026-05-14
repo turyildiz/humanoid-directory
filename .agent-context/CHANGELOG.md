@@ -1,5 +1,14 @@
 # Changelog — Humanoid Directory
 
+## 2026-05-14 — Agility Digit and Agility Robotics profiles enriched
+
+- Enriched the Digit robot profile with official Agility source evidence, logistics/manufacturing positioning, Arc workflow software context, customer-activity wording, cautious pilot-stage notes, SEO metadata, and related robots.
+- Added primary Agility source records for the homepage, Digit/product page, Humanoid Solutions page, RoboFab page, and press releases.
+- Expanded Agility Robotics company profile with humanoid-specific overview, Salem/RoboFab context, deployment-oriented stage, and program notes.
+- Added Digit/Agility timeline milestones and updated methodology/market-map article source references.
+- Updated tests to verify Digit and Agility enrichment appears in static export.
+- Verified `npm run build && npm test` and local staging routes for `/robots/digit/` and `/companies/agility-robotics/`.
+
 ## 2026-05-14 — Unitree G1 and Unitree Robotics profiles enriched
 
 - Enriched the Unitree G1 robot profile with official commercial-listing evidence, public product-page specs, cautious configuration notes, SEO metadata, related robots, and verification notes.

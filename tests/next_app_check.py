@@ -69,6 +69,8 @@ def main() -> None:
         fail("Tesla Optimus profile must include primary-source enrichment and cautious availability wording")
     if "unitree-g1-shop" not in robots_data or "Price from $13.5K" not in robots_data:
         fail("Unitree G1 profile must include official commercial-listing and shop evidence")
+    if "agility-solutions" not in robots_data or "Arc workflow software" not in robots_data:
+        fail("Digit profile must include Agility solutions/workflow evidence")
     if re.search(r"Not publicly disclosed|Unknown|null", robots_data) is None:
         fail("robots data should preserve unknown values instead of inventing facts")
     articles_data = (ROOT / "src/data/articles.ts").read_text()
