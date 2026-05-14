@@ -43,8 +43,8 @@ Stack:
 ## Immediate priorities
 
 1. Verify and enrich Tier 1 profile content.
-   - Tesla Optimus / Tesla, Figure 02 / Figure AI, Unitree G1 / Unitree Robotics, Digit / Agility Robotics, and Apollo / Apptronik have received enriched passes.
-   - Next best target: 1X NEO / 1X Technologies, then remaining seed profiles.
+   - Tesla Optimus / Tesla, Figure 02 / Figure AI, Unitree G1 / Unitree Robotics, Digit / Agility Robotics, Apollo / Apptronik, and 1X NEO / 1X Technologies have received enriched passes.
+   - Next best target: Sanctuary AI Phoenix / Sanctuary AI, then Boston Dynamics Electric Atlas / Boston Dynamics and remaining seed profiles.
    - Keep unknown values unknown; do not invent specs.
 
 2. Improve article/content experience.

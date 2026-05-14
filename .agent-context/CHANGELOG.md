@@ -1,5 +1,14 @@
 # Changelog — Humanoid Directory
 
+## 2026-05-14 — 1X NEO and 1X Technologies profiles enriched
+
+- Enriched the 1X NEO robot profile with official 1X source evidence, public home-robot order terms, public hardware specs, Redwood AI context, scheduled Expert Mode caveats, SEO metadata, verification notes, and related robots.
+- Added primary 1X source records for the homepage, NEO product page, Order NEO page, Artificial Intelligence page, and About page.
+- Expanded 1X Technologies company profile with Norway/Silicon Valley context, home-humanoid commercialization positioning, Redwood AI focus, order-program stage, and early-autonomy caveats.
+- Added 1X/NEO timeline milestones and refreshed methodology/status/market-map article references.
+- Updated tests to verify NEO and 1X enrichment appears in typed data and static export.
+- Verified `npm run build && npm test` and local staging routes for `/robots/neo/` and `/companies/1x-technologies/`.
+
 ## 2026-05-14 — Figure 02 and Figure AI source-backed alignment
 
 - Enriched Figure 02 typed data with Figure primary sources, BMW deployment evidence, Figure 03 supersession context, Helix/BotQ research and manufacturing context, cautious retired/superseded status, SEO metadata, and verification notes.

@@ -21,10 +21,12 @@ EXPECTED_PAGES = {
     "robots/unitree-g1/index.html": "Unitree G1 humanoid robot profile — Humanoid Directory",
     "robots/digit/index.html": "Agility Robotics Digit humanoid robot profile — Humanoid Directory",
     "robots/apollo/index.html": "Apptronik Apollo humanoid robot profile — Humanoid Directory",
+    "robots/neo/index.html": "1X NEO humanoid robot profile — Humanoid Directory",
     "companies/tesla/index.html": "Tesla humanoid robotics profile — Humanoid Directory",
     "companies/unitree-robotics/index.html": "Unitree Robotics humanoid company profile — Humanoid Directory",
     "companies/agility-robotics/index.html": "Agility Robotics humanoid company profile — Humanoid Directory",
     "companies/apptronik/index.html": "Apptronik humanoid robotics company profile — Humanoid Directory",
+    "companies/1x-technologies/index.html": "1X Technologies humanoid robotics company profile — Humanoid Directory",
 }
 LEGACY_FILENAMES = [
     "Humanoid Directory - Homepage.html",
@@ -115,6 +117,12 @@ def main() -> None:
             fail("Apollo profile missing partner commercialization evidence")
         if rel == "companies/apptronik/index.html" and "more than $935 million in Series A" not in text:
             fail("Apptronik company profile missing funding/commercialization context")
+        if rel == "robots/neo/index.html" and "$499/month subscription" not in text:
+            fail("1X NEO profile missing official order terms")
+        if rel == "robots/neo/index.html" and "scheduled Expert Mode" not in text:
+            fail("1X NEO profile missing early-autonomy/remote-supervision caveat")
+        if rel == "companies/1x-technologies/index.html" and "Commercial pre-order / early-access home humanoid program" not in text:
+            fail("1X company profile missing stage enrichment")
     for rel in REQUIRED_ASSETS:
         if not (OUT / rel).exists():
             fail(f"missing exported asset out/{rel}")
