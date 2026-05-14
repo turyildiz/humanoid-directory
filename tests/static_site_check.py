@@ -23,12 +23,14 @@ EXPECTED_PAGES = {
     "robots/apollo/index.html": "Apptronik Apollo humanoid robot profile — Humanoid Directory",
     "robots/neo/index.html": "1X NEO humanoid robot profile — Humanoid Directory",
     "robots/phoenix/index.html": "Sanctuary AI Phoenix humanoid robot profile — Humanoid Directory",
+    "robots/electric-atlas/index.html": "Boston Dynamics Electric Atlas humanoid robot profile — Humanoid Directory",
     "companies/tesla/index.html": "Tesla humanoid robotics profile — Humanoid Directory",
     "companies/unitree-robotics/index.html": "Unitree Robotics humanoid company profile — Humanoid Directory",
     "companies/agility-robotics/index.html": "Agility Robotics humanoid company profile — Humanoid Directory",
     "companies/apptronik/index.html": "Apptronik humanoid robotics company profile — Humanoid Directory",
     "companies/1x-technologies/index.html": "1X Technologies humanoid robotics company profile — Humanoid Directory",
     "companies/sanctuary-ai/index.html": "Sanctuary AI humanoid robotics company profile — Humanoid Directory",
+    "companies/boston-dynamics/index.html": "Boston Dynamics humanoid robotics company profile — Humanoid Directory",
 }
 LEGACY_FILENAMES = [
     "Humanoid Directory - Homepage.html",
@@ -135,6 +137,16 @@ def main() -> None:
             fail("Sanctuary company profile missing Carbon AI context")
         if rel == "companies/sanctuary-ai/index.html" and "Pilot and commercialization-stage industrial humanoid program" not in text:
             fail("Sanctuary company profile missing stage enrichment")
+        if rel == "robots/electric-atlas/index.html" and "Hyundai" not in text:
+            fail("Electric Atlas profile missing Hyundai pilot evidence")
+        if rel == "robots/electric-atlas/index.html" and "56" not in text:
+            fail("Electric Atlas profile missing public 56 DOF spec evidence")
+        if rel == "robots/electric-atlas/index.html" and "50 kg" not in text:
+            fail("Electric Atlas profile missing public lift/payload evidence")
+        if rel == "companies/boston-dynamics/index.html" and "Pilot and productization-stage enterprise humanoid program" not in text:
+            fail("Boston Dynamics company profile missing stage enrichment")
+        if rel == "companies/boston-dynamics/index.html" and "Orbit" not in text:
+            fail("Boston Dynamics company profile missing Orbit/productization context")
     for rel in REQUIRED_ASSETS:
         if not (OUT / rel).exists():
             fail(f"missing exported asset out/{rel}")

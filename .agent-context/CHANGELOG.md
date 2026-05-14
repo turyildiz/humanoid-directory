@@ -1,5 +1,14 @@
 # Changelog — Humanoid Directory
 
+## 2026-05-14 — Boston Dynamics Electric Atlas and Boston Dynamics profiles enriched
+
+- Enriched the Electric Atlas robot profile with official Boston Dynamics source evidence, all-electric Atlas launch context, hydraulic Atlas retirement, Hyundai field-testing language, autonomous part-sequencing demo evidence, 2026 product-version claims, public 56 DOF / 50 kg lift / 2.3 m reach details, SEO metadata, cautious pilot/productization wording, and verification notes.
+- Added primary Boston Dynamics source records for the Atlas product page, electric Atlas launch post, Atlas Goes Hands On video page, 2026 product-version announcement, Atlas evolution article, and enterprise humanoid design webinar.
+- Expanded Boston Dynamics company profile with Waltham context, enterprise humanoid strategy, Spot/Stretch productization background, Orbit software integration, Hyundai ownership/context, and stage/program notes.
+- Added Boston Dynamics/Atlas timeline milestones and refreshed methodology/status/market-map article references.
+- Updated tests to verify Electric Atlas and Boston Dynamics enrichment appears in typed data and static export.
+- Verified `npm run build && npm test` and local routes for `/robots/electric-atlas/` and `/companies/boston-dynamics/`.
+
 ## 2026-05-14 — Sanctuary AI Phoenix and Sanctuary AI profiles enriched
 
 - Enriched the Phoenix robot profile with official Sanctuary source evidence, Gen 8 Phoenix context, Carbon AI positioning, tactile-sensor and hydraulic-hand manipulation evidence, Magna partnership context, Microsoft/Hannover Messe demo evidence, cautious pilot/commercialization wording, SEO metadata, and verification notes.
