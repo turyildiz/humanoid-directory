@@ -1,5 +1,13 @@
 # Changelog — Humanoid Directory
 
+## 2026-05-15 — Immediate polish after product-quality complaint
+
+- Acknowledged that the current site still feels like stitched prototype/product UI rather than a coherent premium directory.
+- Removed visible internal/placeholder wording from the Robots/Companies top panels: replaced “Launch directory” with product-facing labels “Robot database” and “Company landscape”.
+- Added `hd-launch-search` to directory search inputs so browser/CDP verification scripts can target the real controls reliably.
+- Updated static checks to guard the more polished product-facing labels.
+- Re-ran `npm run build && npm test` successfully.
+
 ## 2026-05-15 — Launch-ready interactive directory panels
 
 - Added a React-driven launch directory panel at the top of `/robots/` and `/companies/` so the MVP has immediately usable search, filters, sorting, result counts, empty states, and clickable profile cards instead of relying on imported static mockup controls whose scripts do not execute in React.

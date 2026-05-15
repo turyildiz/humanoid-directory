@@ -83,16 +83,16 @@ export function DirectoryLaunchPanel(props: Props) {
     }, [companyBySlug, country, props.robots, query, sort, status]);
 
     return (
-      <section id="launch-directory" className="hd-launch-panel" data-directory-kind="robots" aria-label="Launch-ready robot directory controls">
+      <section id="launch-directory" className="hd-launch-panel" data-directory-kind="robots" aria-label="Robot directory controls">
         <div className="hd-launch-head">
-          <p>Launch directory</p>
-          <h2>Search, filter, and open verified robot profiles.</h2>
-          <span>{props.robots.length} robots · {statuses.length} statuses · source-backed profiles</span>
+          <p>Robot database</p>
+          <h2>Verified humanoid robots, searchable by status and country.</h2>
+          <span>{props.robots.length} robots · {statuses.length} maturity labels · public-source notes</span>
         </div>
         <div className="hd-launch-controls">
           <label>
             <span>Search robots</span>
-            <input data-filter-control="search" value={query} onChange={(event) => setQuery(event.target.value)} placeholder="Try Unitree, commercial, warehouse…" />
+            <input className="hd-launch-search" data-filter-control="search" value={query} onChange={(event) => setQuery(event.target.value)} placeholder="Try Unitree, commercial, warehouse…" />
           </label>
           <label>
             <span>Status</span>
@@ -154,16 +154,16 @@ export function DirectoryLaunchPanel(props: Props) {
   }, [country, props.companies, query, sort]);
 
   return (
-    <section id="launch-directory" className="hd-launch-panel" data-directory-kind="companies" aria-label="Launch-ready company directory controls">
+    <section id="launch-directory" className="hd-launch-panel" data-directory-kind="companies" aria-label="Company directory controls">
       <div className="hd-launch-head">
-        <p>Launch directory</p>
-        <h2>Find companies by country, focus area, and tracked humanoid programs.</h2>
-        <span>{props.companies.length} companies · source-backed landscape</span>
+        <p>Company landscape</p>
+        <h2>Track the companies building humanoid robot platforms.</h2>
+        <span>{props.companies.length} companies · source-backed profiles · linked robot programs</span>
       </div>
       <div className="hd-launch-controls companies-controls">
         <label>
           <span>Search companies</span>
-          <input data-filter-control="search" value={query} onChange={(event) => setQuery(event.target.value)} placeholder="Try China, industrial, home…" />
+          <input className="hd-launch-search" data-filter-control="search" value={query} onChange={(event) => setQuery(event.target.value)} placeholder="Try China, industrial, home…" />
         </label>
         <label>
           <span>Country</span>

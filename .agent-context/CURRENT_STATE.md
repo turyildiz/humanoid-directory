@@ -74,7 +74,7 @@ The repo now contains a Cloudflare-first Next.js application. The live/staging v
 - Original imported static HTML reference files are still preserved in the repo.
 - Homepage, robots index, and companies index now include real discovery sections that link to enriched robot profiles, company profiles, and articles.
 - Public pages now include mobile navigation (`Menu` / hamburger) so primary routes remain reachable on narrow screens.
-- `/robots/` and `/companies/` now start with a launch-ready React directory panel (`hd-launch-panel`) that provides real search, country/status filters, sorting, live result counts, empty states, and clickable profile cards. The preserved imported HTML mockups remain below as visual/source references, but the usable product UI is now first in the page flow.
+- `/robots/` and `/companies/` now start with a launch-ready React directory panel (`hd-launch-panel`) that provides real search, country/status filters, sorting, live result counts, empty states, and clickable profile cards. The visible labels were changed from internal launch wording to product-facing “Robot database” and “Company landscape”. The preserved imported HTML mockups remain below as visual/source references, but the usable product UI is now first in the page flow.
 
 Verification commands:
 

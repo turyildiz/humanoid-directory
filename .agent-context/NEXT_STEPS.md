@@ -42,30 +42,35 @@ Stack:
 
 ## Immediate priorities
 
-1. Verify and enrich Tier 1 profile content.
+1. Rescue the product/design coherence before adding more content.
+   - The current live product still feels like a stitched mix of imported mockups and later product panels; treat this as the top launch blocker.
+   - Immediate fixes started by removing internal “Launch directory” wording from Robots/Companies panels.
+   - Next rescue pass should simplify the mobile homepage chrome: reduce duplicate search/menu weight, show real database proof sooner, and make the first viewport feel like an authoritative directory rather than a futuristic mockup.
+
+2. Verify and enrich Tier 1 profile content.
    - Tesla Optimus / Tesla, Figure 01 / Figure AI, Figure 02 / Figure AI, Unitree G1 / Unitree Robotics, Unitree H1 / Unitree Robotics, Digit / Agility Robotics, Apollo / Apptronik, 1X EVE / 1X Technologies, 1X NEO / 1X Technologies, Sanctuary AI Phoenix / Sanctuary AI, Boston Dynamics Electric Atlas / Boston Dynamics, Fourier GR-1 / Fourier Intelligence, UBTECH Walker S / UBTECH Robotics, EngineAI PM01 / EngineAI, and PAL Robotics TALOS / PAL Robotics have received enriched/source-backed passes.
    - Next best target: expand the launch set toward 20 robots with another source-backed humanoid profile from the backlog/research set.
    - Keep unknown values unknown; do not invent specs.
 
-2. Improve product navigation and content experience.
+3. Improve product navigation and content experience.
    - `/robots/` and `/companies/` now have launch-ready React panels at the top with working search/filter/sort and clickable result cards; keep those panels as the main user journey while imported mockup sections remain below as visual references.
    - Treat broken/disconnected navigation as launch-blocking, not cosmetic.
    - Keep homepage, robots index, companies index, articles, and generated profiles mutually linked with visible cards/CTAs.
    - Perform mobile browser review after deploy; automated checks now cover mobile menu presence, key discovery links, and launch panel markers, but visual QA should confirm the panels feel usable on 393px-class screens.
    - Add structured data JSON-LD for articles and entity profiles.
 
-3. Expand toward launch content bar.
+4. Expand toward launch content bar.
    - 20 robots listed.
    - 15 companies listed.
    - 8–10 detailed profiles.
    - At least 3 polished articles live.
 
-4. Deploy to Cloudflare Pages when content/design pass is ready.
+5. Deploy to Cloudflare Pages when content/design pass is ready.
    - Build command: `npm run build`
    - Output directory: `out`
    - Production branch: `main`
 
-5. Later: Cloudflare backend layer.
+6. Later: Cloudflare backend layer.
    - D1 for database/admin if needed.
    - R2 for approved robot/company media.
    - Workers/Pages Functions for submissions/admin APIs.
