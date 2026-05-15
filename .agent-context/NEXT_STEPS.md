@@ -16,7 +16,7 @@ verified robot/company data
 
 ## Current implementation baseline
 
-The repo now contains a Next.js App Router application whose live visual layer wraps the imported static HTML frontend files, so staging matches the original designs first. React-native data/filter rebuilds can happen after the visual baseline is preserved.
+The repo now contains a Next.js App Router application whose live visual layer wraps the imported static HTML frontend files for the main pages, and generated robot/company profiles now use an imported-frontend-style responsive shell so enriched pages do not look detached from the approved frontend. React-native data/filter rebuilds can happen after the visual baseline is preserved.
 
 Production routes:
 
@@ -48,6 +48,7 @@ Stack:
    - Keep unknown values unknown; do not invent specs.
 
 2. Improve article/content experience.
+   - Perform a real-device/mobile browser review after deploy; automated checks now cover responsive CSS markers, but visual QA should confirm no cramped sections remain.
    - Add more internal links from imported homepage/robot/company pages into `/articles/`.
    - Add article cards to homepage once visual parity can be preserved.
    - Add structured data JSON-LD for articles and entity profiles.

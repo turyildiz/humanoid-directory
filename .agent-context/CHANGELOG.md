@@ -1,5 +1,12 @@
 # Changelog — Humanoid Directory
 
+## 2026-05-15 — Responsive frontend parity fix for generated profiles
+
+- Reworked generated robot/company profile pages so non-imported profiles now use an imported-frontend-style layout rather than the generic React profile shell.
+- Added shared responsive CSS for data-driven profile pages and improved mobile/tablet behavior for global navigation, cards, article layouts, profile facts, sidebars, sources, and footer sections.
+- Added regression checks that reject the old generic profile markers and require imported-style profile structure plus mobile breakpoints.
+- Verified `npm run build`, `npm test`, and local static routes for TALOS/PAL Robotics plus representative robot/company/index pages.
+
 ## 2026-05-15 — PAL Robotics TALOS research platform added
 
 - Added a source-backed TALOS robot profile as PAL Robotics’ full-size torque-controllable humanoid research platform.

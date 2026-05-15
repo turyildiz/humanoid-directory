@@ -98,6 +98,17 @@ def main() -> None:
     companies_data = (ROOT / "src/data/companies.ts").read_text()
     if "pal-robotics" not in companies_data or "Barcelona" not in companies_data or "Since 2004" not in companies_data:
         fail("PAL Robotics company profile must include official company context")
+    profile_pages = (ROOT / "src/components/profile-pages.tsx").read_text()
+    for required in ["hd-profile", "crumbs", "hero-inner", "body-wrap", "qf-inner", "toc", "source-backed"]:
+        if required not in profile_pages:
+            fail(f"generated profile pages must use imported frontend-style structure; missing {required!r}")
+    for rejected in ["ContentLayout", "profile-orb", "profile-layout"]:
+        if rejected in profile_pages:
+            fail(f"generated profile pages still use generic frontend template marker {rejected!r}")
+    globals_css = (ROOT / "src/app/globals.css").read_text()
+    for required in ["@media (max-width: 1180px)", "@media (max-width: 700px)", ".hd-profile", ".body-wrap", ".nav-inner"]:
+        if required not in globals_css:
+            fail(f"global stylesheet missing responsive/imported-style profile CSS marker {required!r}")
     if re.search(r"Not publicly disclosed|Unknown|null", robots_data) is None:
         fail("robots data should preserve unknown values instead of inventing facts")
     articles_data = (ROOT / "src/data/articles.ts").read_text()
