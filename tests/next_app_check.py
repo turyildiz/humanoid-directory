@@ -79,6 +79,8 @@ def main() -> None:
         fail("Figure 01 profile must include launch/source evidence and reported public specs")
     if "figure-bmw-production" not in robots_data or "fleet-wide retirement" not in robots_data:
         fail("Figure 02 profile must include BMW deployment evidence and retirement/supersession context")
+    if "1x-eve-robots-guide" not in robots_data or "heightCm: 183" not in robots_data or "customer facilities globally" not in robots_data:
+        fail("1X EVE profile must include deployment/source evidence and reported public specs")
     if "1x-order" not in robots_data or "$499/month subscription" not in robots_data or "scheduled Expert Mode" not in robots_data:
         fail("1X NEO profile must include official order terms and early-autonomy caveats")
     if "sanctuary-phoenix-gen8" not in robots_data or "21 degrees of freedom dexterous robotic hands" not in robots_data:

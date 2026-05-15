@@ -1,5 +1,15 @@
 # Changelog — Humanoid Directory
 
+## 2026-05-15 — 1X EVE predecessor/enterprise profile added
+
+- Added a source-backed EVE robot profile as 1X Technologies’ wheeled self-balancing enterprise humanoid predecessor to NEO.
+- Added official/credible source records for the 1X EVE page, 1X About timeline, 1X Series B announcement, and IEEE Spectrum Robots Guide EVE profile.
+- Added reported public EVE specs with source caution: 183 cm height, 83 kg weight, 14.4 km/h / ~4 m/s speed, 25 DOF, Revo1 quasi direct-drive actuators, HDR panoramic cameras, and shared-autonomy operation.
+- Updated 1X Technologies company profile to distinguish EVE enterprise/logistics/guarding/customer-facility lineage from current NEO home-robot and Redwood AI direction.
+- Added EVE timeline milestones and refreshed methodology/status/market-map article references.
+- Updated tests to verify EVE typed data and static export output.
+- Verified `npm run build && npm test` and local routes for `/robots/eve/` and `/companies/1x-technologies/`.
+
 ## 2026-05-14 — Figure 01 predecessor profile added
 
 - Added a source-backed Figure 01 robot profile as Figure AI’s first public humanoid predecessor, now labeled discontinued/superseded rather than current-generation.

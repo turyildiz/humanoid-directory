@@ -12,7 +12,7 @@ robot,1,gr-1,GR-1,Fourier Intelligence,prototype,seed data only,Verify specs and
 robot,1,walker-s,Walker S,UBTECH Robotics,pilot,seed data only,Verify industrial pilot claims and create full profile
 robot,1,pm01,PM01,EngineAI,prototype,seed data only,Verify official product/source details and create full profile
 robot,2,figure-01,Figure 01,Figure AI,discontinued or predecessor candidate,not added,Research and add as predecessor profile
-robot,2,eve,EVE,1X Technologies,prototype or pilot candidate,not added,Research current status and add profile
+robot,2,eve,EVE,1X Technologies,pilot/source-backed predecessor,profile added,Maintain current status and add deployment/customer updates when sourced
 robot,2,talos,TALOS,PAL Robotics,research/commercial platform candidate,not added,Research and add if fits humanoid criteria
 company,1,figure-ai,Figure AI,,active,visual profile exists,Verify and enrich company timeline/source claims
 company,1,tesla,Tesla,,active,seed data only,Create humanoid robotics company profile focused on Optimus

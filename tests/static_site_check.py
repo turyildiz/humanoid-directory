@@ -23,6 +23,7 @@ EXPECTED_PAGES = {
     "robots/unitree-h1/index.html": "Unitree H1 humanoid robot profile — Humanoid Directory",
     "robots/digit/index.html": "Agility Robotics Digit humanoid robot profile — Humanoid Directory",
     "robots/apollo/index.html": "Apptronik Apollo humanoid robot profile — Humanoid Directory",
+    "robots/eve/index.html": "1X EVE humanoid robot profile — Humanoid Directory",
     "robots/neo/index.html": "1X NEO humanoid robot profile — Humanoid Directory",
     "robots/phoenix/index.html": "Sanctuary AI Phoenix humanoid robot profile — Humanoid Directory",
     "robots/electric-atlas/index.html": "Boston Dynamics Electric Atlas humanoid robot profile — Humanoid Directory",
@@ -143,12 +144,18 @@ def main() -> None:
             fail("Apollo profile missing partner commercialization evidence")
         if rel == "companies/apptronik/index.html" and "more than $935 million in Series A" not in text:
             fail("Apptronik company profile missing funding/commercialization context")
+        if rel == "robots/eve/index.html" and "183 cm" not in text:
+            fail("1X EVE page missing reported height spec")
+        if rel == "robots/eve/index.html" and "customer facilities globally" not in text:
+            fail("1X EVE page missing official deployment context")
+        if rel == "robots/eve/index.html" and "IEEE Spectrum Robots Guide" not in text:
+            fail("1X EVE page missing reported-spec source context")
         if rel == "robots/neo/index.html" and "$499/month subscription" not in text:
             fail("1X NEO profile missing official order terms")
         if rel == "robots/neo/index.html" and "scheduled Expert Mode" not in text:
             fail("1X NEO profile missing early-autonomy/remote-supervision caveat")
-        if rel == "companies/1x-technologies/index.html" and "Commercial pre-order / early-access home humanoid program" not in text:
-            fail("1X company profile missing stage enrichment")
+        if rel == "companies/1x-technologies/index.html" and "EVE enterprise/pilot-deployment lineage" not in text:
+            fail("1X company profile missing EVE/NEO stage enrichment")
         if rel == "robots/phoenix/index.html" and "Gen 8 Phoenix" not in text:
             fail("Phoenix profile missing Gen 8 source-backed evidence")
         if rel == "robots/phoenix/index.html" and "21 degrees of freedom dexterous robotic hands" not in text:

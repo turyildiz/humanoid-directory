@@ -1,6 +1,6 @@
 # Next Steps — Humanoid Directory
 
-Last updated: 2026-05-14 by Hermes/Gonzo.
+Last updated: 2026-05-15 by Hermes/Gonzo.
 
 ## Current priority
 
@@ -43,8 +43,8 @@ Stack:
 ## Immediate priorities
 
 1. Verify and enrich Tier 1 profile content.
-   - Tesla Optimus / Tesla, Figure 01 / Figure AI, Figure 02 / Figure AI, Unitree G1 / Unitree Robotics, Unitree H1 / Unitree Robotics, Digit / Agility Robotics, Apollo / Apptronik, 1X NEO / 1X Technologies, Sanctuary AI Phoenix / Sanctuary AI, Boston Dynamics Electric Atlas / Boston Dynamics, Fourier GR-1 / Fourier Intelligence, UBTECH Walker S / UBTECH Robotics, and EngineAI PM01 / EngineAI have received enriched/source-backed passes.
-   - Next best target: add the next seed/backlog profile such as EVE / 1X Technologies or TALOS / PAL Robotics.
+   - Tesla Optimus / Tesla, Figure 01 / Figure AI, Figure 02 / Figure AI, Unitree G1 / Unitree Robotics, Unitree H1 / Unitree Robotics, Digit / Agility Robotics, Apollo / Apptronik, 1X EVE / 1X Technologies, 1X NEO / 1X Technologies, Sanctuary AI Phoenix / Sanctuary AI, Boston Dynamics Electric Atlas / Boston Dynamics, Fourier GR-1 / Fourier Intelligence, UBTECH Walker S / UBTECH Robotics, and EngineAI PM01 / EngineAI have received enriched/source-backed passes.
+   - Next best target: add the next seed/backlog profile such as TALOS / PAL Robotics or expand the launch set toward 20 robots.
    - Keep unknown values unknown; do not invent specs.
 
 2. Improve article/content experience.
@@ -77,12 +77,13 @@ Stack:
 5. Unitree H1
 6. Agility Robotics Digit
 7. Apptronik Apollo
-8. 1X NEO
-9. Sanctuary AI Phoenix
-10. Boston Dynamics Electric Atlas
-11. Fourier GR-1
-12. UBTECH Walker S
-13. EngineAI PM01
+8. 1X EVE
+9. 1X NEO
+10. Sanctuary AI Phoenix
+11. Boston Dynamics Electric Atlas
+12. Fourier GR-1
+13. UBTECH Walker S
+14. EngineAI PM01
 
 ## Verification commands
 
