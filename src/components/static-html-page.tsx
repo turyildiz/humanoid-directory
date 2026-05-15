@@ -1,5 +1,8 @@
 import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
+import { articles } from '@/data/articles';
+import { companies } from '@/data/companies';
+import { robots } from '@/data/robots';
 
 const htmlMap = {
   homepage: 'Humanoid Directory - Homepage.html',
@@ -29,6 +32,114 @@ function textContent(fragment: string) {
     .trim();
 }
 
+
+function escapeHtml(value: string | number | null | undefined) {
+  return String(value ?? '')
+    .replaceAll('&', '&amp;')
+    .replaceAll('<', '&lt;')
+    .replaceAll('>', '&gt;')
+    .replaceAll('"', '&quot;')
+    .replaceAll("'", '&#39;');
+}
+
+function mobileNavigationMarkup() {
+  return `
+    <details class="hd-mobile-nav">
+      <summary class="mobile-nav-toggle" aria-label="Open site navigation">
+        <span>Menu</span>
+        <span class="mobile-nav-icon" aria-hidden="true"><i></i><i></i><i></i></span>
+      </summary>
+      <nav class="mobile-nav-panel" aria-label="Mobile navigation">
+        <a href="/robots/">Robots</a>
+        <a href="/companies/">Companies</a>
+        <a href="/articles/">Articles</a>
+        <a href="/about/">Methodology</a>
+        <a href="/submit/">Submit update</a>
+      </nav>
+    </details>
+  `;
+}
+
+function mobileNavigationStyles() {
+  return `
+    <style>
+      .hd-mobile-nav{display:none;font-family:Inter,system-ui,sans-serif;background:rgba(10,12,16,.96);border-bottom:1px solid rgba(255,255,255,.1);color:#fff;position:sticky;top:0;z-index:60}.mobile-nav-toggle{list-style:none;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:13px 18px;font-size:13px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;cursor:pointer}.mobile-nav-toggle::-webkit-details-marker{display:none}.mobile-nav-icon{display:grid;gap:4px}.mobile-nav-icon i{display:block;width:22px;height:2px;border-radius:999px;background:currentColor}.mobile-nav-panel{display:grid;gap:8px;padding:0 18px 18px}.mobile-nav-panel a{display:block;color:#f8fafc;text-decoration:none;padding:13px 14px;border:1px solid rgba(255,255,255,.12);border-radius:14px;background:rgba(255,255,255,.055);font-size:15px;font-weight:700}.mobile-nav-panel a:hover{background:rgba(255,255,255,.1)}
+      @media (max-width:760px){.hd-mobile-nav{display:block}.nav .nav-links{display:none!important}}
+    </style>
+  `;
+}
+
+function statusLabel(status: string) {
+  return status.replace('-', ' ');
+}
+
+function discoveryCard(title: string, meta: string, summary: string, href: string) {
+  return `<a class="hd-discovery-card" href="${href}">
+    <span class="hd-discovery-meta">${escapeHtml(meta)}</span>
+    <strong>${escapeHtml(title)}</strong>
+    <span>${escapeHtml(summary)}</span>
+  </a>`;
+}
+
+function directoryDiscoveryMarkup(page: HtmlKey) {
+  const featuredRobots = robots.filter((robot) => robot.published !== false).slice(0, 15);
+  const featuredCompanies = companies.filter((company) => company.published !== false).slice(0, 12);
+  const featuredArticles = articles.slice(0, 5);
+
+  const robotCards = featuredRobots.map((robot) => discoveryCard(
+    robot.name,
+    `${statusLabel(robot.status)} · ${robot.country}`,
+    robot.summary,
+    `/robots/${robot.slug}/`,
+  )).join('');
+  const companyCards = featuredCompanies.map((company) => discoveryCard(
+    company.name,
+    `${company.country}${company.city ? ` · ${company.city}` : ''}`,
+    company.summary,
+    `/companies/${company.slug}/`,
+  )).join('');
+  const articleCards = featuredArticles.map((article) => discoveryCard(
+    article.title,
+    `${article.category} · ${article.readingMinutes} min read`,
+    article.dek,
+    `/articles/${article.slug}/`,
+  )).join('');
+
+  if (page === 'homepage') {
+    return `<section class="hd-discovery" aria-label="Explore Humanoid Directory content">
+      <div class="hd-discovery-head"><p>Explore the directory</p><h2>Robots, companies, and source-backed guides are now linked from here.</h2><a href="/robots/">Browse all robots →</a></div>
+      <div class="hd-discovery-grid">${robotCards}</div>
+      <div class="hd-discovery-split"><div><h3>Companies</h3><div class="hd-discovery-list">${companyCards}</div></div><div><h3>Articles</h3><div class="hd-discovery-list">${articleCards}</div></div></div>
+    </section>`;
+  }
+
+  if (page === 'robots') {
+    return `<section class="hd-discovery" aria-label="All linked humanoid robot profiles">
+      <div class="hd-discovery-head"><p>Robot profiles</p><h2>Every enriched robot profile is reachable from this page.</h2><a href="/articles/status-labels-explained/">How status labels work →</a></div>
+      <div class="hd-discovery-grid">${robotCards}</div>
+    </section>`;
+  }
+
+  if (page === 'companies') {
+    return `<section class="hd-discovery" aria-label="All linked humanoid robotics company profiles">
+      <div class="hd-discovery-head"><p>Company profiles</p><h2>Every tracked company profile is reachable from this page.</h2><a href="/articles/humanoid-robot-companies-to-watch/">Read the market map →</a></div>
+      <div class="hd-discovery-grid">${companyCards}</div>
+    </section>`;
+  }
+
+  return '';
+}
+
+function discoveryStyles() {
+  return `
+    <style>
+      .hd-discovery{font-family:Inter,system-ui,sans-serif;max-width:1180px;margin:56px auto;padding:0 24px;color:#0f172a}.hd-discovery-head{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:18px;align-items:end;margin-bottom:22px}.hd-discovery-head p{grid-column:1/-1;margin:0;color:#64748b;text-transform:uppercase;letter-spacing:.16em;font-size:12px;font-weight:800}.hd-discovery-head h2{margin:0;font-size:clamp(28px,4vw,46px);line-height:1.02;letter-spacing:-.055em;color:#111827}.hd-discovery-head a{color:#111827;text-decoration:none;font-weight:800;border-bottom:1px solid rgba(15,23,42,.28)}.hd-discovery-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}.hd-discovery-card{display:flex;flex-direction:column;gap:10px;min-height:190px;padding:20px;border-radius:24px;background:linear-gradient(180deg,#fff,#f8fafc);border:1px solid rgba(15,23,42,.1);box-shadow:0 18px 50px rgba(15,23,42,.08);color:#0f172a;text-decoration:none}.hd-discovery-card:hover{transform:translateY(-2px);box-shadow:0 24px 70px rgba(15,23,42,.12)}.hd-discovery-card strong{font-size:20px;letter-spacing:-.03em}.hd-discovery-card span:last-child{color:#475569;line-height:1.55}.hd-discovery-meta{color:#2563eb!important;text-transform:uppercase;letter-spacing:.12em;font-size:11px;font-weight:900}.hd-discovery-split{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:28px}.hd-discovery-split h3{font-size:24px;margin:0 0 14px;letter-spacing:-.035em}.hd-discovery-list{display:grid;gap:12px}.hd-discovery-list .hd-discovery-card{min-height:0}.hd-discovery-list .hd-discovery-card strong{font-size:18px}
+      @media (max-width:900px){.hd-discovery-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.hd-discovery-split{grid-template-columns:1fr}}
+      @media (max-width:640px){.hd-discovery{margin:36px auto;padding:0 18px}.hd-discovery-head{grid-template-columns:1fr}.hd-discovery-grid{grid-template-columns:1fr}.hd-discovery-card{min-height:0}.hd-discovery-head h2{font-size:32px}}
+    </style>
+  `;
+}
+
 function routeForPlaceholderLink(innerHtml: string) {
   const text = textContent(innerHtml);
 
@@ -37,6 +148,10 @@ function routeForPlaceholderLink(innerHtml: string) {
   if (/^Companies$/.test(text) || text.startsWith('Explore companies')) return '/companies/';
   if (text === 'Compare') return '/articles/tesla-optimus-vs-figure-02/';
   if (text === 'Use cases' || text === 'Newsletter') return '/articles/';
+  if (text === 'Learn the methodology') return '/about/';
+  if (text.startsWith('Start exploring')) return '/robots/';
+  if (text.startsWith('See companies')) return '/companies/';
+  if (text.startsWith('Track updates')) return '/articles/';
   if (text.startsWith('View methodology') || text === 'Methodology' || text === 'Editorial guidelines' || text === 'Sources & citations') return '/about/';
   if (text.startsWith('Submit')) return '/submit/';
   if (text === 'About') return '/about/';
@@ -69,6 +184,13 @@ function linkCardByText(html: string, className: string, requiredText: string, r
   return html.replace(pattern, (_match, cardBody) => {
     return `<a href="${route}" class="${className}" style="display:block;color:inherit;text-decoration:none;">${removeNestedAnchors(cardBody)}</a>`;
   });
+}
+
+function rewriteRemainingPrototypeLinks(html: string, page: HtmlKey) {
+  if (page === 'homepage') return html.replace(/href="#"/g, 'href="/robots/"');
+  if (page === 'robots') return html.replace(/href="#"/g, 'href="/robots/figure-02/"');
+  if (page === 'companies') return html.replace(/href="#"/g, 'href="/companies/figure-ai/"');
+  return html;
 }
 
 function rewriteKnownCards(html: string) {
@@ -161,7 +283,7 @@ function renderDocumentFragment(html: string, page: HtmlKey) {
   // Inline scripts inserted through dangerouslySetInnerHTML do not execute in React,
   // so strip them for deterministic static rendering. The imported HTML is currently
   // used as the visual/design source of truth; interactive filters can be rebuilt in React later.
-  const safeBody = rewritePlaceholderLinks(rewriteKnownCards(body))
+  const safeBody = rewriteRemainingPrototypeLinks(rewritePlaceholderLinks(rewriteKnownCards(body)), page)
     .replace(/<script[\s\S]*?<\/script>/gi, '')
     .replaceAll('Humanoid Directory - Homepage.html', '/')
     .replaceAll('Humanoid Directory - Robots.html', '/robots/')
@@ -175,7 +297,7 @@ function renderDocumentFragment(html: string, page: HtmlKey) {
       .source-backed-note{max-width:1180px;margin:32px auto 56px;padding:28px;border:1px solid rgba(148,163,184,.32);border-radius:28px;background:linear-gradient(135deg,rgba(15,23,42,.94),rgba(30,41,59,.9));color:#e5edf7;box-shadow:0 24px 80px rgba(15,23,42,.22);font-family:Inter,system-ui,sans-serif}.source-backed-note h2{margin:0 0 12px;font-size:clamp(1.4rem,2.2vw,2rem);letter-spacing:-.03em}.source-backed-note p{max-width:920px;line-height:1.7;color:#cbd5e1}.source-backed-eyebrow{margin:0 0 10px!important;text-transform:uppercase;letter-spacing:.14em;font-size:.74rem;color:#93c5fd!important}.source-backed-links{display:flex;gap:16px;flex-wrap:wrap;margin-top:18px!important}.source-backed-links a{color:#bfdbfe;text-decoration:none;border-bottom:1px solid rgba(191,219,254,.45)}
     </style>
   `;
-  return `${fontLinks}\n${styles}\n${sourceNoteStyles}\n${homepageMobileOverflowFixStyles(page)}\n${safeBody}\n${sourceBackedFigureNote(page)}`;
+  return `${fontLinks}\n${styles}\n${sourceNoteStyles}\n${mobileNavigationStyles()}\n${discoveryStyles()}\n${homepageMobileOverflowFixStyles(page)}\n${safeBody.replace('</nav>', `</nav>${mobileNavigationMarkup()}`)}\n${directoryDiscoveryMarkup(page)}\n${sourceBackedFigureNote(page)}`;
 }
 
 export function getStaticHtmlMetadata(key: HtmlKey) {

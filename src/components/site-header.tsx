@@ -15,7 +15,22 @@ export function SiteHeader() {
           <Link href="/about/">Methodology</Link>
           <Link href="/submit/">Submit</Link>
         </nav>
-        <Link href="/robots/" className="nav-search">Search robots <span>⌘K</span></Link>
+        <div className="nav-right">
+          <Link href="/robots/" className="nav-search">Search robots <span>⌘K</span></Link>
+          <details className="hd-mobile-nav">
+            <summary className="mobile-nav-toggle" aria-label="Open site navigation">
+              <span>Menu</span>
+              <span className="mobile-nav-icon" aria-hidden="true"><i /><i /><i /></span>
+            </summary>
+            <nav className="mobile-nav-panel" aria-label="Mobile navigation">
+              <Link href="/robots/">Robots</Link>
+              <Link href="/companies/">Companies</Link>
+              <Link href="/articles/">Articles</Link>
+              <Link href="/about/">Methodology</Link>
+              <Link href="/submit/">Submit update</Link>
+            </nav>
+          </details>
+        </div>
       </div>
     </header>
   );

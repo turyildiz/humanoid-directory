@@ -99,13 +99,24 @@ def main() -> None:
             if " " in href:
                 fail(f"out/{rel} has non-production href with spaces: {href!r}")
         if rel in {"index.html", "robots/index.html", "companies/index.html"}:
-            for required_href in ("/", "/robots/", "/companies/", "/submit/"):
+            for required_href in ("/", "/robots/", "/companies/", "/articles/", "/about/", "/submit/"):
                 if required_href not in parser.hrefs:
                     fail(f"out/{rel} missing routed navigation link {required_href!r}")
-        if rel in {"index.html", "robots/index.html"} and "/robots/figure-02/" not in parser.hrefs:
-            fail(f"out/{rel} missing linked Figure 02 card")
-        if rel == "companies/index.html" and "/companies/figure-ai/" not in parser.hrefs:
-            fail("out/companies/index.html missing linked Figure AI card")
+        if rel == "index.html":
+            placeholder_count = sum(1 for href in parser.hrefs if href == "#")
+            if placeholder_count > 5:
+                fail(f"homepage still has too many placeholder links: {placeholder_count}")
+            for required_href in ("/robots/optimus/", "/robots/unitree-g1/", "/companies/tesla/", "/articles/humanoid-robot-companies-to-watch/"):
+                if required_href not in parser.hrefs:
+                    fail(f"homepage missing discoverable content link {required_href!r}")
+        if rel == "robots/index.html":
+            for required_href in ("/robots/figure-02/", "/robots/optimus/", "/robots/unitree-g1/", "/robots/talos/"):
+                if required_href not in parser.hrefs:
+                    fail(f"robots index missing linked robot profile {required_href!r}")
+        if rel == "companies/index.html":
+            for required_href in ("/companies/figure-ai/", "/companies/tesla/", "/companies/unitree-robotics/", "/companies/pal-robotics/"):
+                if required_href not in parser.hrefs:
+                    fail(f"companies index missing linked company profile {required_href!r}")
         if rel == "articles/index.html" and "/articles/what-counts-as-a-humanoid-robot/" not in parser.hrefs:
             fail("out/articles/index.html missing article detail links")
         if rel == "articles/what-counts-as-a-humanoid-robot/index.html" and "/robots/figure-02/" not in parser.hrefs:

@@ -95,6 +95,8 @@ def main() -> None:
         if rel not in {"components/robot-card/index.html"}:
             if not ({"nav", "nav-inner"} & parser.classes):
                 fail(f"out/{rel} missing responsive navigation shell")
+            if not ({"hd-mobile-nav", "mobile-nav-toggle"} & parser.classes):
+                fail(f"out/{rel} missing mobile navigation menu")
 
         # Data-driven and article page families must collapse common desktop grids.
         if rel.startswith(("robots/", "companies/")) and rel not in {"robots/index.html", "companies/index.html"}:

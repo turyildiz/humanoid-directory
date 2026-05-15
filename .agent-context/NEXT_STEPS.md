@@ -4,7 +4,7 @@ Last updated: 2026-05-15 by Hermes/Gonzo.
 
 ## Current priority
 
-Deepen the source-backed content layer: verify Tier 1 robots/companies, enrich profile fields, and migrate more visible pages from static placeholders into data-driven content while preserving visual parity.
+Keep turning the preserved visual frontend into a complete, browsable product: source-backed profile enrichment remains important, but navigation, content discovery, and working user journeys are now first-class requirements before adding more raw content.
 
 The operating sequence remains:
 
@@ -47,10 +47,10 @@ Stack:
    - Next best target: expand the launch set toward 20 robots with another source-backed humanoid profile from the backlog/research set.
    - Keep unknown values unknown; do not invent specs.
 
-2. Improve article/content experience.
-   - Perform a real-device/mobile browser review after deploy; automated checks now cover responsive CSS markers, but visual QA should confirm no cramped sections remain.
-   - Add more internal links from imported homepage/robot/company pages into `/articles/`.
-   - Add article cards to homepage once visual parity can be preserved.
+2. Improve product navigation and content experience.
+   - Treat broken/disconnected navigation as launch-blocking, not cosmetic.
+   - Keep homepage, robots index, companies index, articles, and generated profiles mutually linked with visible cards/CTAs.
+   - Perform mobile browser review after deploy; automated checks now cover mobile menu presence and key discovery links, but visual QA should confirm the menu and discovery sections feel usable.
    - Add structured data JSON-LD for articles and entity profiles.
 
 3. Expand toward launch content bar.

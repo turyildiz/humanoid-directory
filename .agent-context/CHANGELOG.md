@@ -1,5 +1,13 @@
 # Changelog — Humanoid Directory
 
+## 2026-05-15 — Navigation and content discoverability pass
+
+- Added a mobile `Menu` / hamburger navigation pattern across imported static pages and generated robot/company/article pages so mobile users are not stranded without primary navigation.
+- Added real discovery sections to the homepage, robots index, and companies index so enriched robot profiles, company profiles, and articles are reachable from visible cards instead of hidden only in the sitemap.
+- Rewrote remaining homepage/robots/companies prototype `href="#"` placeholders into production routes for the public browsing flow.
+- Extended static and responsive checks to require mobile navigation and real discoverability links for key robot, company, and article pages.
+- Verified with `npm run build`, `npm test`, all exported public route smoke checks, link audits showing zero placeholder links on homepage/robots/companies, and 393px mobile screenshots with the menu closed and open.
+
 ## 2026-05-15 — Homepage mobile overflow fix
 
 - Fixed the imported homepage hero on real mobile widths by adding a homepage-specific mobile overflow override after imported inline styles.

@@ -39,6 +39,13 @@ button { font: inherit; }
 .nav-right { display: flex; justify-content: flex-end; gap: 10px; align-items: center; min-width: 0; }
 .nav-search { border: 1px solid var(--line-dark); border-radius: 999px; padding: 9px 12px; color: var(--muted-dark); font-size: 13px; display: inline-flex; gap: 10px; align-items: center; max-width: 210px; }
 .nav-search .kbd, .nav-search span:last-child { color: white; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; }
+.hd-mobile-nav { display: none; color: #fff; }
+.mobile-nav-toggle { list-style: none; display: flex; align-items: center; justify-content: space-between; gap: 14px; padding: 10px 12px; border: 1px solid var(--line-dark); border-radius: 999px; font-size: 12px; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; cursor: pointer; }
+.mobile-nav-toggle::-webkit-details-marker { display: none; }
+.mobile-nav-icon { display: grid; gap: 4px; }
+.mobile-nav-icon i { display: block; width: 20px; height: 2px; border-radius: 999px; background: currentColor; }
+.mobile-nav-panel { position: absolute; right: 20px; left: 20px; top: calc(100% + 8px); display: grid; gap: 8px; padding: 14px; border: 1px solid var(--line-dark); border-radius: 20px; background: rgba(10,12,16,.98); box-shadow: 0 24px 80px rgba(0,0,0,.28); }
+.mobile-nav-panel a { color: #f8fafc; text-decoration: none; padding: 12px 14px; border-radius: 14px; background: rgba(255,255,255,.06); font-weight: 750; }
 .btn { display: inline-flex; align-items: center; justify-content: center; min-height: 46px; padding: 0 18px; border-radius: 999px; font-weight: 700; border: 0; }
 .btn-sm { min-height: 38px; padding: 0 14px; font-size: 13px; }
 .btn-primary-accent, .btn.primary { background: var(--accent); color: #061018; box-shadow: 0 0 42px rgba(0,194,255,.28); }
@@ -216,11 +223,12 @@ h2 { font-size: clamp(32px, 4vw, 54px); line-height: 1; letter-spacing: -.05em; 
 
 @media (max-width: 700px) {
   body { overflow-x: hidden; }
-  .nav-inner { grid-template-columns: 1fr; padding: 14px 20px; gap: 14px; }
+  .nav-inner { grid-template-columns: 1fr; padding: 14px 20px; gap: 14px; position: relative; }
   .brand-name { white-space: normal; }
-  .nav-links { width: 100%; overflow-x: auto; gap: 16px; padding-bottom: 2px; }
-  .nav-right { width: 100%; }
-  .nav-search { max-width: none; width: 100%; justify-content: space-between; }
+  .nav-links { display: none; }
+  .nav-right { width: 100%; justify-content: space-between; }
+  .hd-mobile-nav { display: block; }
+  .nav-search { max-width: none; width: auto; flex: 1; justify-content: space-between; }
   .btn-sm { width: 100%; }
   .cards-grid, .company-grid, .stats-strip, .split-section, .profile-layout, .prose-grid, .article-grid, .article-layout { grid-template-columns: 1fr; }
   .hero h1, .page-hero h1, .profile-hero h1 { font-size: clamp(38px, 13vw, 58px); }

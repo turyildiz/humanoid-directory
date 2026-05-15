@@ -74,6 +74,19 @@ function Shell({ children, active }: { children: React.ReactNode; active: 'robot
           <div className="nav-right">
             <Link href="/robots/" className="nav-search"><span>Search robots…</span><span className="kbd">⌘K</span></Link>
             <Link href="/submit/" className="btn btn-sm btn-primary-accent">Submit a robot</Link>
+            <details className="hd-mobile-nav">
+              <summary className="mobile-nav-toggle" aria-label="Open site navigation">
+                <span>Menu</span>
+                <span className="mobile-nav-icon" aria-hidden="true"><i /><i /><i /></span>
+              </summary>
+              <nav className="mobile-nav-panel" aria-label="Mobile navigation">
+                <Link href="/robots/">Robots</Link>
+                <Link href="/companies/">Companies</Link>
+                <Link href="/articles/">Articles</Link>
+                <Link href="/about/">Methodology</Link>
+                <Link href="/submit/">Submit update</Link>
+              </nav>
+            </details>
           </div>
         </div>
       </nav>
