@@ -8,7 +8,7 @@
     "build": "next build",
     "start": "python3 -m http.server 4173 -d out",
     "lint": "python3 tests/next_app_check.py",
-    "test": "python3 tests/next_app_check.py && python3 tests/static_site_check.py"
+    "test": "python3 tests/next_app_check.py && python3 tests/static_site_check.py && python3 tests/responsive_site_check.py"
   },
   "dependencies": {
     "next": "^16.0.10",

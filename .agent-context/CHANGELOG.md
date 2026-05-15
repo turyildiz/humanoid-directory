@@ -1,5 +1,12 @@
 # Changelog — Humanoid Directory
 
+## 2026-05-15 — Site-wide responsive QA and workflow guardrail
+
+- Added `tests/responsive_site_check.py` and wired it into `npm test` so every exported public page is checked for viewport metadata, responsive CSS/media-query coverage, fluid sizing, responsive nav shell, and family-specific responsive layout markers.
+- Wrapped `/about/` and `/submit/` in the shared responsive `ContentLayout` so they have the same mobile-safe nav/footer chrome as articles and data-driven pages.
+- Smoke-checked all 40 exported public routes from `out/` locally after build; every route returned HTTP 200 with viewport metadata.
+- Updated the agent workflow so future changes require responsive checks across page families, not only desktop/static route checks.
+
 ## 2026-05-15 — Responsive frontend parity fix for generated profiles
 
 - Reworked generated robot/company profile pages so non-imported profiles now use an imported-frontend-style layout rather than the generic React profile shell.

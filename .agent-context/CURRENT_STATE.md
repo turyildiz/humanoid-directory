@@ -81,6 +81,8 @@ npm test
 npm start
 ```
 
+`npm test` now includes `tests/responsive_site_check.py`, which audits every exported public `index.html` for viewport metadata, media-query/fluid sizing CSS, responsive navigation chrome, and profile/article layout markers. After responsive changes, also smoke-check all exported public routes from `out/`, not only a few representative pages.
+
 Cloudflare Pages settings:
 
 ```text

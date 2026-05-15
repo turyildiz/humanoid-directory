@@ -95,6 +95,8 @@ npm test
 npm start
 ```
 
+For frontend/layout work, `npm test` must include the responsive audit and the handoff should mention whether all exported public routes were smoke-checked locally. Browser/real-device QA is still recommended before launch, but automated responsive checks are now part of the baseline.
+
 ## Notes
 
 - Keep unknown values unknown; do not invent specs.
