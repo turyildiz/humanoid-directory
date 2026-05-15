@@ -130,6 +130,17 @@ def main() -> None:
         if marker not in homepage_css:
             fail(f"homepage mobile overflow CSS missing marker {marker!r}")
 
+    for rel in ["robots/index.html", "companies/index.html"]:
+        directory_css = page_css(parse(OUT / rel))
+        for marker in [
+            "/* directory-mobile-overflow-hotfix */",
+            ".page-body { width: 100%; max-width: 100%; grid-template-columns: minmax(0, 1fr); }",
+            ".sidebar, .filter-group, .filter-list, .filter-item, .filter-search { width: 100%; max-width: 100%; min-width: 0; }",
+            ".foot-links { width: 100%; max-width: 100%; min-width: 0; flex-wrap: wrap; }",
+        ]:
+            if marker not in directory_css:
+                fail(f"out/{rel} directory mobile overflow CSS missing marker {marker!r}")
+
     print("OK: responsive static export checks passed")
 
 

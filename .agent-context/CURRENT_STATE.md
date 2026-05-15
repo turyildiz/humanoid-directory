@@ -83,7 +83,7 @@ npm test
 npm start
 ```
 
-`npm test` now includes `tests/responsive_site_check.py`, which audits every exported public `index.html` for viewport metadata, media-query/fluid sizing CSS, responsive navigation chrome, mobile navigation menu presence, profile/article layout markers, and homepage-specific mobile overflow guard markers for the hero/search/status/CTA area. `tests/static_site_check.py` also guards that homepage/robots/companies expose real links into key robot, company, and article pages instead of leaving content discoverability to the sitemap. After responsive/navigation changes, also smoke-check all exported public routes from `out/`, not only a few representative pages; for visual mobile issues, capture or request an actual narrow-viewport screenshot because structural markers alone can miss clipping.
+`npm test` now includes `tests/responsive_site_check.py`, which audits every exported public `index.html` for viewport metadata, media-query/fluid sizing CSS, responsive navigation chrome, mobile navigation menu presence, profile/article layout markers, homepage-specific mobile overflow guard markers for the hero/search/status/CTA area, and robots/companies directory overflow guard markers for mobile filter/sidebar/footer layouts. `tests/static_site_check.py` also guards that homepage/robots/companies expose real links into key robot, company, and article pages instead of leaving content discoverability to the sitemap. After responsive/navigation changes, also smoke-check all exported public routes from `out/`, not only a few representative pages; for visual mobile issues, capture or request an actual narrow-viewport screenshot because structural markers alone can miss clipping.
 
 Cloudflare Pages settings:
 

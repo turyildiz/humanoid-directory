@@ -1,5 +1,12 @@
 # Changelog — Humanoid Directory
 
+## 2026-05-15 — Robots/companies mobile horizontal scroll fix
+
+- Fixed the imported robots and companies index pages so their mobile filter/sidebar and footer layouts no longer create horizontal scroll on real phone-width viewports.
+- Added directory-specific mobile overflow overrides after imported inline styles for `.page-body`, `.sidebar`, filter groups/lists/items/search, cards/grids, and footer links.
+- Extended `tests/responsive_site_check.py` with robots/companies overflow guard markers so this regression is covered alongside the previous homepage overflow guard.
+- Verified with `npm run build && npm test`, all 40 exported routes over the local static server, headless 393px viewport measurements showing `/robots/` and `/companies/` at `scrollWidth == clientWidth == 393`, and a real 393px robots screenshot review.
+
 ## 2026-05-15 — Navigation and content discoverability pass
 
 - Added a mobile `Menu` / hamburger navigation pattern across imported static pages and generated robot/company/article pages so mobile users are not stranded without primary navigation.

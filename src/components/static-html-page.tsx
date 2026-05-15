@@ -248,6 +248,28 @@ function homepageMobileOverflowFixStyles(page: HtmlKey) {
   `;
 }
 
+function directoryMobileOverflowFixStyles(page: HtmlKey) {
+  if (page !== 'robots' && page !== 'companies') return '';
+
+  return `
+    <style>
+      /* directory-mobile-overflow-hotfix */
+      @media (max-width: 760px) {
+        html, body { width: 100%; max-width: 100%; overflow-x: hidden; }
+        body { min-width: 0; }
+        .nav, .page-head, .filters-bar, .page-body, .foot, .hd-discovery { max-width: 100vw; overflow-x: hidden; }
+        .nav-inner, .page-head-inner, .filters-bar, .page-body, .foot { min-width: 0; }
+        .page-body { width: 100%; max-width: 100%; grid-template-columns: minmax(0, 1fr); }
+        .sidebar, .filter-group, .filter-list, .filter-item, .filter-search { width: 100%; max-width: 100%; min-width: 0; }
+        .content, .robot-grid, .co-grid, .co-card, .robot-card, .foot-inner, .foot-row { min-width: 0; max-width: 100%; }
+        .filter-group h3, .filter-item .lbl, .filter-search input { min-width: 0; }
+        .filter-group h3 .ix, .filter-item .count { flex: 0 0 auto; }
+        .foot-links { width: 100%; max-width: 100%; min-width: 0; flex-wrap: wrap; }
+      }
+    </style>
+  `;
+}
+
 function sourceBackedFigureNote(page: HtmlKey) {
   if (page === 'figure02') {
     return `
@@ -297,7 +319,7 @@ function renderDocumentFragment(html: string, page: HtmlKey) {
       .source-backed-note{max-width:1180px;margin:32px auto 56px;padding:28px;border:1px solid rgba(148,163,184,.32);border-radius:28px;background:linear-gradient(135deg,rgba(15,23,42,.94),rgba(30,41,59,.9));color:#e5edf7;box-shadow:0 24px 80px rgba(15,23,42,.22);font-family:Inter,system-ui,sans-serif}.source-backed-note h2{margin:0 0 12px;font-size:clamp(1.4rem,2.2vw,2rem);letter-spacing:-.03em}.source-backed-note p{max-width:920px;line-height:1.7;color:#cbd5e1}.source-backed-eyebrow{margin:0 0 10px!important;text-transform:uppercase;letter-spacing:.14em;font-size:.74rem;color:#93c5fd!important}.source-backed-links{display:flex;gap:16px;flex-wrap:wrap;margin-top:18px!important}.source-backed-links a{color:#bfdbfe;text-decoration:none;border-bottom:1px solid rgba(191,219,254,.45)}
     </style>
   `;
-  return `${fontLinks}\n${styles}\n${sourceNoteStyles}\n${mobileNavigationStyles()}\n${discoveryStyles()}\n${homepageMobileOverflowFixStyles(page)}\n${safeBody.replace('</nav>', `</nav>${mobileNavigationMarkup()}`)}\n${directoryDiscoveryMarkup(page)}\n${sourceBackedFigureNote(page)}`;
+  return `${fontLinks}\n${styles}\n${sourceNoteStyles}\n${mobileNavigationStyles()}\n${discoveryStyles()}\n${homepageMobileOverflowFixStyles(page)}\n${directoryMobileOverflowFixStyles(page)}\n${safeBody.replace('</nav>', `</nav>${mobileNavigationMarkup()}`)}\n${directoryDiscoveryMarkup(page)}\n${sourceBackedFigureNote(page)}`;
 }
 
 export function getStaticHtmlMetadata(key: HtmlKey) {
