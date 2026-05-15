@@ -93,6 +93,11 @@ def main() -> None:
         fail("UBTECH Walker S profile must include official industrial-solution evidence and public specs")
     if "engineai-purchase" not in robots_data or "heightCm: 140" not in robots_data or "degreesOfFreedom: 24" not in robots_data:
         fail("EngineAI PM01 profile must include official purchase-page evidence and public specs")
+    if "pal-talos" not in robots_data or "heightCm: 175" not in robots_data or "degreesOfFreedom: 32" not in robots_data or "6 Kg" not in robots_data:
+        fail("PAL Robotics TALOS profile must include official product-page evidence and public specs")
+    companies_data = (ROOT / "src/data/companies.ts").read_text()
+    if "pal-robotics" not in companies_data or "Barcelona" not in companies_data or "Since 2004" not in companies_data:
+        fail("PAL Robotics company profile must include official company context")
     if re.search(r"Not publicly disclosed|Unknown|null", robots_data) is None:
         fail("robots data should preserve unknown values instead of inventing facts")
     articles_data = (ROOT / "src/data/articles.ts").read_text()

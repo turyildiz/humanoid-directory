@@ -76,6 +76,10 @@ export const sources: Source[] = [
   { id: 'engineai-purchase', title: 'EngineAI product purchase page', url: 'https://en.engineai.com.cn/product-purchase.html', publisher: 'EngineAI', sourceType: 'company', accessedAt: '2026-05-14', reliability: 'primary' },
   { id: 'engineai-about', title: 'About EngineAI', url: 'https://en.engineai.com.cn/about-us.html', publisher: 'EngineAI', sourceType: 'company', accessedAt: '2026-05-14', reliability: 'primary' },
   { id: 'engineai-news', title: 'EngineAI media coverage and news', url: 'https://en.engineai.com.cn/about-news.html', publisher: 'EngineAI', sourceType: 'press', accessedAt: '2026-05-14', reliability: 'primary' },
+  { id: 'pal-home', title: 'PAL Robotics homepage', url: 'https://pal-robotics.com/', publisher: 'PAL Robotics', sourceType: 'company', accessedAt: '2026-05-15', reliability: 'primary' },
+  { id: 'pal-about', title: 'Who we are - PAL Robotics', url: 'https://pal-robotics.com/about-us/', publisher: 'PAL Robotics', sourceType: 'company', accessedAt: '2026-05-15', reliability: 'primary' },
+  { id: 'pal-talos', title: 'TALOS high-performance humanoid robot', url: 'https://pal-robotics.com/robot/talos/', publisher: 'PAL Robotics', sourceType: 'company', accessedAt: '2026-05-15', reliability: 'primary' },
+  { id: 'talos-robots-guide', title: 'TALOS robot profile', url: 'https://robotsguide.com/robots/talos', publisher: 'IEEE Spectrum Robots Guide', sourceType: 'database', accessedAt: '2026-05-15', reliability: 'database' },
 ];
 
 export function getSource(id: string) {

@@ -1,5 +1,15 @@
 # Changelog — Humanoid Directory
 
+## 2026-05-15 — PAL Robotics TALOS research platform added
+
+- Added a source-backed TALOS robot profile as PAL Robotics’ full-size torque-controllable humanoid research platform.
+- Added official/credible source records for the PAL Robotics homepage, About page, TALOS product page, and IEEE Spectrum Robots Guide TALOS profile.
+- Added public TALOS specs with source caution: 175 cm height, 95 kg weight, 6 Kg per-arm payload, 1.5h walking / 3h standby battery context, 32 DOF, ROS/Ubuntu/real-time OS, EtherCAT, torque sensing, and open-source simulation model context.
+- Added PAL Robotics company profile with Barcelona, Spain context, service-robotics history since 2004, and careful TALOS quote-based availability wording.
+- Added TALOS/PAL Robotics timeline milestones and updated the content backlog status.
+- Updated tests to verify TALOS/PAL Robotics typed data and static export output.
+- Verified `npm run build && npm test` and local routes for `/robots/talos/` and `/companies/pal-robotics/`.
+
 ## 2026-05-15 — 1X EVE predecessor/enterprise profile added
 
 - Added a source-backed EVE robot profile as 1X Technologies’ wheeled self-balancing enterprise humanoid predecessor to NEO.

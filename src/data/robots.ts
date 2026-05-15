@@ -211,6 +211,21 @@ export const robots: Robot[] = [
     verificationNotes: 'EngineAI official pages support the product listing, PM01 public price, and main technical specifications. The profile treats PM01 as commercially listed but keeps delivery, support geography, production volume, customer usage, and real-world reliability as unknown.',
     similarRobots: ['unitree-g1', 'gr-1', 'walker-s'],
   },
+  {
+    slug: 'talos', name: 'PAL Robotics TALOS', companySlug: 'pal-robotics', status: 'commercial', country: 'Spain', announcedYear: 2017,
+    availability: 'Commercially offered research humanoid platform via PAL Robotics quote/request process; broad inventory, current delivery timing, exact price, and customer fleet scale should be verified directly with PAL Robotics.',
+    summary: 'TALOS is PAL Robotics’ full-size torque-controllable humanoid robot for research and industrially relevant humanoid experiments.',
+    overview: 'TALOS is a 1.75 m biped humanoid from PAL Robotics, positioned as an advanced research platform rather than a consumer robot. PAL Robotics’ official product page describes TALOS as a walking biped robot designed to boost research, fully developed in ROS, configurable, and capable of lifting objects up to 6 Kg with each arm fully extended. The same page lists 175 cm height, 95 kg weight, 6 Kg arm payload, 1.5 hours walking autonomy, 3 hours standby, torque-sensor feedback across the main joints, EtherCAT control loops at 2 kHz and up to 5 kHz, Ubuntu LTS / real-time OS support, and an open-source simulation model. IEEE Spectrum’s Robots Guide adds reported public context such as 2017 status, 32 degrees of freedom, 32 high-torque brushless DC motors, dynamic walking on uneven terrain and stairs, RGB-D/IMU sensing, and ROS/Gazebo/MoveIt software context. This profile treats TALOS as a commercially offered research platform because PAL Robotics markets it with a request-a-quote flow, while keeping price, current delivery terms, support configuration, and active fleet scale cautious.',
+    useCases: ['humanoid robotics research', 'torque-control and whole-body control experiments', 'industrial tool-use research', 'bipedal locomotion research', 'ROS and simulation-based humanoid development'],
+    capabilities: ['bipedal locomotion', 'torque-controllable joints', 'whole-body control software', 'EtherCAT communication network', 'ROS-based development', 'open-source simulation model', '6 Kg payload per arm', 'dynamic walking and tool-use research context'],
+    specs: { heightCm: 175, weightKg: 95, payloadKg: 6, batteryLifeHours: 1.5, maxSpeedMps: null, degreesOfFreedom: 32, locomotion: 'Bipedal humanoid; PAL Robotics positions TALOS for walking research, and IEEE Spectrum reports dynamic walking including uneven ground and stairs', hands: 'Fully customizable head and gripper; PAL Robotics lists 6 Kg payload per arm fully extended, while exact gripper/end-effector configuration is project-dependent' },
+    sources: ['pal-talos', 'pal-home', 'pal-about', 'talos-robots-guide'], lastVerifiedAt: '2026-05-15', featured: true,
+    seoTitle: 'PAL Robotics TALOS humanoid robot profile',
+    seoDescription: 'Source-backed profile of PAL Robotics TALOS: research humanoid status, official specs, ROS/torque-control context, sources, and known unknowns.',
+    statusConfidence: 'official',
+    verificationNotes: 'PAL Robotics officially markets TALOS as an advanced humanoid research platform and publishes core specs. IEEE Spectrum Robots Guide is used for reported 2017/32-DOF/software context. The profile does not treat quote availability as proof of current delivery timing, fixed price, active fleet scale, or standardized end-effector configuration.',
+    similarRobots: ['gr-1', 'unitree-h1', 'apollo'],
+  },
 ];
 
 export function getRobot(slug: string) { return robots.find((robot) => robot.slug === slug); }

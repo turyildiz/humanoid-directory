@@ -13,7 +13,7 @@ robot,1,walker-s,Walker S,UBTECH Robotics,pilot,seed data only,Verify industrial
 robot,1,pm01,PM01,EngineAI,prototype,seed data only,Verify official product/source details and create full profile
 robot,2,figure-01,Figure 01,Figure AI,discontinued or predecessor candidate,not added,Research and add as predecessor profile
 robot,2,eve,EVE,1X Technologies,pilot/source-backed predecessor,profile added,Maintain current status and add deployment/customer updates when sourced
-robot,2,talos,TALOS,PAL Robotics,research/commercial platform candidate,not added,Research and add if fits humanoid criteria
+robot,2,talos,TALOS,PAL Robotics,commercial research platform,profile added,Maintain current product/source status and update quote/delivery details only when sourced
 company,1,figure-ai,Figure AI,,active,visual profile exists,Verify and enrich company timeline/source claims
 company,1,tesla,Tesla,,active,seed data only,Create humanoid robotics company profile focused on Optimus
 company,1,unitree-robotics,Unitree Robotics,,active,seed data only,Create company profile with G1/H1 links
@@ -25,6 +25,7 @@ company,1,boston-dynamics,Boston Dynamics,,active,seed data only,Create company 
 company,1,fourier-intelligence,Fourier Intelligence,,active,seed data only,Create company profile with GR-1 evidence
 company,1,ubtech-robotics,UBTECH Robotics,,active,seed data only,Create company profile with Walker evidence
 company,1,engineai,EngineAI,,active,seed data only,Create company profile with PM01 evidence
+company,2,pal-robotics,PAL Robotics,,active,profile added,Maintain TALOS/company context and update sources when official pages change
 article,1,what-counts-as-a-humanoid-robot,What counts as a humanoid robot?,,draft needed,not added,Draft methodology/definition article
 article,1,current-status-of-figure-02,The current status of Figure 02,,draft needed,not added,Draft source-backed Figure 02 article
 article,1,tesla-optimus-vs-figure-02,Tesla Optimus vs Figure 02: what is actually known?,,draft needed,not added,Draft comparison with unknowns clearly labeled

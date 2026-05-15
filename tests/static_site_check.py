@@ -30,6 +30,7 @@ EXPECTED_PAGES = {
     "robots/gr-1/index.html": "Fourier GR-1 humanoid robot profile — Humanoid Directory",
     "robots/walker-s/index.html": "UBTECH Walker S humanoid robot profile — Humanoid Directory",
     "robots/pm01/index.html": "EngineAI PM01 humanoid robot profile — Humanoid Directory",
+    "robots/talos/index.html": "PAL Robotics TALOS humanoid robot profile — Humanoid Directory",
     "companies/tesla/index.html": "Tesla humanoid robotics profile — Humanoid Directory",
     "companies/unitree-robotics/index.html": "Unitree Robotics humanoid company profile — Humanoid Directory",
     "companies/agility-robotics/index.html": "Agility Robotics humanoid company profile — Humanoid Directory",
@@ -40,6 +41,7 @@ EXPECTED_PAGES = {
     "companies/fourier-intelligence/index.html": "Fourier Intelligence humanoid robotics company profile — Humanoid Directory",
     "companies/ubtech-robotics/index.html": "UBTECH Robotics humanoid robotics company profile — Humanoid Directory",
     "companies/engineai/index.html": "EngineAI humanoid robotics company profile — Humanoid Directory",
+    "companies/pal-robotics/index.html": "PAL Robotics humanoid robotics company profile — Humanoid Directory",
 }
 LEGACY_FILENAMES = [
     "Humanoid Directory - Homepage.html",
@@ -206,6 +208,18 @@ def main() -> None:
             fail("EngineAI company profile missing stage enrichment")
         if rel == "companies/engineai/index.html" and "October 2023" not in text:
             fail("EngineAI company profile missing founding context")
+        if rel == "robots/talos/index.html" and "175 cm" not in text:
+            fail("TALOS profile missing official height spec")
+        if rel == "robots/talos/index.html" and "6 Kg" not in text:
+            fail("TALOS profile missing official per-arm payload evidence")
+        if rel == "robots/talos/index.html" and "32" not in text:
+            fail("TALOS profile missing 32 DOF/motor evidence")
+        if rel == "robots/talos/index.html" and "ROS" not in text:
+            fail("TALOS profile missing ROS/open-source software context")
+        if rel == "companies/pal-robotics/index.html" and "Since 2004" not in text:
+            fail("PAL Robotics company profile missing official founding/history context")
+        if rel == "companies/pal-robotics/index.html" and "Barcelona" not in text:
+            fail("PAL Robotics company profile missing Barcelona company context")
     for rel in REQUIRED_ASSETS:
         if not (OUT / rel).exists():
             fail(f"missing exported asset out/{rel}")

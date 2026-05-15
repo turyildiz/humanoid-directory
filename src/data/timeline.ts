@@ -374,6 +374,24 @@ export const timelineEvents: TimelineEvent[] = [
     companySlugs: ['apptronik'],
     sourceIds: ['apptronik-series-a'],
   },
+  {
+    id: 'talos-available-research-platform',
+    date: '2017',
+    title: 'PAL Robotics TALOS becomes available as a humanoid research platform',
+    summary: 'PAL Robotics markets TALOS as a full-size ROS-developed humanoid research platform with 175 cm height, 95 kg weight, torque control, EtherCAT communication, and 6 Kg per-arm payload; IEEE Spectrum tracks TALOS as a 2017 ongoing humanoid profile.',
+    robotSlugs: ['talos'],
+    companySlugs: ['pal-robotics'],
+    sourceIds: ['pal-talos', 'talos-robots-guide'],
+  },
+  {
+    id: 'pal-robotics-company-context',
+    date: '2004',
+    title: 'PAL Robotics begins service robotics work in Barcelona',
+    summary: 'PAL Robotics says it has worked on service robotics since 2004 and is headquartered in Barcelona, giving TALOS a long-running European robotics-company context.',
+    robotSlugs: ['talos'],
+    companySlugs: ['pal-robotics'],
+    sourceIds: ['pal-about', 'pal-home'],
+  },
 ];
 
 export function timelineForRobot(slug: string) {
