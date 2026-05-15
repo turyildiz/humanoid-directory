@@ -74,6 +74,7 @@ The repo now contains a Cloudflare-first Next.js application. The live/staging v
 - Original imported static HTML reference files are still preserved in the repo.
 - Homepage, robots index, and companies index now include real discovery sections that link to enriched robot profiles, company profiles, and articles.
 - Public pages now include mobile navigation (`Menu` / hamburger) so primary routes remain reachable on narrow screens.
+- `/robots/` and `/companies/` now start with a launch-ready React directory panel (`hd-launch-panel`) that provides real search, country/status filters, sorting, live result counts, empty states, and clickable profile cards. The preserved imported HTML mockups remain below as visual/source references, but the usable product UI is now first in the page flow.
 
 Verification commands:
 
@@ -83,7 +84,7 @@ npm test
 npm start
 ```
 
-`npm test` now includes `tests/responsive_site_check.py`, which audits every exported public `index.html` for viewport metadata, media-query/fluid sizing CSS, responsive navigation chrome, mobile navigation menu presence, profile/article layout markers, homepage-specific mobile overflow guard markers for the hero/search/status/CTA area, and robots/companies directory overflow guard markers for mobile filter/sidebar/footer layouts. `tests/static_site_check.py` also guards that homepage/robots/companies expose real links into key robot, company, and article pages instead of leaving content discoverability to the sitemap. After responsive/navigation changes, also smoke-check all exported public routes from `out/`, not only a few representative pages; for visual mobile issues, capture or request an actual narrow-viewport screenshot because structural markers alone can miss clipping.
+`npm test` now includes `tests/responsive_site_check.py`, which audits every exported public `index.html` for viewport metadata, media-query/fluid sizing CSS, responsive navigation chrome, mobile navigation menu presence, profile/article layout markers, homepage-specific mobile overflow guard markers for the hero/search/status/CTA area, and robots/companies directory overflow guard markers for mobile filter/sidebar/footer layouts. `tests/static_site_check.py` also guards that homepage/robots/companies expose real links into key robot, company, and article pages instead of leaving content discoverability to the sitemap, and now requires the launch directory panels plus search/filter/sort markers on `/robots/` and `/companies/`. After responsive/navigation changes, also smoke-check all exported public routes from `out/`, not only a few representative pages; for visual mobile issues, capture or request an actual narrow-viewport screenshot because structural markers alone can miss clipping.
 
 Cloudflare Pages settings:
 

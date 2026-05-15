@@ -3,6 +3,7 @@ import { join } from 'node:path';
 import { articles } from '@/data/articles';
 import { companies } from '@/data/companies';
 import { robots } from '@/data/robots';
+import { DirectoryLaunchPanel } from '@/components/directory-launch-panel';
 
 const htmlMap = {
   homepage: 'Humanoid Directory - Homepage.html',
@@ -153,6 +154,7 @@ function routeForPlaceholderLink(innerHtml: string) {
   if (text.startsWith('See companies')) return '/companies/';
   if (text.startsWith('Track updates')) return '/articles/';
   if (text.startsWith('View methodology') || text === 'Methodology' || text === 'Editorial guidelines' || text === 'Sources & citations') return '/about/';
+  if (text === 'Export CSV') return '#launch-directory';
   if (text.startsWith('Submit')) return '/submit/';
   if (text === 'About') return '/about/';
   if (text.startsWith('View full company profile')) return '/companies/figure-ai/';
@@ -329,5 +331,23 @@ export function getStaticHtmlMetadata(key: HtmlKey) {
 
 export function StaticHtmlPage({ page }: { page: HtmlKey }) {
   const html = readFileSync(join(process.cwd(), htmlMap[page]), 'utf8');
-  return <div dangerouslySetInnerHTML={{ __html: renderDocumentFragment(html, page) }} />;
+  const publishedRobots = robots.filter((robot) => robot.published !== false);
+  const publishedCompanies = companies.filter((company) => company.published !== false);
+
+  const launchPanel = page === 'robots' ? (
+    <DirectoryLaunchPanel
+      kind="robots"
+      robots={publishedRobots}
+      companies={publishedCompanies.map((company) => ({ slug: company.slug, name: company.name }))}
+    />
+  ) : page === 'companies' ? (
+    <DirectoryLaunchPanel kind="companies" companies={publishedCompanies} />
+  ) : null;
+
+  return (
+    <>
+      {launchPanel}
+      <div dangerouslySetInnerHTML={{ __html: renderDocumentFragment(html, page) }} />
+    </>
+  );
 }

@@ -1,5 +1,12 @@
 # Changelog — Humanoid Directory
 
+## 2026-05-15 — Launch-ready interactive directory panels
+
+- Added a React-driven launch directory panel at the top of `/robots/` and `/companies/` so the MVP has immediately usable search, filters, sorting, result counts, empty states, and clickable profile cards instead of relying on imported static mockup controls whose scripts do not execute in React.
+- Preserved the imported HTML visual layer below the launch panel as the design/source reference while making the real product path usable first on mobile and desktop.
+- Extended `tests/static_site_check.py` to require launch-critical directory UI markers and source-backed copy on robots/companies indexes.
+- Verified with `npm run build && npm test`, 42-route local static export smoke, 393px CDP measurements showing `/robots/` and `/companies/` at `scrollWidth == clientWidth == 393`, real React interaction checks (`unitree` + `China` filters), and 393px screenshots for both launch panels.
+
 ## 2026-05-15 — Robots/companies mobile horizontal scroll fix
 
 - Fixed the imported robots and companies index pages so their mobile filter/sidebar and footer layouts no longer create horizontal scroll on real phone-width viewports.

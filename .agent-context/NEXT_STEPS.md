@@ -4,7 +4,7 @@ Last updated: 2026-05-15 by Hermes/Gonzo.
 
 ## Current priority
 
-Keep turning the preserved visual frontend into a complete, browsable product: source-backed profile enrichment remains important, but navigation, content discovery, and working user journeys are now first-class requirements before adding more raw content.
+Get the site launch-usable very soon: the preserved visual frontend remains the design source, but the main directory journeys now need to work as product UI first, with real search/filter/sort, mobile-safe browsing, visible profile links, and source-backed copy.
 
 The operating sequence remains:
 
@@ -48,9 +48,10 @@ Stack:
    - Keep unknown values unknown; do not invent specs.
 
 2. Improve product navigation and content experience.
+   - `/robots/` and `/companies/` now have launch-ready React panels at the top with working search/filter/sort and clickable result cards; keep those panels as the main user journey while imported mockup sections remain below as visual references.
    - Treat broken/disconnected navigation as launch-blocking, not cosmetic.
    - Keep homepage, robots index, companies index, articles, and generated profiles mutually linked with visible cards/CTAs.
-   - Perform mobile browser review after deploy; automated checks now cover mobile menu presence and key discovery links, but visual QA should confirm the menu and discovery sections feel usable.
+   - Perform mobile browser review after deploy; automated checks now cover mobile menu presence, key discovery links, and launch panel markers, but visual QA should confirm the panels feel usable on 393px-class screens.
    - Add structured data JSON-LD for articles and entity profiles.
 
 3. Expand toward launch content bar.

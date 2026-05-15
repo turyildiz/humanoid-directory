@@ -113,10 +113,16 @@ def main() -> None:
             for required_href in ("/robots/figure-02/", "/robots/optimus/", "/robots/unitree-g1/", "/robots/talos/"):
                 if required_href not in parser.hrefs:
                     fail(f"robots index missing linked robot profile {required_href!r}")
+            for marker in ("hd-launch-panel", "data-directory-kind=\"robots\"", "data-filter-control=\"search\"", "data-filter-control=\"status\"", "data-filter-control=\"country\"", "data-filter-control=\"sort\"", "source-backed profiles"):
+                if marker not in text:
+                    fail(f"robots index missing launch-critical directory UI marker {marker!r}")
         if rel == "companies/index.html":
             for required_href in ("/companies/figure-ai/", "/companies/tesla/", "/companies/unitree-robotics/", "/companies/pal-robotics/"):
                 if required_href not in parser.hrefs:
                     fail(f"companies index missing linked company profile {required_href!r}")
+            for marker in ("hd-launch-panel", "data-directory-kind=\"companies\"", "data-filter-control=\"search\"", "data-filter-control=\"country\"", "data-filter-control=\"sort\"", "source-backed landscape"):
+                if marker not in text:
+                    fail(f"companies index missing launch-critical directory UI marker {marker!r}")
         if rel == "articles/index.html" and "/articles/what-counts-as-a-humanoid-robot/" not in parser.hrefs:
             fail("out/articles/index.html missing article detail links")
         if rel == "articles/what-counts-as-a-humanoid-robot/index.html" and "/robots/figure-02/" not in parser.hrefs:
