@@ -1,8 +1,11 @@
 import type { Metadata } from 'next';
-import { getStaticHtmlMetadata, StaticHtmlPage } from '@/components/static-html-page';
+import { KillerCompaniesPage } from '@/components/killer-directory-pages';
 
-export const metadata: Metadata = getStaticHtmlMetadata('companies');
+export const metadata: Metadata = {
+  title: { absolute: 'Humanoid Robot Companies — Humanoid Directory' },
+  description: 'Explore source-backed profiles of humanoid robot companies, tracked robot programs, countries, and maturity signals.',
+};
 
 export default function Page() {
-  return <StaticHtmlPage page="companies" />;
+  return <KillerCompaniesPage />;
 }

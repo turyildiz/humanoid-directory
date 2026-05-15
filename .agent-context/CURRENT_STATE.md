@@ -46,15 +46,16 @@ GitHub remote:
 - `origin`: `https://github.com/turyildiz/humanoid-directory.git`
 - Default branch: `main`
 
-The repo now contains a Cloudflare-first Next.js application. The live/staging visual layer now uses the imported static HTML files as the design source of truth, wrapped by Next.js routes so the site matches the frontend Turgay provided:
+The repo now contains a Cloudflare-first Next.js application. The homepage, robots index, and companies index have been moved from stitched imported-static front doors to a coherent data-driven React product experience while the original imported HTML files remain preserved as reference material:
 
 - Next.js App Router + TypeScript.
 - Cloudflare Pages-compatible static export via `next.config.mjs` with `output: 'export'`.
-- Imported HTML-backed public routes:
-  - `/`
-  - `/robots/`
+- Coherent React product front doors:
+  - `/` — premium dark editorial homepage with real CTAs, featured robot proof, company landscape links, metrics, and article/methodology cards.
+  - `/robots/` — native robot database page with hero positioning, coverage metrics, immediate mobile-safe search/filter/sort controls, live result count, and source-backed robot profile cards.
+  - `/companies/` — native company landscape page with hero positioning, coverage metrics, immediate mobile-safe company search/filter/sort controls, live result count, and company profile cards.
+- Data/profile/content routes:
   - `/robots/[slug]/`
-  - `/companies/`
   - `/companies/[slug]/`
   - `/articles/`
   - `/articles/[slug]/`
@@ -72,9 +73,9 @@ The repo now contains a Cloudflare-first Next.js application. The live/staging v
 - Reusable components in `src/components/`.
 - Build output for Cloudflare Pages goes to `out/`.
 - Original imported static HTML reference files are still preserved in the repo.
-- Homepage, robots index, and companies index now include real discovery sections that link to enriched robot profiles, company profiles, and articles.
-- Public pages now include mobile navigation (`Menu` / hamburger) so primary routes remain reachable on narrow screens.
-- `/robots/` and `/companies/` now start with a launch-ready React directory panel (`hd-launch-panel`) that provides real search, country/status filters, sorting, live result counts, empty states, and clickable profile cards. The visible labels were changed from internal launch wording to product-facing “Robot database” and “Company landscape”. The preserved imported HTML mockups remain below as visual/source references, but the usable product UI is now first in the page flow.
+- Homepage, robots index, and companies index now use `src/components/killer-directory-pages.tsx` as the coherent public product layer. The previous imported-static shells were removed from those front-door routes because they felt stitched together and buried the real database value.
+- Public pages include mobile navigation (`Menu` / hamburger) so primary routes remain reachable on narrow screens.
+- `/robots/` and `/companies/` use the React directory panel (`hd-launch-panel`) for real search, country/status filters, sorting, live result counts, empty states, and clickable profile cards. On mobile, duplicated panel headings are hidden so the filter controls appear cleanly after the hero/metrics instead of creating overlap or repeated copy.
 
 Verification commands:
 
@@ -84,7 +85,7 @@ npm test
 npm start
 ```
 
-`npm test` now includes `tests/responsive_site_check.py`, which audits every exported public `index.html` for viewport metadata, media-query/fluid sizing CSS, responsive navigation chrome, mobile navigation menu presence, profile/article layout markers, homepage-specific mobile overflow guard markers for the hero/search/status/CTA area, and robots/companies directory overflow guard markers for mobile filter/sidebar/footer layouts. `tests/static_site_check.py` also guards that homepage/robots/companies expose real links into key robot, company, and article pages instead of leaving content discoverability to the sitemap, and now requires the launch directory panels plus search/filter/sort markers on `/robots/` and `/companies/`. After responsive/navigation changes, also smoke-check all exported public routes from `out/`, not only a few representative pages; for visual mobile issues, capture or request an actual narrow-viewport screenshot because structural markers alone can miss clipping.
+`npm test` now includes `tests/responsive_site_check.py`, which audits every exported public `index.html` for viewport metadata, media-query/fluid sizing CSS, responsive navigation chrome, mobile navigation menu presence, profile/article layout markers, coherent redesigned homepage/directory markers, and robots/companies directory overflow guard markers for mobile filter/sidebar/footer layouts. `tests/static_site_check.py` also guards that homepage/robots/companies expose real links into key robot, company, and article pages instead of leaving content discoverability to the sitemap, and requires the directory panels plus search/filter/sort markers on `/robots/` and `/companies/`. After responsive/navigation changes, also smoke-check all exported public routes from `out/`, not only a few representative pages; for visual mobile issues, capture or request an actual narrow-viewport screenshot because structural markers alone can miss clipping.
 
 Cloudflare Pages settings:
 

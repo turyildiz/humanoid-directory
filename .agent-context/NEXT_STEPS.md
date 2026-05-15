@@ -4,7 +4,7 @@ Last updated: 2026-05-15 by Hermes/Gonzo.
 
 ## Current priority
 
-Get the site launch-usable very soon: the preserved visual frontend remains the design source, but the main directory journeys now need to work as product UI first, with real search/filter/sort, mobile-safe browsing, visible profile links, and source-backed copy.
+Get the site launch-usable very soon: the main public journeys now need to feel like one premium source-backed product, not imported mockups plus patched panels. The homepage, robots index, and companies index have been rebuilt as coherent React front doors; next work should extend that polish into profile pages, article hub, and deployment hygiene.
 
 The operating sequence remains:
 
@@ -16,7 +16,7 @@ verified robot/company data
 
 ## Current implementation baseline
 
-The repo now contains a Next.js App Router application whose live visual layer wraps the imported static HTML frontend files for the main pages, and generated robot/company profiles now use an imported-frontend-style responsive shell so enriched pages do not look detached from the approved frontend. React-native data/filter rebuilds can happen after the visual baseline is preserved.
+The repo now contains a Next.js App Router application. The main launch front doors (`/`, `/robots/`, `/companies/`) now use the coherent `killer-directory-pages.tsx` React product layer instead of the earlier imported-static shells; generated profiles still use an imported-frontend-style responsive shell and should be the next place to align visually.
 
 Production routes:
 
@@ -42,10 +42,10 @@ Stack:
 
 ## Immediate priorities
 
-1. Rescue the product/design coherence before adding more content.
-   - The current live product still feels like a stitched mix of imported mockups and later product panels; treat this as the top launch blocker.
-   - Immediate fixes started by removing internal “Launch directory” wording from Robots/Companies panels.
-   - Next rescue pass should simplify the mobile homepage chrome: reduce duplicate search/menu weight, show real database proof sooner, and make the first viewport feel like an authoritative directory rather than a futuristic mockup.
+1. Extend the coherent product redesign beyond the front doors.
+   - `/`, `/robots/`, and `/companies/` now feel like one premium source-backed directory instead of stitched imported mockups.
+   - Next target: align generated robot/company profile pages and `/articles/` with the new dark editorial + warm paper design system.
+   - Keep real database proof, source-backed copy, mobile-safe controls, and visible internal links above decorative material.
 
 2. Verify and enrich Tier 1 profile content.
    - Tesla Optimus / Tesla, Figure 01 / Figure AI, Figure 02 / Figure AI, Unitree G1 / Unitree Robotics, Unitree H1 / Unitree Robotics, Digit / Agility Robotics, Apollo / Apptronik, 1X EVE / 1X Technologies, 1X NEO / 1X Technologies, Sanctuary AI Phoenix / Sanctuary AI, Boston Dynamics Electric Atlas / Boston Dynamics, Fourier GR-1 / Fourier Intelligence, UBTECH Walker S / UBTECH Robotics, EngineAI PM01 / EngineAI, and PAL Robotics TALOS / PAL Robotics have received enriched/source-backed passes.

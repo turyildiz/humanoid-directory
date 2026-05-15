@@ -121,25 +121,24 @@ def main() -> None:
 
     homepage_css = page_css(parse(OUT / "index.html"))
     for marker in [
-        "/* mobile-overflow-hotfix */",
-        ".hero-search { width: 100%; max-width: 100%; }",
-        ".live-badge .pill { width: 100%; max-width: 100%; }",
-        ".hero-cta-row { flex-direction: column; }",
-        ".hero h1 .title { font-size: clamp(42px, 15vw, 56px); }",
+        ".killer-site",
+        ".killer-hero",
+        ".killer-trust",
+        ".killer-metrics",
     ]:
         if marker not in homepage_css:
-            fail(f"homepage mobile overflow CSS missing marker {marker!r}")
+            fail(f"homepage mobile/coherent redesign CSS missing marker {marker!r}")
 
     for rel in ["robots/index.html", "companies/index.html"]:
         directory_css = page_css(parse(OUT / rel))
         for marker in [
-            "/* directory-mobile-overflow-hotfix */",
-            ".page-body { width: 100%; max-width: 100%; grid-template-columns: minmax(0, 1fr); }",
-            ".sidebar, .filter-group, .filter-list, .filter-item, .filter-search { width: 100%; max-width: 100%; min-width: 0; }",
-            ".foot-links { width: 100%; max-width: 100%; min-width: 0; flex-wrap: wrap; }",
+            ".killer-site",
+            ".directory-hero",
+            ".killer-site .hd-launch-panel",
+            ".killer-site .hd-launch-controls",
         ]:
             if marker not in directory_css:
-                fail(f"out/{rel} directory mobile overflow CSS missing marker {marker!r}")
+                fail(f"out/{rel} directory redesign CSS missing marker {marker!r}")
 
     print("OK: responsive static export checks passed")
 

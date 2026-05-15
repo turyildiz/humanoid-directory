@@ -1,5 +1,13 @@
 # Changelog — Humanoid Directory
 
+## 2026-05-15 — Coherent premium directory redesign
+
+- Replaced the stitched imported-static homepage, robots index, and companies index front doors with a single coherent React product experience using the existing source-backed robot/company/article data.
+- Added `src/components/killer-directory-pages.tsx` with a premium dark editorial homepage, real database proof in the first journey, featured robot cards, company landscape links, article/methodology cards, and clear CTAs.
+- Rebuilt `/robots/` and `/companies/` as native directory product pages instead of imported mockup shells: strong positioning hero, coverage metrics, immediate filter/search/sort controls, result counts, and profile-card links.
+- Kept the existing `DirectoryLaunchPanel` interaction layer, but visually integrated it with the new site system and hid duplicate panel headings on mobile to avoid clutter/overlap.
+- Updated responsive checks for the new coherent design markers and verified `npm run build && npm test`, 42-route local static smoke, 393px CDP no-overflow checks, real search interaction checks (`unitree` → 2/15 robots and 1/12 companies), and mobile screenshot QA.
+
 ## 2026-05-15 — Immediate polish after product-quality complaint
 
 - Acknowledged that the current site still feels like stitched prototype/product UI rather than a coherent premium directory.
