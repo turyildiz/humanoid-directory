@@ -1,5 +1,12 @@
 # Changelog — Humanoid Directory
 
+## 2026-05-15 — Homepage mobile overflow fix
+
+- Fixed the imported homepage hero on real mobile widths by adding a homepage-specific mobile overflow override after imported inline styles.
+- The fix contains the nav/search/header into a single-column mobile shell, constrains the live status pill, wraps hero CTA buttons, and keeps the hero search within the viewport.
+- Extended `tests/responsive_site_check.py` with homepage-specific overflow guard markers so this regression is not missed by structural responsive checks again.
+- Verified with `npm run build`, `npm test`, a local headless 393px-wide screenshot review, and full exported-route HTTP smoke checks.
+
 ## 2026-05-15 — Site-wide responsive QA and workflow guardrail
 
 - Added `tests/responsive_site_check.py` and wired it into `npm test` so every exported public page is checked for viewport metadata, responsive CSS/media-query coverage, fluid sizing, responsive nav shell, and family-specific responsive layout markers.

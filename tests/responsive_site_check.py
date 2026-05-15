@@ -117,6 +117,17 @@ def main() -> None:
         if marker not in globals_css:
             fail(f"global responsive CSS missing marker {marker!r}")
 
+    homepage_css = page_css(parse(OUT / "index.html"))
+    for marker in [
+        "/* mobile-overflow-hotfix */",
+        ".hero-search { width: 100%; max-width: 100%; }",
+        ".live-badge .pill { width: 100%; max-width: 100%; }",
+        ".hero-cta-row { flex-direction: column; }",
+        ".hero h1 .title { font-size: clamp(42px, 15vw, 56px); }",
+    ]:
+        if marker not in homepage_css:
+            fail(f"homepage mobile overflow CSS missing marker {marker!r}")
+
     print("OK: responsive static export checks passed")
 
 

@@ -55,7 +55,7 @@ Use this sequence for meaningful work on Humanoid Directory:
    - Make small, coherent changes.
    - Update tests when routes/data/content expectations change.
    - Run `npm run build && npm test` for code/content route changes.
-   - For frontend/layout changes, verify responsive behavior across every exported public page family. `npm test` includes `tests/responsive_site_check.py`; also smoke-check all exported public routes from `out/` when layout/nav/CSS changes.
+   - For frontend/layout changes, verify responsive behavior across every exported public page family. `npm test` includes `tests/responsive_site_check.py`; also smoke-check all exported public routes from `out/` when layout/nav/CSS changes. If Turgay reports a visual mobile clipping/overflow issue, verify the fix with an actual narrow-viewport screenshot/render, not only structural responsive markers.
    - For staging-facing changes, verify local/public routes when possible.
 
 5. **Documentation and handoff**
